@@ -48,7 +48,7 @@ return array(
 		),
 		'service_manager' => array(
 				'invokables' => array(
-						'greetingService' => 'HellowWorld\Service\GreetingService'
+						//'greetingService' => 'HellowWorld\Service\GreetingService'
 				),
 		),
 );

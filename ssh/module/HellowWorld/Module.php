@@ -18,4 +18,14 @@ class Module
             ),
         );
     }
+    
+	public function getServiceConfig()
+    {
+        return array(
+        	'factories'=>array('greetingService'=>'HellowWorld\Service\GreetingServiceFactory'),
+            'invokables' => array(
+                'loggingService' => 'HellowWorld\Service\LoggingService',
+            ),
+        );
+    }
 }
