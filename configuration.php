@@ -1,47 +1,24 @@
 <?php
-/**
- * @package		Joomla
- * @copyright	Copyright (C) 2005 - 2014 Open Source Matters. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- *
- * -------------------------------------------------------------------------
- * THIS SHOULD ONLY BE USED AS A LAST RESORT WHEN THE WEB INSTALLER FAILS
- *
- * If you are installing Joomla! manually i.e. not using the web browser installer
- * then rename this file to configuration.php e.g.
- *
- * UNIX -> mv configuration.php-dist configuration.php
- * Windows -> rename configuration.php-dist configuration.php
- *
- * Now edit this file and configure the parameters for your site and
- * database.
- */
 class JConfig {
-	/* Site Settings */
 	public $offline = '0';
 	public $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
 	public $display_offline_message = '1';
 	public $offline_image = '';
-	public $sitename = 'user\'s Site!';				// Name of Joomla site
-	public $editor = 'tinymce';
+	public $sitename = 'user\'s Site!';
+	public $editor = 'jce';
 	public $captcha = '0';
 	public $list_limit = '20';
-	
 	public $access = '1';
-
-	/* Database Settings */
-	public $dbtype = 'mysql';					// Normally mysql
-	public $host = 'localhost';					// This is normally set to localhost
-	public $user = 'bn_joomla';							// DB username
-	public $password = '3b8013f07a';						// DB password
-	public $db = 'bitnami_joomla';							// DB database name
-	public $dbprefix = 'jos_';					// Do not change unless you need to!
-
-	/* Server Settings */
-	public $secret = 'a208b127e02e64e85a6cb2ee03aa35f0'; 		// Change this to something more secure
+	public $dbtype = 'mysql';
+	public $host = 'localhost';
+	public $user = 'bn_joomla';
+	public $password = '3b8013f07a';
+	public $db = 'bitnami_joomla';
+	public $dbprefix = 'jos_';
+	public $secret = 'a208b127e02e64e85a6cb2ee03aa35f0';
 	public $gzip = '0';
 	public $error_reporting = 'default';
-	public $helpurl = 'http://help.joomla.org/proxy/index.php?option=com_help&amp;keyref=Help{major}{minor}:{keyref}';
+	public $helpurl = 'http://help.joomla.org/proxy/index.php?option=com_help&keyref=Help{major}{minor}:{keyref}';
 	public $ftp_host = '127.0.0.1';
 	public $ftp_port = '21';
 	public $ftp_user = 'bitnamiftp';
@@ -50,17 +27,11 @@ class JConfig {
 	public $ftp_enable = '1';
 	public $tmp_path = '/opt/bitnami/apps/joomla/tmp';
 	public $log_path = '/opt/bitnami/apps/joomla/logs';
-	public $live_site = ''; 					// Optional, Full url to Joomla install.
-	public $force_ssl = 0;						// Force areas of the site to be SSL ONLY.  0 = None, 1 = Administrator, 2 = Both Site and Administrator
-
-	/* Locale Settings */
+	public $live_site = '';
+	public $force_ssl = '0';
 	public $offset = 'UTC';
-
-	/* Session settings */
-	public $lifetime = '15';					// Session time
+	public $lifetime = '15';
 	public $session_handler = 'database';
-
-	/* Mail Settings */
 	public $mailer = 'smtp';
 	public $mailfrom = '';
 	public $fromname = '';
@@ -69,33 +40,47 @@ class JConfig {
 	public $smtpuser = '';
 	public $smtppass = '';
 	public $smtphost = 'localhost';
-        public $smtpport = '25';
-        public $smtpsecure = '';
-
-	/* Cache Settings */
+	public $smtpport = '25';
+	public $smtpsecure = 'none';
 	public $caching = '0';
 	public $cachetime = '15';
-	public $cache_handler = 'file';
-
-	/* Debug Settings */
+	public $cache_handler = 'apc';
 	public $debug = '0';
 	public $debug_lang = '0';
-
-	/* Meta Settings */
 	public $MetaDesc = 'Joomla! - the dynamic portal engine and content management system';
 	public $MetaKeys = 'joomla, Joomla';
 	public $MetaTitle = '1';
 	public $MetaAuthor = '1';
 	public $MetaVersion = '0';
 	public $robots = '';
-
-	/* SEO Settings */
 	public $sef = '1';
 	public $sef_rewrite = '0';
 	public $sef_suffix = '0';
 	public $unicodeslugs = '0';
-
-	/* Feed Settings */
-	public $feed_limit = 10;
+	public $feed_limit = '10';
 	public $feed_email = 'author';
+	public $memcache_persist = '1';
+	public $memcache_compress = '0';
+	public $memcache_server_host = 'localhost';
+	public $memcache_server_port = '11211';
+	public $memcached_persist = '1';
+	public $memcached_compress = '0';
+	public $memcached_server_host = 'localhost';
+	public $memcached_server_port = '11211';
+	public $proxy_enable = '0';
+	public $proxy_host = '';
+	public $proxy_port = '';
+	public $proxy_user = '';
+	public $proxy_pass = '';
+	public $mailonline = '1';
+	public $MetaRights = '';
+	public $sitename_pagetitles = '0';
+	public $session_memcache_server_host = 'localhost';
+	public $session_memcache_server_port = '11211';
+	public $session_memcached_server_host = 'localhost';
+	public $session_memcached_server_port = '11211';
+	public $frontediting = '1';
+	public $cookie_domain = '';
+	public $cookie_path = '';
+	public $asset_id = '1';
 }
