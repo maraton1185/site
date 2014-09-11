@@ -4,7 +4,7 @@ class JConfig {
 	public $offline_message = 'This site is down for maintenance.<br /> Please check back again soon.';
 	public $display_offline_message = '1';
 	public $offline_image = '';
-	public $sitename = 'user\'s Site!';
+	public $sitename = 'Анализатор кода 1С';
 	public $editor = 'jce';
 	public $captcha = '0';
 	public $list_limit = '20';
