@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
 * @package Joomla.Administrator
 * @subpackage com_helloworld
 *
@@ -20,4 +20,4 @@ jimport('joomla.application.component.controller');
  */
 class HelloWorldController extends JControllerLegacy
 {
-}
+} 

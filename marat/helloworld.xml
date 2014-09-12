@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.3" method="upgrade">
-    <name>Hello World!</name>
+    <name>Admin license</name>
     <creationDate>2014-09-12</creationDate>
     <copyright>© 2014. Все права защищены.</copyright>
     <license>GNU General Public License версии 2 или более поздней; Смотрите LICENSE.txt</license>
-    <author>Marat</author>
-    <authorEmail>maratenikeev@yandex.ru</authorEmail>
+    <author>admin</author>
+    <authorEmail>mail@codeanalyzer.ru</authorEmail>
     <authorUrl>http://</authorUrl>
     <version>0.0.1</version>
     <description></description>
@@ -38,7 +38,7 @@
 
     <administration>
        
-        <menu>Hello World!</menu>
+        <menu>Admin license</menu>
         
         <files folder="admin">
             <!-- Admin Main File Copy Section -->
@@ -51,6 +51,7 @@
             <folder>tables</folder>
             <!-- models files section -->
             <folder>views</folder>
+            <folder>controllers</folder>            
             <folder>models</folder>
             <folder>language</folder>
         </files>
