@@ -39,6 +39,10 @@
     <administration>
        
         <menu>COM_LICENSE</menu>
+        <submenu>
+            <menu view="menuitem1" img="path to icon file">Menu Item 1</menu>
+            <menu view="menuitem2" img="path to icon file">Menu Item 2</menu>
+        </submenu>
         
         <files folder="admin">
             <filename>access.xml</filename>

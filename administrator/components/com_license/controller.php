@@ -11,7 +11,7 @@ class LicenseController extends JControllerLegacy
 	{
 		require_once JPATH_COMPONENT.'/helpers/license.php';
 
-		$view   = $this->input->get('view', 'licenses');
+		$view   = $this->input->get('view', 'license');
 		$layout = $this->input->get('layout', 'default');
 		$id     = $this->input->getInt('id');
 
