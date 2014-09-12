@@ -1,12 +1,15 @@
 <?php
-// No direct access to this file
+
+
 defined('_JEXEC') or die;
- 
-// Get an instance of the controller prefixed by HelloWorld
-$controller = JControllerLegacy::getInstance('License');
- 
-// Perform the Request task and Execute request task
-$controller->execute(JFactory::getApplication()->input->getCmd('task'));
- 
-// Redirect if set by the controller
+
+if (!JFactory::getUser()->authorise('core.manage', 'com_license'))
+{
+	return JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR'));
+}
+
+$task = JFactory::getApplication()->input->get('task');
+
+$controller	= JControllerLegacy::getInstance('License');
+$controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();

@@ -38,9 +38,11 @@
 
     <administration>
        
-        <menu>codeanalyzer license</menu>
+        <menu>COM_LICENSE</menu>
         
         <files folder="admin">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
             <!-- Admin Main File Copy Section -->
             <filename>index.html</filename>
             <filename>license.php</filename>
