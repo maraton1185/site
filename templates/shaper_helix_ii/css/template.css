@@ -449,9 +449,10 @@ ul.pagenav .pagenav-prev {
 ul.pagenav .pagenav-next {
   float: right;
 }
+
 dl dt,
 dl dd {
-  display: inline;
+  *display: inline;
 }
 label.invalid {
   color: #c83025;

@@ -53,6 +53,8 @@ class UsersViewProfile extends JViewLegacy
 			return false;
 		}
 
+
+
 		// View also takes responsibility for checking if the user logged in with remember me.
 		$user = JFactory::getUser();
 		$cookieLogin = $user->get('cookieLogin');

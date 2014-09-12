@@ -8,7 +8,9 @@
  */
 
 defined('_JEXEC') or die;
+
 ?>
+
 <div class="profile <?php echo $this->pageclass_sfx?>">
 <?php if ($this->params->get('show_page_heading')) : ?>
 <div class="page-header">
@@ -25,6 +27,7 @@ defined('_JEXEC') or die;
 	</li>
 </ul>
 <?php endif; ?>
+
 <?php echo $this->loadTemplate('core'); ?>
 
 <?php echo $this->loadTemplate('params'); ?>

@@ -9,6 +9,7 @@
 
 defined('_JEXEC') or die;
 
+
 ?>
 
 <fieldset id="users-profile-core">
@@ -20,8 +21,16 @@ defined('_JEXEC') or die;
 			<?php echo JText::_('COM_USERS_PROFILE_NAME_LABEL'); ?>
 		</dt>
 		<dd>
-			<?php echo $this->data->name; ?>
+			<?php echo $this->data->name; ?>	
+		</dd>		
+
+		<dt>
+			<?php echo JText::_('COM_USERS_REGISTER_EMAIL1_LABEL'); ?>
+		</dt>
+		<dd>
+			<?php echo htmlspecialchars($this->data->email); ?>
 		</dd>
+
 		<dt>
 			<?php echo JText::_('COM_USERS_PROFILE_USERNAME_LABEL'); ?>
 		</dt>

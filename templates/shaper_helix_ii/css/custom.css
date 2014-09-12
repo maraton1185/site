@@ -2,3 +2,9 @@
 	background-image: linear-gradient(to bottom,#fff,#f8f8f8);
 	background-repeat: repeat-x;
 } 
+
+.dl-horizontal dt, .dl-horizontal dd {
+	margin-right: 100px; 
+	width: 200px;
+	display: block;
+}
