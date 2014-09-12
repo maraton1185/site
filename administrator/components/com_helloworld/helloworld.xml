@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.3" method="upgrade">
+    <name>com_helloworld</name>
+    <creationDate>2014-09-12</creationDate>
+    <copyright>© 2014. Все права защищены.</copyright>
+    <license>GNU General Public License версии 2 или более поздней; Смотрите LICENSE.txt</license>
+    <author>Marat</author>
+    <authorEmail>maratenikeev@yandex.ru</authorEmail>
+    <authorUrl>http://</authorUrl>
+    <version>1.0.0</version>
+    <description></description>
+    
+    <update> <!-- Runs on update; New since J2.5 -->
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql/</schemapath>
+        </schemas>
+    </update>
+    
+    
+    <files folder="site">
+       <filename>index.html</filename>
+        <filename>helloworld.php</filename>
+    </files>
+  
+    <administration>
+        
+        <menu>Hello World!</menu>
+
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>helloworld.php</filename>
+            <!-- SQL files section -->
+            <folder>sql</folder>
+        </files>
+      
+    </administration>
+   
+    
+</extension>
+<!-- Component built by the Joomla Component Creator -->
+<!-- http://www.component-creator.com/ -->
