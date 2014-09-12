@@ -764,7 +764,7 @@
         * @return self
         */
         public static function addCSS($sources, $seperator=',',$checkpath=true) {
-
+            
             $srcs = array();
             if( is_string($sources) ) $sources = explode($seperator,$sources);
             if(!is_array($sources)) $sources = array($sources);
@@ -780,6 +780,7 @@
                     continue; 
                 } 
 
+                dump(self::getInstance()->themePath());
                 //cheack in template path
                 if( file_exists( self::getInstance()->themePath() . '/css/'. $src)) { 
                     self::getInstance()->document->addStyleSheet( self::getInstance()->themePath(true) . '/css/' . $src );
@@ -1004,7 +1005,9 @@
             $themepath = self::getInstance()->themePath();
             $plugpath = self::getInstance()->frameworkPath();
 
-            if( self::getInstance()->Param('lessoption') and self::getInstance()->Param('lessoption')=='1' ){
+            //dump(self::getInstance(),''); 
+
+            if( self::getInstance()->Param('lessoption') and self::getInstance()->Param('lessoption')=='1' ){                
 
                 if( file_exists( $themepath. "/less/".$less.".less" ) ){
                     //self::getInstance()->less()->compileFile($themepath. "/less/".$less.".less", $themepath ."/css/".$css.".css");
@@ -1402,12 +1405,16 @@
 
         //////////
         public static function Compression() {//compress css and js files
+
+            //dump(self::getInstance()->Param('compress_css'),"css"); 
             if (self::getInstance()->Param('compress_css')) self::getInstance()->compressCSS();
             if (self::getInstance()->Param('compress_js')) self::getInstance()->compressJS(); 
             return self::getInstance();       
         }
 
         private static function compressJS() {//function to compress js files
+            
+            //dump(self::getInstance()->Param('compress_css'),"");          
 
             self::getInstance()->Import('core/classes/jsmin.php');
 
@@ -1475,6 +1482,7 @@
 
         private static function compressCSS() {//function to compress css files
 
+            //dump(self::getInstance()->Param('compress_css'),"!!");          
             self::getInstance()->Import('core/classes/cssmin.php');
 
             $css_files = array();
