@@ -1,0 +1,24 @@
+#add ssh key
+eval `ssh-agent -s`
+ssh-add /opt/bitnami/apps/joomla/git
+#joomla
+cd /opt/bitnami/apps/joomla/htdocs
+#list routes
+route -n
+#add gateway if none
+echo route add default gw 192.168.0.1
+#this file
+echo nano /root/.bash_login
+#git
+echo git status
+
+echo git clean --dry-run
+echo git clean -f
+echo git reset -hard
+
+echo git add --all
+echo git commit -a -m '-'
+echo git push origin master
+echo git fetch origin
+echo git merge origin/master
+
