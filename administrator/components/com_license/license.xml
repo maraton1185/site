@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.3" method="upgrade">
+    <name>license</name>
+    <creationDate>2014-09-12</creationDate>
+    <copyright>© 2014. Все права защищены.</copyright>
+    <license>GNU General Public License версии 2 или более поздней; Смотрите LICENSE.txt</license>
+    <author>admin</author>
+    <authorEmail>mail@codeanalyzer.ru</authorEmail>
+    <authorUrl>http://</authorUrl>
+    <version>0.0.1</version>
+    <description></description>
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update> <!-- Runs on update; New in 2.5 -->
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>license.php</filename>
+        <filename>controller.php</filename>
+        <folder>views</folder>
+        <folder>models</folder>
+        <folder>language</folder>
+    </files>
+
+    <administration>
+       
+        <menu>codeanalyzer license</menu>
+        
+        <files folder="admin">
+            <!-- Admin Main File Copy Section -->
+            <filename>index.html</filename>
+            <filename>license.php</filename>
+            <filename>controller.php</filename>
+            <!-- SQL files section -->
+            <folder>sql</folder>
+            <!-- tables files section -->
+            <folder>tables</folder>
+            <!-- models files section -->
+            <folder>views</folder>
+            <!--folder>controllers</folder-->            
+            <folder>models</folder>
+            <folder>language</folder>
+        </files>
+    </administration>
+
+
+</extension>
+

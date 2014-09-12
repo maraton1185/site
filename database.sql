@@ -35,7 +35,7 @@ CREATE TABLE `jos_assets` (
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `jos_assets` (
 
 LOCK TABLES `jos_assets` WRITE;
 /*!40000 ALTER TABLE `jos_assets` DISABLE KEYS */;
-INSERT INTO `jos_assets` VALUES (1,0,0,155,0,'root.1','Root Asset','{\"core.login.site\":{\"6\":1,\"2\":1},\"core.login.admin\":{\"6\":1},\"core.login.offline\":{\"6\":1},\"core.admin\":{\"8\":1},\"core.manage\":{\"7\":1},\"core.create\":{\"6\":1,\"3\":1},\"core.delete\":{\"6\":1},\"core.edit\":{\"6\":1,\"4\":1},\"core.edit.state\":{\"6\":1,\"5\":1},\"core.edit.own\":{\"6\":1,\"3\":1}}');
+INSERT INTO `jos_assets` VALUES (1,0,0,157,0,'root.1','Root Asset','{\"core.login.site\":{\"6\":1,\"2\":1},\"core.login.admin\":{\"6\":1},\"core.login.offline\":{\"6\":1},\"core.admin\":{\"8\":1},\"core.manage\":{\"7\":1},\"core.create\":{\"6\":1,\"3\":1},\"core.delete\":{\"6\":1},\"core.edit\":{\"6\":1,\"4\":1},\"core.edit.state\":{\"6\":1,\"5\":1},\"core.edit.own\":{\"6\":1,\"3\":1}}');
 INSERT INTO `jos_assets` VALUES (2,1,1,2,1,'com_admin','com_admin','{}');
 INSERT INTO `jos_assets` VALUES (3,1,3,6,1,'com_banners','com_banners','{\"core.admin\":{\"7\":1},\"core.manage\":{\"6\":1},\"core.create\":[],\"core.delete\":[],\"core.edit\":[],\"core.edit.state\":[]}');
 INSERT INTO `jos_assets` VALUES (4,1,7,8,1,'com_cache','com_cache','{\"core.admin\":{\"7\":1},\"core.manage\":{\"7\":1}}');
@@ -122,6 +122,7 @@ INSERT INTO `jos_assets` VALUES (77,1,149,150,1,'com_quicklogout','quicklogout',
 INSERT INTO `jos_assets` VALUES (79,1,151,152,1,'com_dump','dump','{}');
 INSERT INTO `jos_assets` VALUES (80,18,108,109,2,'com_modules.module.99','Добро пожаловать!','{\"core.delete\":[],\"core.edit\":[],\"core.edit.state\":[]}');
 INSERT INTO `jos_assets` VALUES (86,1,153,154,1,'com_helloworld','helloworld','{}');
+INSERT INTO `jos_assets` VALUES (91,1,155,156,1,'com_license','license','{}');
 /*!40000 ALTER TABLE `jos_assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -675,7 +676,7 @@ CREATE TABLE `jos_extensions` (
   KEY `element_clientid` (`element`,`client_id`),
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10057 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10062 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -718,7 +719,7 @@ INSERT INTO `jos_extensions` VALUES (32,'com_postinstall','component','com_posti
 INSERT INTO `jos_extensions` VALUES (100,'PHPMailer','library','phpmailer','',0,1,1,1,'','','','',0,'0000-00-00 00:00:00',0,0);
 INSERT INTO `jos_extensions` VALUES (101,'SimplePie','library','simplepie','',0,1,1,1,'','','','',0,'0000-00-00 00:00:00',0,0);
 INSERT INTO `jos_extensions` VALUES (102,'phputf8','library','phputf8','',0,1,1,1,'','','','',0,'0000-00-00 00:00:00',0,0);
-INSERT INTO `jos_extensions` VALUES (103,'Joomla! Platform','library','joomla','',0,1,1,1,'','{\"mediaversion\":\"a8622f1fd5a511f90f8f89c9be4be9c9\"}','','',0,'0000-00-00 00:00:00',0,0);
+INSERT INTO `jos_extensions` VALUES (103,'Joomla! Platform','library','joomla','',0,1,1,1,'','{\"mediaversion\":\"fe226bc03eee10be3fda0ef753d34ab1\"}','','',0,'0000-00-00 00:00:00',0,0);
 INSERT INTO `jos_extensions` VALUES (104,'IDNA Convert','library','idna_convert','',0,1,1,1,'','','','',0,'0000-00-00 00:00:00',0,0);
 INSERT INTO `jos_extensions` VALUES (105,'FOF','library','fof','',0,1,1,1,'','','','',0,'0000-00-00 00:00:00',0,0);
 INSERT INTO `jos_extensions` VALUES (106,'PHPass','library','phpass','',0,1,1,1,'','','','',0,'0000-00-00 00:00:00',0,0);
@@ -866,6 +867,7 @@ INSERT INTO `jos_extensions` VALUES (10048,'dump','component','com_dump','',1,1,
 INSERT INTO `jos_extensions` VALUES (10049,'J!Dump','plugin','dump','system',0,1,1,0,'{\"name\":\"J!Dump\",\"type\":\"plugin\",\"creationDate\":\"October 31 2012\",\"author\":\"Mathias Verraes\",\"copyright\":\"(c) Mathias Verraes 2006 - 2011\",\"authorEmail\":\"\",\"authorUrl\":\"https:\\/\\/github.com\\/mathiasverraes\\/jdump\",\"version\":\"2012-10-31\",\"description\":\"\\n\\t\\n\\t\\tJ!Dump Plugin -- This plugin requires the J!Dump component to function. \\n\\t\\tDon\'t forget to <a href=\\\"index.php?option=com_plugins&view=plugins\\\">publish this plugin!<\\/a>\\n\\t\\n\\t\",\"group\":\"\"}','{}','','',0,'0000-00-00 00:00:00',0,0);
 INSERT INTO `jos_extensions` VALUES (10050,'SCLogin','module','mod_sclogin','',0,1,0,0,'{\"name\":\"SCLogin\",\"type\":\"module\",\"creationDate\":\"2014\\/08\\/11\",\"author\":\"SourceCoast | www.sourcecoast.com\",\"copyright\":\"Copyright (C) 2009-2014 SourceCoast. All rights reserved.\",\"authorEmail\":\"support@sourcecoast.com\",\"authorUrl\":\"http:\\/\\/www.sourcecoast.com\",\"version\":\"4.1.2\",\"description\":\"\\n        <div style=\'border: 1px solid #6ba6d7; text-align: justify;\'><div style=\'text-align:center; font-size: 18px; color: white; background:#6ba6d7; padding: 5px;\'>SCLogin Module<\\/div><div style=\'padding: 4px; background:white; font-size: 12px;\'>Enhanced login module with flexible styles and customizations.<br\\/><br\\/><b>Main Features:<\\/b><ol><li>Core Joomla login functionality<\\/li><li>Facebook, Google+, Twitter and LinkedIn Authentication when combined with <a href=\'http:\\/\\/www.sourcecoast.com\\/joomla-facebook\\/\' target=\'_blank\' style=\'color:red;\'>JFBConnect<\\/a><\\/li><li>Modal popups, layout choices and bootstrap styling<\\/li><li>Supports Joomla 2.5 and 3.x<\\/li><\\/ol><br\\/>Please visit <a style=\'color:red;\' href=\'http:\\/\\/www.sourcecoast.com\\/sclogin\\/features\\/\' target=\'_blank\'>SourceCoast<\\/a> for more information or <a style=\'color:red;\' href=\'http:\\/\\/www.sourcecoast.com\\/forums\' target=\'_blank\'>our forums<\\/a> for support.<br\\/><br\\/><\\/div><\\/div><div style=\'text-align:justify; border: 4px solid #6ba6d7; color:white; background: #6ba6d7; padding:2px; font-size: 14px;\'>If you use SCLogin, please post a rating and a review at the Joomla! Extensions Directory: <a style=\'color:#DDDDDD\' href=\'http:\\/\\/extensions.joomla.org\\/extensions\\/access-a-security\\/site-access\\/authentication\\/24054\' target=\'_blank\'>SCLogin Enhanced Login<\\/a><\\/div>\",\"group\":\"\"}','{\"displayType\":\"inline\",\"modalButtonStyle\":\"button\",\"modalCloseButton\":\"1\",\"socialButtonsLayout\":\"vertical\",\"showLoginForm\":\"1\",\"showForgotUsername\":\"none\",\"showForgotPassword\":\"none\",\"showRegisterLink\":\"1\",\"showRememberMe\":\"0\",\"register_type\":\"joomla\",\"jlogin\":\"\",\"usesecure\":\"0\",\"enableProfilePic\":\"0\",\"profileWidth\":\"50\",\"profileHeight\":\"50\",\"linkProfile\":\"0\",\"greetingName\":\"1\",\"showUserMenu\":\"\",\"userMenuStyle\":\"0\",\"showLogoutButton\":\"1\",\"showConnectButton\":\"1\",\"jlogout\":\"\",\"user_intro\":\"\",\"loadJQuery\":\"0\",\"showPoweredByLink\":\"2\",\"moduleclass_sfx\":\"\",\"cache\":\"1\"}','','',0,'0000-00-00 00:00:00',0,0);
 INSERT INTO `jos_extensions` VALUES (10056,'helloworld','component','com_helloworld','',1,1,0,0,'{\"name\":\"Hello World!\",\"type\":\"component\",\"creationDate\":\"2014-09-12\",\"author\":\"Marat\",\"copyright\":\"\\u00a9 2014. \\u0412\\u0441\\u0435 \\u043f\\u0440\\u0430\\u0432\\u0430 \\u0437\\u0430\\u0449\\u0438\\u0449\\u0435\\u043d\\u044b.\",\"authorEmail\":\"maratenikeev@yandex.ru\",\"authorUrl\":\"http:\\/\\/\",\"version\":\"0.0.1\",\"description\":\"\",\"group\":\"\"}','{}','','',0,'0000-00-00 00:00:00',0,0);
+INSERT INTO `jos_extensions` VALUES (10061,'license','component','com_license','',1,1,0,0,'{\"name\":\"license\",\"type\":\"component\",\"creationDate\":\"2014-09-12\",\"author\":\"admin\",\"copyright\":\"\\u00a9 2014. \\u0412\\u0441\\u0435 \\u043f\\u0440\\u0430\\u0432\\u0430 \\u0437\\u0430\\u0449\\u0438\\u0449\\u0435\\u043d\\u044b.\",\"authorEmail\":\"mail@codeanalyzer.ru\",\"authorUrl\":\"http:\\/\\/\",\"version\":\"0.0.1\",\"description\":\"\",\"group\":\"\"}','{}','','',0,'0000-00-00 00:00:00',0,0);
 /*!40000 ALTER TABLE `jos_extensions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1711,6 +1713,75 @@ INSERT INTO `jos_helloworld` VALUES (3,'123');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `jos_l_data`
+--
+
+DROP TABLE IF EXISTS `jos_l_data`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jos_l_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `test` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jos_l_data`
+--
+
+LOCK TABLES `jos_l_data` WRITE;
+/*!40000 ALTER TABLE `jos_l_data` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jos_l_data` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jos_l_license`
+--
+
+DROP TABLE IF EXISTS `jos_l_license`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jos_l_license` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `test` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jos_l_license`
+--
+
+LOCK TABLES `jos_l_license` WRITE;
+/*!40000 ALTER TABLE `jos_l_license` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jos_l_license` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jos_l_orders`
+--
+
+DROP TABLE IF EXISTS `jos_l_orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jos_l_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `test` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jos_l_orders`
+--
+
+LOCK TABLES `jos_l_orders` WRITE;
+/*!40000 ALTER TABLE `jos_l_orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jos_l_orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `jos_languages`
 --
 
@@ -1790,7 +1861,7 @@ CREATE TABLE `jos_menu` (
   KEY `idx_alias` (`alias`),
   KEY `idx_path` (`path`(255)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1799,7 +1870,7 @@ CREATE TABLE `jos_menu` (
 
 LOCK TABLES `jos_menu` WRITE;
 /*!40000 ALTER TABLE `jos_menu` DISABLE KEYS */;
-INSERT INTO `jos_menu` VALUES (1,'','Menu_Item_Root','root','','','','',1,0,0,0,0,'0000-00-00 00:00:00',0,0,'',0,'',0,93,0,'*',0);
+INSERT INTO `jos_menu` VALUES (1,'','Menu_Item_Root','root','','','','',1,0,0,0,0,'0000-00-00 00:00:00',0,0,'',0,'',0,95,0,'*',0);
 INSERT INTO `jos_menu` VALUES (2,'menu','com_banners','Banners','','Banners','index.php?option=com_banners','component',0,1,1,4,0,'0000-00-00 00:00:00',0,0,'class:banners',0,'',1,10,0,'*',1);
 INSERT INTO `jos_menu` VALUES (3,'menu','com_banners','Banners','','Banners/Banners','index.php?option=com_banners','component',0,2,2,4,0,'0000-00-00 00:00:00',0,0,'class:banners',0,'',2,3,0,'*',1);
 INSERT INTO `jos_menu` VALUES (4,'menu','com_banners_categories','Categories','','Banners/Categories','index.php?option=com_categories&extension=com_banners','component',0,2,2,6,0,'0000-00-00 00:00:00',0,0,'class:banners-cat',0,'',4,5,0,'*',1);
@@ -1846,6 +1917,7 @@ INSERT INTO `jos_menu` VALUES (129,'usermenu','Профиль','reset','','reset
 INSERT INTO `jos_menu` VALUES (130,'mainmenu','test','test','','hello/test','index.php?option=com_users&view=profile&layout=edit','component',-2,127,2,25,0,'0000-00-00 00:00:00',0,1,'',0,'{\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_text\":1,\"page_title\":\"\",\"show_page_heading\":0,\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0,\"showmenutitle\":\"1\",\"desc\":\"\",\"cols\":\"1\",\"group\":\"0\",\"showgrouptitle\":\"1\",\"cwidth\":\"\",\"colxw\":\"\",\"class\":\"\",\"subcontent\":\"normal\"}',82,83,0,'*',0);
 INSERT INTO `jos_menu` VALUES (131,'usermenu','Выйти','2014-09-12-11-11-49','','2014-09-12-11-11-49','index.php?option=com_quicklogout&view=quicklogout','component',1,1,1,10046,0,'0000-00-00 00:00:00',0,1,'',0,'{\"quick_logout_redirect\":\"101\",\"menu-anchor_title\":\"\",\"menu-anchor_css\":\"\",\"menu_image\":\"\",\"menu_text\":1,\"page_title\":\"\",\"show_page_heading\":0,\"page_heading\":\"\",\"pageclass_sfx\":\"\",\"menu-meta_description\":\"\",\"menu-meta_keywords\":\"\",\"robots\":\"\",\"secure\":0,\"showmenutitle\":\"1\",\"desc\":\"\",\"cols\":\"1\",\"group\":\"0\",\"showgrouptitle\":\"1\",\"cwidth\":\"\",\"colxw\":\"\",\"class\":\"\",\"subcontent\":\"normal\"}',89,90,0,'*',0);
 INSERT INTO `jos_menu` VALUES (137,'main','Hello World!','hello-world','','hello-world','index.php?option=com_helloworld','component',0,1,1,10056,0,'0000-00-00 00:00:00',0,1,'class:component',0,'',91,92,0,'',1);
+INSERT INTO `jos_menu` VALUES (142,'main','codeanalyzer license','codeanalyzer-license','','codeanalyzer-license','index.php?option=com_license','component',0,1,1,10061,0,'0000-00-00 00:00:00',0,1,'class:component',0,'',93,94,0,'',1);
 /*!40000 ALTER TABLE `jos_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2266,6 +2338,7 @@ CREATE TABLE `jos_schemas` (
 LOCK TABLES `jos_schemas` WRITE;
 /*!40000 ALTER TABLE `jos_schemas` DISABLE KEYS */;
 INSERT INTO `jos_schemas` VALUES (10056,'0.0.6');
+INSERT INTO `jos_schemas` VALUES (10061,'0.0.1');
 /*!40000 ALTER TABLE `jos_schemas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2296,9 +2369,11 @@ CREATE TABLE `jos_session` (
 
 LOCK TABLES `jos_session` WRITE;
 /*!40000 ALTER TABLE `jos_session` DISABLE KEYS */;
+INSERT INTO `jos_session` VALUES ('bsbrk7nlop83kadfg8s11rj3e4',0,1,'1410535976','__default|a:8:{s:15:\"session.counter\";i:1;s:19:\"session.timer.start\";i:1410535976;s:18:\"session.timer.last\";i:1410535976;s:17:\"session.timer.now\";i:1410535976;s:22:\"session.client.browser\";s:34:\"Serf/1.1.0 mod_pagespeed/1.7.30.4-\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":0:{}}s:4:\"user\";O:5:\"JUser\":25:{s:9:\"\\0\\0\\0isRoot\";b:0;s:2:\"id\";i:0;s:4:\"name\";N;s:8:\"username\";N;s:5:\"email\";N;s:8:\"password\";N;s:14:\"password_clear\";s:0:\"\";s:5:\"block\";N;s:9:\"sendEmail\";i:0;s:12:\"registerDate\";N;s:13:\"lastvisitDate\";N;s:10:\"activation\";N;s:6:\"params\";N;s:6:\"groups\";a:1:{i:0;s:1:\"9\";}s:5:\"guest\";i:1;s:13:\"lastResetTime\";N;s:10:\"resetCount\";N;s:12:\"requireReset\";N;s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":0:{}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:9;}s:14:\"\\0\\0\\0_authLevels\";a:3:{i:0;i:1;i:1;i:1;i:2;i:5;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;}s:13:\"session.token\";s:32:\"1869682217095502013c1cf14d92124b\";}',0,'');
 INSERT INTO `jos_session` VALUES ('dpvpjn30qlai9ld2hdu0rafn93',0,1,'1410556101','__default|a:8:{s:15:\"session.counter\";i:21;s:19:\"session.timer.start\";i:1410544412;s:18:\"session.timer.last\";i:1410555259;s:17:\"session.timer.now\";i:1410556101;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":1:{s:5:\"users\";O:8:\"stdClass\":1:{s:5:\"login\";O:8:\"stdClass\":1:{s:4:\"form\";O:8:\"stdClass\":1:{s:4:\"data\";a:1:{s:6:\"return\";s:39:\"index.php?option=com_users&view=profile\";}}}}}}s:4:\"user\";O:5:\"JUser\":25:{s:9:\"\\0\\0\\0isRoot\";b:0;s:2:\"id\";i:0;s:4:\"name\";N;s:8:\"username\";N;s:5:\"email\";N;s:8:\"password\";N;s:14:\"password_clear\";s:0:\"\";s:5:\"block\";N;s:9:\"sendEmail\";i:0;s:12:\"registerDate\";N;s:13:\"lastvisitDate\";N;s:10:\"activation\";N;s:6:\"params\";N;s:6:\"groups\";a:1:{i:0;s:1:\"9\";}s:5:\"guest\";i:1;s:13:\"lastResetTime\";N;s:10:\"resetCount\";N;s:12:\"requireReset\";N;s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":0:{}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:9;}s:14:\"\\0\\0\\0_authLevels\";a:3:{i:0;i:1;i:1;i:1;i:2;i:5;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;}s:13:\"session.token\";s:32:\"0a6fc8abd5fbc19c0d1ddd4637034dca\";}',0,'');
 INSERT INTO `jos_session` VALUES ('g39mfvkokjs1jkrke7anjglqt6',1,0,'1410556154','__default|a:8:{s:15:\"session.counter\";i:39;s:19:\"session.timer.start\";i:1410555265;s:18:\"session.timer.last\";i:1410556153;s:17:\"session.timer.now\";i:1410556153;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":3:{s:11:\"application\";O:8:\"stdClass\":1:{s:4:\"lang\";s:0:\"\";}s:11:\"com_modules\";O:8:\"stdClass\":3:{s:4:\"edit\";O:8:\"stdClass\":1:{s:6:\"module\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}s:3:\"add\";O:8:\"stdClass\":1:{s:6:\"module\";O:8:\"stdClass\":2:{s:12:\"extension_id\";N;s:6:\"params\";N;}}s:7:\"modules\";O:8:\"stdClass\":1:{s:6:\"filter\";O:8:\"stdClass\":1:{s:18:\"client_id_previous\";i:0;}}}s:13:\"com_installer\";O:8:\"stdClass\":2:{s:7:\"message\";s:0:\"\";s:17:\"extension_message\";s:0:\"\";}}}s:4:\"user\";O:5:\"JUser\":27:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"42\";s:4:\"name\";s:9:\"User Name\";s:8:\"username\";s:4:\"user\";s:5:\"email\";s:16:\"user@example.com\";s:8:\"password\";s:60:\"$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"1\";s:12:\"registerDate\";s:19:\"2014-09-09 14:46:19\";s:13:\"lastvisitDate\";s:19:\"2014-09-12 17:29:21\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";}s:13:\"session.token\";s:32:\"4c8ecea441a4f94d6e7b780dcf2a044b\";}__wf|a:1:{s:13:\"session.token\";s:32:\"e86368a50e6cded4224fd6f4230adaeb\";}',42,'user');
-INSERT INTO `jos_session` VALUES ('u26ej76qvl5v16jndfl5pnvp57',1,0,'1410521291','__default|a:8:{s:15:\"session.counter\";i:107;s:19:\"session.timer.start\";i:1410516538;s:18:\"session.timer.last\";i:1410520470;s:17:\"session.timer.now\";i:1410521290;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":9:{s:11:\"application\";O:8:\"stdClass\":1:{s:4:\"lang\";s:0:\"\";}s:13:\"com_installer\";O:8:\"stdClass\":5:{s:7:\"message\";s:0:\"\";s:17:\"extension_message\";s:0:\"\";s:6:\"manage\";O:8:\"stdClass\":4:{s:6:\"filter\";O:8:\"stdClass\":5:{s:6:\"search\";s:3:\"hel\";s:9:\"client_id\";s:0:\"\";s:6:\"status\";s:0:\"\";s:4:\"type\";s:0:\"\";s:5:\"group\";s:0:\"\";}s:8:\"ordercol\";s:4:\"name\";s:9:\"orderdirn\";s:3:\"asc\";s:10:\"limitstart\";i:0;}s:12:\"redirect_url\";N;s:6:\"update\";O:8:\"stdClass\":3:{s:6:\"filter\";O:8:\"stdClass\":4:{s:6:\"search\";s:3:\"hel\";s:9:\"client_id\";s:0:\"\";s:4:\"type\";s:0:\"\";s:5:\"group\";s:0:\"\";}s:8:\"ordercol\";s:4:\"name\";s:9:\"orderdirn\";s:3:\"asc\";}}s:6:\"global\";O:8:\"stdClass\":1:{s:4:\"list\";O:8:\"stdClass\":1:{s:5:\"limit\";i:20;}}s:14:\"com_helloworld\";O:8:\"stdClass\":2:{s:11:\"helloworlds\";O:8:\"stdClass\":1:{s:8:\"ordercol\";N;}s:4:\"edit\";O:8:\"stdClass\":1:{s:10:\"helloworld\";O:8:\"stdClass\":2:{s:2:\"id\";a:0:{}s:4:\"data\";N;}}}s:9:\"com_menus\";O:8:\"stdClass\":2:{s:5:\"items\";O:8:\"stdClass\":3:{s:8:\"menutype\";s:8:\"mainmenu\";s:10:\"limitstart\";i:0;s:4:\"list\";a:4:{s:9:\"direction\";s:3:\"asc\";s:5:\"limit\";i:20;s:8:\"ordering\";s:5:\"a.lft\";s:5:\"start\";d:0;}}s:4:\"edit\";O:8:\"stdClass\":1:{s:4:\"item\";O:8:\"stdClass\":4:{s:2:\"id\";a:0:{}s:4:\"data\";N;s:4:\"type\";N;s:4:\"link\";N;}}}s:4:\"dump\";O:8:\"stdClass\":1:{s:5:\"nodes\";a:0:{}}s:10:\"com_config\";O:8:\"stdClass\":1:{s:6:\"config\";O:8:\"stdClass\":1:{s:6:\"global\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}s:12:\"com_messages\";O:8:\"stdClass\":1:{s:4:\"edit\";O:8:\"stdClass\":1:{s:7:\"message\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}s:9:\"com_users\";O:8:\"stdClass\":1:{s:5:\"users\";O:8:\"stdClass\":1:{s:5:\"modal\";O:8:\"stdClass\":5:{s:6:\"filter\";O:8:\"stdClass\":2:{s:6:\"search\";s:1:\"u\";s:5:\"group\";i:0;}s:8:\"ordercol\";s:6:\"a.name\";s:9:\"orderdirn\";s:3:\"asc\";s:10:\"limitstart\";i:0;s:4:\"list\";a:4:{s:9:\"direction\";s:3:\"asc\";s:5:\"limit\";i:20;s:8:\"ordering\";s:6:\"a.name\";s:5:\"start\";d:0;}}}}}}s:4:\"user\";O:5:\"JUser\":27:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"42\";s:4:\"name\";s:9:\"User Name\";s:8:\"username\";s:4:\"user\";s:5:\"email\";s:16:\"user@example.com\";s:8:\"password\";s:60:\"$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"1\";s:12:\"registerDate\";s:19:\"2014-09-09 14:46:19\";s:13:\"lastvisitDate\";s:19:\"2014-09-12 20:54:27\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";}s:13:\"session.token\";s:32:\"c10b0394b5bd01b5e3d9204160d69d0f\";}__wf|a:1:{s:13:\"session.token\";s:32:\"cad62a0e9f1a417b5448648af1b416a2\";}',42,'user');
+INSERT INTO `jos_session` VALUES ('pcjlipgjmbcl19q1q4jehkg7s2',0,1,'1410535982','__default|a:8:{s:15:\"session.counter\";i:2;s:19:\"session.timer.start\";i:1410535975;s:18:\"session.timer.last\";i:1410535975;s:17:\"session.timer.now\";i:1410535982;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":0:{}}s:4:\"user\";O:5:\"JUser\":25:{s:9:\"\\0\\0\\0isRoot\";b:0;s:2:\"id\";i:0;s:4:\"name\";N;s:8:\"username\";N;s:5:\"email\";N;s:8:\"password\";N;s:14:\"password_clear\";s:0:\"\";s:5:\"block\";N;s:9:\"sendEmail\";i:0;s:12:\"registerDate\";N;s:13:\"lastvisitDate\";N;s:10:\"activation\";N;s:6:\"params\";N;s:6:\"groups\";a:1:{i:0;s:1:\"9\";}s:5:\"guest\";i:1;s:13:\"lastResetTime\";N;s:10:\"resetCount\";N;s:12:\"requireReset\";N;s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":0:{}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:9;}s:14:\"\\0\\0\\0_authLevels\";a:3:{i:0;i:1;i:1;i:1;i:2;i:5;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;}s:13:\"session.token\";s:32:\"34cc2897fe985e804f2480345d2bbee5\";}',0,'');
+INSERT INTO `jos_session` VALUES ('u26ej76qvl5v16jndfl5pnvp57',1,0,'1410536464','__default|a:8:{s:15:\"session.counter\";i:38;s:19:\"session.timer.start\";i:1410535435;s:18:\"session.timer.last\";i:1410536459;s:17:\"session.timer.now\";i:1410536464;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":3:{s:11:\"application\";O:8:\"stdClass\":1:{s:4:\"lang\";s:0:\"\";}s:13:\"com_installer\";O:8:\"stdClass\":4:{s:7:\"message\";s:0:\"\";s:17:\"extension_message\";s:0:\"\";s:12:\"redirect_url\";N;s:6:\"manage\";O:8:\"stdClass\":4:{s:6:\"filter\";O:8:\"stdClass\":5:{s:6:\"search\";s:4:\"lice\";s:9:\"client_id\";s:0:\"\";s:6:\"status\";s:0:\"\";s:4:\"type\";s:0:\"\";s:5:\"group\";s:0:\"\";}s:8:\"ordercol\";s:4:\"name\";s:9:\"orderdirn\";s:3:\"asc\";s:10:\"limitstart\";i:0;}}s:6:\"global\";O:8:\"stdClass\":1:{s:4:\"list\";O:8:\"stdClass\":1:{s:5:\"limit\";i:20;}}}}s:4:\"user\";O:5:\"JUser\":27:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"42\";s:4:\"name\";s:9:\"User Name\";s:8:\"username\";s:4:\"user\";s:5:\"email\";s:16:\"user@example.com\";s:8:\"password\";s:60:\"$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"1\";s:12:\"registerDate\";s:19:\"2014-09-09 14:46:19\";s:13:\"lastvisitDate\";s:19:\"2014-09-12 15:01:40\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";}s:13:\"session.token\";s:32:\"abf9a2c121dce81700092fd4f2dc12ea\";}',42,'user');
 /*!40000 ALTER TABLE `jos_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2856,7 +2931,7 @@ CREATE TABLE `jos_users` (
 
 LOCK TABLES `jos_users` WRITE;
 /*!40000 ALTER TABLE `jos_users` DISABLE KEYS */;
-INSERT INTO `jos_users` VALUES (42,'User Name','user','user@example.com','$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y',0,1,'2014-09-09 14:46:19','2014-09-12 10:09:00','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
+INSERT INTO `jos_users` VALUES (42,'User Name','user','user@example.com','$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y',0,1,'2014-09-09 14:46:19','2014-09-12 15:23:59','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
 INSERT INTO `jos_users` VALUES (43,'test','test','test@test.test','$2y$10$NTtTPOoukBfq.j/BdjfVseEopTP3ofkK.AO/gG/EYsxMgGu4pSBz.',0,0,'2014-09-12 11:54:47','2014-09-12 17:53:31','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
 /*!40000 ALTER TABLE `jos_users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2998,4 +3073,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-12 11:30:44
+-- Dump completed on 2014-09-12 15:41:18

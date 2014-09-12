@@ -13,6 +13,7 @@ cat <<EOF
 help       - this screen
 push	   - push to git with db
 fetch      - fetch from git with db
+reset      - reset with db
 db save    - save db
 db load    - load db
 
@@ -30,6 +31,9 @@ elif [ "x$1" = "xfetch" ]; then
 	git fetch origin
 	git merge origin/master
 	load
+elif [ "x$1" = "xreset" ]; then
+	git reset --hard
+	load
 elif [ "x$1" = "xdb" ]; then
 	if [ "x$2" = "xsave" ]; then
 		save
@@ -38,7 +42,7 @@ elif [ "x$1" = "xdb" ]; then
 	else
 	help
 	fi
-	
+	 
 else
 help
 fi
