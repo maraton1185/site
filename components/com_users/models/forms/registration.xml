@@ -3,19 +3,7 @@
 	<fieldset name="default"
 		label="COM_USERS_REGISTRATION_DEFAULT_LABEL"
 	>
-
-		<field name="spacer" type="spacer" class="text"
-				label="COM_USERS_REGISTER_REQUIRED"
-			/>
-
-		<field name="name" type="text"
-			description="COM_USERS_REGISTER_NAME_DESC"
-			filter="string"
-			label="COM_USERS_REGISTER_NAME_LABEL"
-			required="true"
-			size="30"
-		/>
-
+		
 		<field name="username" type="text"
 			class="validate-username"
 			description="COM_USERS_DESIRED_USERNAME"
@@ -61,9 +49,11 @@
 			required="true"
 			size="30"
 			unique="true"
-			validate="email"
+			
 		/>
 
+<!--
+		validate="email"
 		<field name="email2" type="email"
 			description="COM_USERS_REGISTER_EMAIL2_DESC"
 			field="email1"
@@ -73,6 +63,14 @@
 			required="true"
 			size="30"
 			validate="equals"
+		/-->
+
+		<field name="name" type="text"
+			description="COM_USERS_REGISTER_NAME_DESC"
+			filter="string"
+			label="COM_USERS_REGISTER_NAME_LABEL"
+			required="false"
+			size="30"
 		/>
 
 		<field
@@ -82,5 +80,9 @@
 			description="COM_USERS_CAPTCHA_DESC"
 			validate="captcha"
 		/>
+
+		<field name="spacer" type="spacer" class="text"
+				label="COM_USERS_REGISTER_REQUIRED"
+			/>
 	</fieldset>
 </form>

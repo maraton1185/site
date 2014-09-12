@@ -1,8 +1,52 @@
 /* Default SCLogin Theme - Add new themes to templates/YOUR_TEMPLATE_NAME/html/mod_sclogin/themes directory */
-.sclogin {
+#logout_menu .dropdown-menu>li{
+    background-color:#fcfcfc;   
+}
+#logout_menu .dropdown-menu> li > a:hover{
+    background-color:#eee;
+    color:#666;
+    background-image: none;
+}
+
+#logout_user{
+    border:0;
+    background-color:#fcfcfc;   
+    background-image: none;
+    box-shadow: none;
+}
+
+.sclogout-button form{
+    margin:0;
+}
+
+.scuser-menu a{
+    padding: 9px !important; 
+}
+
+.caret1{
+    margin-left: 10px !important; 
+}
+
+.sclogin-logout-menu {
     overflow: visible;
     float: right;
+    //padding: 10px;
+    color: #666;
+}
+
+.sclogin-menu {
+    overflow: visible;
+    float: right;
+    color:#666;
+
     padding: 10px;
+    color: #666;
+}
+.sclogin-menu a{
+    color: #666;
+}
+
+.sclogin-menu a:hover{
     color: #666;
 }
 
@@ -134,6 +178,7 @@ a.forgot.btn i {
 .sclogin #scprofile-pic,
 .sclogin .sclogin-greeting {
     margin-bottom: 5px;
+    float:left;
 }
 
 .sc-connect-user {

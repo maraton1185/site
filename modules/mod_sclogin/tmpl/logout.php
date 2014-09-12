@@ -10,12 +10,18 @@
 defined('_JEXEC') or die('Restricted access');
 
 ?>
-<div class="sclogin sourcecoast">
+<div class="sclogin sourcecoast sclogin-logout-menu">
 
 <?php
 if ($params->get('enableProfilePic'))
     echo $helper->getSocialAvatar($registerType, $helper->profileLink);
 
+if ($params->get('showUserMenu'))
+{
+    echo $helper->getUserMenu($params->get('showUserMenu'), $params->get('userMenuStyle'));
+}
+
+/*
 if ($params->get('greetingName') != 2)
 {
     $user = JFactory::getUser();
@@ -24,7 +30,7 @@ if ($params->get('greetingName') != 2)
     else
         $name = $user->get('name');
     echo '<div class="sclogin-greeting">' . JText::sprintf('MOD_SCLOGIN_WELCOME', $name) . '</div>';
-}
+}*/
 
 if ($params->get('showLogoutButton'))
 { ?>
@@ -44,10 +50,7 @@ if ($params->get('showLogoutButton'))
 <?php
 }
 
-if ($params->get('showUserMenu'))
-{
-    echo $helper->getUserMenu($params->get('showUserMenu'), $params->get('userMenuStyle'));
-}
+
 
 if ($params->get('showConnectButton'))
 { ?>

@@ -780,7 +780,7 @@
                     continue; 
                 } 
 
-                dump(self::getInstance()->themePath());
+                //dump(self::getInstance()->themePath());
                 //cheack in template path
                 if( file_exists( self::getInstance()->themePath() . '/css/'. $src)) { 
                     self::getInstance()->document->addStyleSheet( self::getInstance()->themePath(true) . '/css/' . $src );

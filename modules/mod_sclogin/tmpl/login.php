@@ -25,9 +25,9 @@ if ($params->get('displayType') == 'modal')
     else
         $modalName = $params->get('loadJQuery') ? 'sc-modal' : 'modal';
 
-    echo '<div class="sourcecoast sclogin-modal-links sclogin"><a ' . $loginClass . ' href="#login-modal" role="button" data-toggle="' . $modalName . '">' . JText::_('MOD_SCLOGIN_LOGIN') . '</a>';
+    echo '<div class="sourcecoast sclogin-modal-links sclogin sclogin-menu"><a ' . $loginClass . ' href="#login-modal" role="button" data-toggle="' . $modalName . '">' . JText::_('MOD_SCLOGIN_LOGIN') . '</a>';
     if ($showRegisterLinkInModal)
-        echo $spacer . '<a ' . $registerClass . ' href="' . $helper->registerLink . '">' . JText::_('MOD_SCLOGIN_REGISTER_FOR_THIS_SITE') . '</a>';
+        echo $spacer . ' <a ' . $registerClass . ' href="' . $helper->registerLink . '">' . JText::_('MOD_SCLOGIN_REGISTER_FOR_THIS_SITE') . '</a>';
     echo '</div>';
 
     ob_start();

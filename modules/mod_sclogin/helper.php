@@ -498,6 +498,8 @@ class modSCLoginHelper
             $db->setQuery($query);
             $parentTitle = $db->loadResult();
 
+            $user = JFactory::getUser();
+
             if ($menuStyle) //Show in List view
             {
                 $menuNav = '<div class="scuser-menu list-view">';
@@ -519,8 +521,8 @@ class modSCLoginHelper
                     $ddName = $this->params->get('loadJQuery') ? 'sc-dropdown' : 'dropdown';
 
                 $menuNav = '<div class="scuser-menu dropdown-view">';
-                $menuNav .= '<div class="btn-group">';
-                $menuNav .= '<a class="btn dropdown-toggle" data-toggle="' . $ddName . '" href="#">' . $parentTitle . '<span class="caret"></span></a>';
+                $menuNav .= '<div class="btn-group" id="logout_menu">';
+                $menuNav .= '<a id="logout_user" class="btn dropdown-toggle " data-toggle="' . $ddName . '" href="#">' . $user->get('username') . '<span class="caret1 caret"></span></a>';
                 $menuNav .= '<ul class="dropdown-menu">';
                 foreach ($menu_items as $menuItem)
                     $menuNav .= $this->getUserMenuItem($menuItem);
