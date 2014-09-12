@@ -4,7 +4,11 @@
 } 
 
 .dl-horizontal dt, .dl-horizontal dd {
-	margin-right: 100px; 
+	*margin-right: 100px; 
 	width: 200px;
 	display: block;
+}
+
+.dl-horizontal dd{
+	margin-left: 240px; 
 }
