@@ -85,7 +85,7 @@ class UsersViewProfile extends JViewLegacy
 
 		if (isset($active->query['layout']))
 		{
-			$this->setLayout($active->query['layout']);
+			$this->setLayout($active->query['layout']);					
 		}
 
 		//Escape strings for HTML output

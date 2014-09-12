@@ -16,6 +16,14 @@ defined('_JEXEC') or die;
 		<?php echo JText::_('COM_USERS_PROFILE_CORE_LEGEND'); ?>
 	</legend>
 	<dl class="dl-horizontal">
+
+		<dt>
+			<?php echo JText::_('COM_USERS_REGISTER_EMAIL1_LABEL'); ?>
+		</dt>
+		<dd>
+			<?php echo htmlspecialchars($this->data->email); ?>
+		</dd>
+		
 		<dt>
 			<?php echo JText::_('COM_USERS_PROFILE_NAME_LABEL'); ?>
 		</dt>
