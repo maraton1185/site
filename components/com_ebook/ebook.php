@@ -12,8 +12,7 @@ defined('_JEXEC') or die;
 
 //dumpSysinfo();
 
-// Get an instance of the controller prefixed by HelloWorld
-$controller = JControllerLegacy::getInstance('HelloWorld');
+$controller = JControllerLegacy::getInstance('Ebook');
  
 // Perform the Request task
 $input = JFactory::getApplication()->input;

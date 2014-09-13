@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
 *
 * @since 0.0.1
 */
-class HelloWorldViewHelloWorld extends JViewLegacy
+class EbookViewEbook extends JViewLegacy
 {
         /**
          * Display the Hello World view

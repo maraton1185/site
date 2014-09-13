@@ -18,6 +18,6 @@ jimport('joomla.application.component.controller');
  *
  * @since   0.0.1
  */
-class HelloWorldController extends JControllerLegacy
+class EBookController extends JControllerLegacy
 {
 } 
