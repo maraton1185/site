@@ -14,10 +14,16 @@ defined('_JEXEC') or die;
  *
  * @package     Joomla.Administrator
  * @subpackage  com_ebook
- * @since       1.6
+ * @since       1.6 
  */
 class EbookController extends JControllerLegacy
 {
+
+	public function __construct($config = array())
+	{
+		$config['default_view'] = 'messages';
+		parent::__construct($config);
+	}
 	/**
 	 * Method to display a view.
 	 *
@@ -47,7 +53,7 @@ class EbookController extends JControllerLegacy
 		}
 
 		// Load the submenu.
-		EbookHelper::addSubmenu($this->input->get('view', 'messages'));
+		EbookHelper::addSubmenu($this->input->get('view', 'users'));
 		parent::display();
 
 	}

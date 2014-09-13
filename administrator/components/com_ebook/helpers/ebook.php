@@ -27,16 +27,30 @@ class EbookHelper
 	public static function addSubmenu($vName)
 	{
 		JHtmlSidebar::addEntry(
-			JText::_('COM_EBOOK_ADD'),
-			'index.php?option=com_ebook&view=message&layout=edit',
-			$vName == 'message'
+			JText::_('COM_EBOOK_ACTIVATE'),
+			'index.php?option=com_ebook&view=activate',
+			$vName == 'activate'
+		);
+
+
+		JHtmlSidebar::addEntry(
+			JText::_('COM_EBOOK_DEVICES'),
+			'index.php?option=com_ebook&view=devices',
+			$vName == 'devices'
 		);
 
 		JHtmlSidebar::addEntry(
-			JText::_('COM_EBOOK_READ'),
-			'index.php?option=com_ebook',
-			$vName == 'messages'
+			JText::_('COM_EBOOK_ORDERS'),
+			'index.php?option=com_ebook&view=orders',
+			$vName == 'orders'
 		);
+
+		JHtmlSidebar::addEntry(
+			JText::_('COM_EBOOK_USERS'),
+			'index.php?option=com_ebook&view=users',
+			$vName == 'users'
+		);
+
 	}
 
 	/**
