@@ -7,7 +7,6 @@ load() {
 	/opt/bitnami/mysql/bin/mysql -u root -pbitnami bitnami_joomla < /opt/bitnami/apps/joomla/htdocs/database.sql
 }
 help() {
-	echo "Hello World 123"
 cat <<EOF
 
 help       - this screen
@@ -25,8 +24,6 @@ if [ "x$1" = "xhelp" ] || [ "x$1" = "x" ]; then
 elif [ "x$1" = "xpush" ]; then
 	save
 	git add --all
-	git rm --cached .project
-	git rm --cached .buildpath
 	git commit -a -m '-'
 	git push origin master	
 elif [ "x$1" = "xfetch" ]; then
