@@ -17,7 +17,7 @@ class JConfig {
 	public $dbprefix = 'jos_';
 	public $secret = 'a208b127e02e64e85a6cb2ee03aa35f0';
 	public $gzip = '0';
-	public $error_reporting = 'default';
+	public $error_reporting = 'maximum';
 	public $helpurl = 'http://help.joomla.org/proxy/index.php?option=com_help&keyref=Help{major}{minor}:{keyref}';
 	public $ftp_host = '127.0.0.1';
 	public $ftp_port = '21';
