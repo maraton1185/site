@@ -6,14 +6,12 @@ class EbookControllerActivate extends JControllerForm
 {
 
 // 	protected $default_view = 'activate';
-	
+	 
 	
 	public function getLicense($key = null)
 	{
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
-	
-		
-		
+	 	 
 		$app   = JFactory::getApplication();
 		$model = $this->getModel();
 		$data  = $this->input->post->get('jform', array(), 'array');
@@ -94,7 +92,7 @@ class EbookControllerActivate extends JControllerForm
 		
 		$app->setUserState($context . '.data', $data);
 		
-		$this->setMessage(JText::_('COM_EBOOK_INVALID_REPLY_ID'));
+ 		$this->setMessage(JText::_('COM_EBOOK_MODEL_LICENSE_SUCCESS'));
 		$this->setRedirect('index.php?option=com_ebook&view=activate');
 			
 	

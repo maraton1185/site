@@ -36,7 +36,7 @@
 		<field
 			name="serial"
 			type="textarea"
-			
+			readonly="true"
 			label="COM_EBOOK_FIELD_SERIAL_LABEL"
 			description="COM_EBOOK_FIELD_SERIAL_DESC"
 			 />

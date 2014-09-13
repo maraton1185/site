@@ -25,6 +25,8 @@ if [ "x$1" = "xhelp" ] || [ "x$1" = "x" ]; then
 elif [ "x$1" = "xpush" ]; then
 	save
 	git add --all
+	git rm --cached .project
+	git rm --cached .buildpath
 	git commit -a -m '-'
 	git push origin master	
 elif [ "x$1" = "xfetch" ]; then
