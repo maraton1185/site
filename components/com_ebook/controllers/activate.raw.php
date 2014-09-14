@@ -20,7 +20,16 @@ class EbookControllerActivate extends JControllerLegacy
 {
 	public function serial()
 	{		
-		echo "hi";
-		//parent::display();
+		$viewName = 'activate';
+		$view = $this->getView($viewName, 'raw');
+		if ($model = $this->getModel($viewName))
+		{
+			// Push the model into the view (as default)
+			$view->setModel($model, true);
+		}
+		//dump($model);
+		$view->display();
 	}
+	
+	
 }

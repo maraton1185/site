@@ -380,7 +380,7 @@ class JViewLegacy extends JObject
 		{
 			$model = strtolower($default);
 		}
-
+		
 		// First check to make sure the model requested exists
 		if (isset($this->_models[$model]))
 		{

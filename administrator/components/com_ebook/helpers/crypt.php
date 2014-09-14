@@ -11,8 +11,9 @@ class CryptHelper {
 	}
 	function encrypt($str) {
 		
-// 		dump($this->prefix.$str);
-		// $key = $this->hex2bin($key);
+		$size = mcrypt_get_block_size('rijndael-128', 'cbc');
+		$str = $this->_pkcs5_pad($str, $size);
+
 		$iv = $this->iv;
 		
 		$td = mcrypt_module_open ( 'rijndael-128', '', 'cbc', $iv );
@@ -38,7 +39,21 @@ class CryptHelper {
 		mcrypt_generic_deinit ( $td );
 		mcrypt_module_close ( $td );
 		
-		return rtrim(utf8_encode ( trim ( $decrypted ) ), "\0");
+		return rtrim(utf8_encode ($this->_pkcs5_unpad ( $decrypted ) ), "\0");
+	}
+	
+	function _pkcs5_pad ($text, $blocksize)
+	{
+		$pad = $blocksize - (strlen($text) % $blocksize);
+		return $text . str_repeat(chr($pad), $pad);
+	}
+	
+	function _pkcs5_unpad($text)
+	{
+		$pad = ord($text{strlen($text)-1});
+		if ($pad > strlen($text)) return false;
+		if (strspn($text, chr($pad), strlen($text) - $pad) != $pad) return false;
+		return substr($text, 0, -1 * $pad);
 	}
 
 }

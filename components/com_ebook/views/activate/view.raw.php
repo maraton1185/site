@@ -20,29 +20,20 @@ jimport('joomla.application.component.view');
 */
 class EbookViewActivate extends JViewLegacy
 {
-        /**
-         * Display the Hello World view
-         *
-         * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
-         *
-         * @return  void
-         */
         public function display($tpl = null) 
         {
-                // Assign data to the view
-                //$this->msg = 'Hello World';
- 				echo "raw";
-                // Assign data to the view
-//                 $this->msg = $this->get('Msg');
+			// Assign data to the view
+        	
+        	$msg = $this->get('Answer');
  
-//                 //dump($this->get('Msg'));
-//                 // Check for errors.
-//                 if (count($errors = $this->get('Errors'))) 
-//                 {
-//                         JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
-//                         return false;
-//                 }
-//                 // Display the view
-//                 parent::display($tpl);
+        	if (count($errors = $this->get('Errors')))
+        	{
+				echo implode('<br />', $errors);
+				JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
+        		return false;
+        	}   
+
+        	echo $msg;
+             //parent::display($tpl);
         }
 }

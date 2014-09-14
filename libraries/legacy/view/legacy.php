@@ -374,7 +374,7 @@ class JViewLegacy extends JObject
 	 * @since   12.2
 	 */
 	public function get($property, $default = null)
-	{
+	{		
 		// If $model is null we use the default model
 		if (is_null($default))
 		{
@@ -384,6 +384,7 @@ class JViewLegacy extends JObject
 		{
 			$model = strtolower($default);
 		}
+
 
 		// First check to make sure the model requested exists
 		if (isset($this->_models[$model]))
