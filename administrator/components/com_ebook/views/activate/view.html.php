@@ -30,6 +30,8 @@ class EbookViewActivate extends JViewLegacy
 		$this->item		= $this->get('Item');
 		$this->state	= $this->get('State');
 
+		EbookHelper::addSubmenu('activate');
+		
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{

@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  com_ebook
  * @since       1.6
  */
-class EbookControllerEbook extends JControllerAdmin
+class EbookControllerDevices extends JControllerAdmin
 {
 	/**
 	 * Method to get a model object, loading it if required.
@@ -29,9 +29,10 @@ class EbookControllerEbook extends JControllerAdmin
 	 *
 	 * @since   1.6
 	 */
-	public function getModel($name = 'Message', $prefix = 'EbookModel', $config = array('ignore_request' => true))
+	public function getModel($name = 'Device', $prefix = 'EbookModel', $config = array('ignore_request' => true))
 	{
 		$model = parent::getModel($name, $prefix, $config);
+
 		return $model;
 	}
 }

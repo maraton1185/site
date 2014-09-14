@@ -12,12 +12,12 @@ require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/crypt.php';
 class EbookModelActivate extends JModelLegacy
 {
  
-//         public function getTable($type = 'HelloWorld', $prefix = 'HelloWorldTable', $config = array()) 
+//         public function getTable($type = 'HelloWorld', $prefix = 'HelloWorldTable', $config = array())
 //         {
 //                 return JTable::getInstance($type, $prefix, $config);
 //         }
 
-        public function getAnswer() 
+        public function getAnswer()
         {
         	$app = JFactory::getApplication();
         	
@@ -33,23 +33,29 @@ class EbookModelActivate extends JModelLegacy
         	 
         	$mcrypt = new CryptHelper();
         	$data = $mcrypt->getData($mcrypt->decrypt($msg));
-        	
+//         	var_dump($app->input->getString('name'));
+//         	$data = new stdClass();
+//         	$data->name = $app->input->getString('name');
+//         	$data->password = $app->input->getString('password');
         	if(!$this->_checkUser($data))
         	{
+//         		return "!_checkUser";
         		$data->user_error = "true";
         		return $mcrypt->encrypt($mcrypt->getString($data));
         	}
         	
+//         	return "_checkUser";
+        	
         	$data->activated = "true";
-        	$msg = "name=".$data->name."&".
-        			"password=".$data->password."&".
-        			"serial=".$data->serial."&".
-        			"activated=".$data->activated;
+//         	$msg = "name=".$data->name."&".
+//         			"password=".$data->password."&".
+//         			"serial=".$data->serial."&".
+//         			"activated=".$data->activated;
 //         			."&".
 //         			"message=".$data->message."&";
         	
         	
-        	return $mcrypt->encrypt($msg);
+        	return $mcrypt->encrypt($mcrypt->getString($data));
         	
 
         }
@@ -58,30 +64,28 @@ class EbookModelActivate extends JModelLegacy
         {
         	
         	$db    = $this->getDbo();
+        	
         	$query = $db->getQuery(true);
         	
         	$query
-        		->select($db->quoteName(array('a.email', 'a.password')))
+        		->select($db->quoteName(array('a.email', 'a.password', 'a.id')))
         		->from($db->quoteName('#__users') . ' AS a')
-        		->where('a.email = ' . $db->escape($data->name))
-        		->where('a.password = ' . $db->escape(md5($data->password)))
-        		->where('a.block = 0');
-        	
-        	try
-        	{
-        		$result = $db->loadObject();
+        		->where('a.email='.$db->quote($db->escape($data->name)))
+        		->where('a.block='.$db->quote('0'));
         		
-        		
-        		return $result;
-        		        	
-        	}
-        	catch (RuntimeException $e)
+        	$db->setQuery($query);
+        	$result = $db->loadObject();
+        	if ($result)
         	{
-        		$this->setError($e->getMessage());
+        		$match = JUserHelper::verifyPassword($data->password, $result->password, $result->id);
         	
-        		return false;
-        	}
-        	
-        	return true;
+        		if ($match === true)
+        		{
+        			return true;
+        		}
+			}
+
+			return false;
+			
         }
-} 
+}
