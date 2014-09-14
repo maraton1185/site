@@ -136,6 +136,10 @@ class EbookModelActivate extends JModelAdmin
 				"activated=true";
 		
 		$mcrypt = new CryptHelper();
+		
+// 		$msg = $mcrypt->decrypt($mcrypt->encrypt($msg));
+// 		dump($msg);
+		
 		return $mcrypt->encrypt($msg);
 // 		return $mcrypt->decrypt($mcrypt->encrypt("hello"));
 	}

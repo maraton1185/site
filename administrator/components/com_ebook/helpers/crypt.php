@@ -39,14 +39,30 @@ class CryptHelper {
 		mcrypt_generic_deinit ( $td );
 		mcrypt_module_close ( $td );
 		
-		return $this->getData(rtrim(utf8_encode ($this->_pkcs5_unpad ( $decrypted ) ), "\0"));
+		return rtrim($this->_pkcs5_unpad ( $decrypted ) , "\0");
+	}
+	
+	function getString($data)
+	{
+		$msg = "";
+		foreach($data as $key => $value)
+		{
+			$msg = $msg.$key."=".$value."&";
+		}
+		return $msg;
 	}
 	
 	function getData ($msg)
 	{
+		$result = new stdClass();
 		$msg = str_replace($this->prefix, "", $msg);
-		$data = explode ("$", $msg);
-		return $data;
+		$data = explode ("&", $msg);
+		foreach ($data as $value){
+			$data = explode ("=", $value);
+			$result->$data[0]=$data[1];
+		}
+			
+		return $result;
 	}
 	
 	function _pkcs5_pad ($text, $blocksize)

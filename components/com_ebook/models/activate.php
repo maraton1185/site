@@ -29,53 +29,59 @@ class EbookModelActivate extends JModelLegacy
         	
         	$msg = $app->input->getString('msg');
         	
-        	$mcrypt = new CryptHelper();
-        	$msg = $mcrypt->decrypt($msg);
-//         	$msg = $mcrypt->encrypt($msg);
-//         	$msg = http_get_request_body();
+        	//return $msg;
         	 
-//         	var_dump($_GET);
+        	$mcrypt = new CryptHelper();
+        	$data = $mcrypt->getData($mcrypt->decrypt($msg));
         	
-//         	echo base64_decode($msg);
-//         	echo unpack('C*', $msg);
-//         	return false;
+        	if(!$this->_checkUser($data))
+        	{
+        		$data->user_error = "true";
+        		return $mcrypt->encrypt($mcrypt->getString($data));
+        	}
         	
-//         	JInput::
-//         	JRequest::getVar($name)
-        	$data['email'] = "";
-        	$data['password']="";
-        	$data['UUID']="";
-//         	$this->setError('error');
-        	$msg = "name=".$data['email']."&".
-        			"password=".$data['password']."&".
-        			"serial=".$data['UUID']."&".
-        			"activated=true";
+        	$data->activated = "true";
+        	$msg = "name=".$data->name."&".
+        			"password=".$data->password."&".
+        			"serial=".$data->serial."&".
+        			"activated=".$data->activated;
+//         			."&".
+//         			"message=".$data->message."&";
         	
         	
         	return $mcrypt->encrypt($msg);
         	
-//         	return "hello)";
-//                 if (!is_array($this->messages))
-//                 {
-//                         $this->messages = array();
-//                 }
- 
-//                 if (!isset($this->messages[$id])) 
-//                 {
-//                         //request the selected id
-//                         $jinput = JFactory::getApplication()->input;
-//                         $id = $jinput->get('id', 1, 'INT' );
- 
-//                         // Get a TableHelloWorld instance
-//                         $table = $this->getTable();
- 
-//                         // Load the message
-//                         $table->load($id);
- 
-//                         // Assign the message
-//                         $this->messages[$id] = $table->greeting;
-//                 }
- 
-//                 return $this->messages[$id];
+
+        }
+        
+        private function _checkUser($data)
+        {
+        	
+        	$db    = $this->getDbo();
+        	$query = $db->getQuery(true);
+        	
+        	$query
+        		->select($db->quoteName(array('a.email', 'a.password')))
+        		->from($db->quoteName('#__users') . ' AS a')
+        		->where('a.email = ' . $db->escape($data->name))
+        		->where('a.password = ' . $db->escape(md5($data->password)))
+        		->where('a.block = 0');
+        	
+        	try
+        	{
+        		$result = $db->loadObject();
+        		
+        		
+        		return $result;
+        		        	
+        	}
+        	catch (RuntimeException $e)
+        	{
+        		$this->setError($e->getMessage());
+        	
+        		return false;
+        	}
+        	
+        	return true;
         }
 } 
