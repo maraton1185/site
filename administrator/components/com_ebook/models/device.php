@@ -47,7 +47,7 @@ class EbookModelDevice extends JModelAdmin {
     	}
     	
     	$date =& JFactory::getDate();
-    	$table->set('date', $result->email);
+    	$table->set('date', $date->toSql());
     	
     	
     }
