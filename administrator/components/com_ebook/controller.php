@@ -35,21 +35,20 @@ class EbookController extends JControllerLegacy
 	{
 		require_once JPATH_COMPONENT.'/helpers/ebook.php';
 
-		$view   = $this->input->get('view', 'serials');
+		$view   = $this->input->get('view', 'devices');
 		$layout = $this->input->get('layout', 'default');
 		$id     = $this->input->getInt('id');
 
 		// Check for edit form.
-		if ($view == 'serial' && $layout == 'edit' && !$this->checkEditId('com_ebook.edit.serial', $id))
+		if ($view == 'device' && $layout == 'edit' && !$this->checkEditId('com_ebook.edit.device', $id))
 		{
 			// Somehow the person just went to the form - we don't allow that.
 			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
 			$this->setMessage($this->getError(), 'error');
-			$this->setRedirect(JRoute::_('index.php?option=com_ebook&view=serials', false));
+			$this->setRedirect(JRoute::_('index.php?option=com_ebook&view=devices', false));
 
 			return false;
 		}
-
 
 		parent::display();
 		

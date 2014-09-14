@@ -10,5 +10,5 @@
 defined('_JEXEC') or die;
 
 
-class EbookControllerSerial extends JControllerForm{
+class EbookControllerDevice extends JControllerForm{
 }

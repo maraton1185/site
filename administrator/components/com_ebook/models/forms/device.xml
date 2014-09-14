@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="details">
+        <field
+            name="id"
+            type="hidden"
+        />
+        <field
+			name="user_id"
+			type="useractivate"
+			label="COM_EBOOK_FIELD_USER_ID_LABEL"
+			description="COM_EBOOK_FIELD_USER_ID_DESC"
+			default="0"
+			required="true" />
+			
+       <field
+			name="UUID"
+			type="text"
+			required="true"
+			label="COM_EBOOK_FIELD_UUID_LABEL"
+			description="COM_EBOOK_FIELD_UUID_DESC"
+			 />
+			        
+    </fieldset>
+</form>

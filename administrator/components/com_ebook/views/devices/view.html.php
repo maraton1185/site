@@ -1,117 +1,91 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  COM_EBOOK
- *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright	Copyright (C) 2012 Daniel Calviño Sánchez
+ * @license		GNU Affero General Public License version 3 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
 
 /**
- * View class for a list of weblinks.
- *
- * @package     Joomla.Administrator
- * @subpackage  COM_EBOOK
- * @since       1.5
+ * View for the manager of the routes.
+ * It uses Joomla infrastructure.
  */
-class EbookViewDevices extends JViewLegacy
-{
-	protected $items;
+class EbookViewDevices extends JViewLegacy {
 
-	protected $pagination;
+    /**
+     * Displays the view.
+     */
+    function display($tpl = null) {
+        $items = $this->get('Items');
+        $pagination = $this->get('Pagination');
+        $state = $this->get('State');
+        
+        if (count($errors = $this->get('Errors'))) {
+            JError::raiseError(500, implode('<br />', $errors));
+            return false;
+        }
+        
+        EbookHelper::addSubmenu('devices');
+        
+        $this->items = $items;
+        $this->pagination = $pagination;
 
-	protected $state;
+        $this->filterSearch = $this->escape($state->get('filter.search'));
+        $this->listOrder = $this->escape($state->get('list.ordering'));
+        $this->listDirection = $this->escape($state->get('list.direction'));
+        
+        $this->addToolBar();
+        $this->sidebar = JHtmlSidebar::render();
+        parent::display($tpl);
 
-	/**
-	 * Display the view
-	 *
-	 * @return  void
-	 */
-	public function display($tpl = null)
-	{
-		$this->state		= $this->get('State');
-		$this->items		= $this->get('Items');
-		$this->pagination	= $this->get('Pagination');
+        $this->setTitle();
+    }
 
-		EbookHelper::addSubmenu('devices');
+    /**
+     * Sets the toolbar.
+     */
+    protected function addToolBar() {
+        $canDo = EbookHelper::getActions();
+        
+        JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_DEVICES'), 'routes');
+        
+        if ($canDo->get('core.create')) {
+            JToolBarHelper::addNew('device.add');
+        }
+        
+        if ($canDo->get('core.edit')) {
+            JToolBarHelper::editList('device.edit');
+        }
+        
+        if ($canDo->get('core.delete')) {
+            JToolBarHelper::deleteList('', 'device.delete');
+        }
+        
+        if ($canDo->get('core.admin')) {
+            JToolBarHelper::divider();
+            JToolBarHelper::preferences('com_ebook');
+        }
+    }
 
-		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
-			JError::raiseError(500, implode("\n", $errors));
-			return false;
-		}
+    /**
+     * Sets the document title.
+     */
+    protected function setTitle() {
+        $document = JFactory::getDocument();
+        $document->setTitle(JText::_('COM_EBOOK_ADMINISTRATION'));
+    }
 
-		$this->addToolbar();
-		$this->sidebar = JHtmlSidebar::render();
-		parent::display($tpl);
-	}
-
-	/**
-	 * Add the page title and toolbar.
-	 *
-	 * @since   1.6
-	 */
-	protected function addToolbar()
-	{
-		require_once JPATH_COMPONENT . '/helpers/ebook.php';
-
-		$state	= $this->get('State');
-		$canDo	= JHelperContent::getActions('com_ebook');
-		$user	= JFactory::getUser();
-
-		// Get the toolbar object instance
-		$bar = JToolBar::getInstance('toolbar');
-
-		JToolbarHelper::title(JText::_('COM_EBOOK_MANAGER_WEBLINKS'), 'link weblinks');
-		if (count($user->getAuthorisedCategories('COM_EBOOK', 'core.create')) > 0)
-		{
-			JToolbarHelper::addNew('device.add');
-		}
-		if ($canDo->get('core.edit'))
-		{
-			JToolbarHelper::editList('device.edit');
-		}
-		
-		if ($canDo->get('core.delete'))
-		{
-			JToolbarHelper::deleteList('device.delete');
-		}
-		
-		if ($user->authorise('core.admin', 'COM_EBOOK'))
-		{
-			JToolbarHelper::preferences('COM_EBOOK');
-		}
-
-		JToolbarHelper::help('JHELP_COMPONENTS_WEBLINKS_LINKS');
-
-// 		JHtmlSidebar::setAction('index.php?option=com_ebook&view=devices');
-
-// 		JHtmlSidebar::addFilter(
-// 			JText::_('JOPTION_SELECT_PUBLISHED'),
-// 			'filter_user',
-// 			JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.user'), true)
-// 		);
-
-		
-
-	}
-
-	/**
-	 * Returns an array of fields the table can be sorted by
-	 *
-	 * @return  array  Array containing the field name to sort by as the key and display text as value
-	 *
-	 * @since   3.0
-	 */
-	protected function getSortFields()
-	{
-		return array(
-			'a.user_id' => JText::_('JGRID_HEADING_ORDERING'),
-			'a.device' => JText::_('JSTATUS'),
-			'a.id' => JText::_('JGRID_HEADING_ID')
-		);
-	}
+    /**
+     * Returns an array with the fields that the table can be sorted by.
+     *
+     * @return array An array with the names of the fields indexed by their key.
+     */
+    protected function getSortFields() {
+        return array(
+            'id' => JText::_('COM_EBOOK_HEADING_ID'),
+            'user_id' => JText::_('COM_EBOOK_HEADING_USER'),
+            'UUID' => JText::_('COM_EBOOK_HEADING_UUID'),
+        	'email' => JText::_('COM_EBOOK_HEADING_EMAIL'),
+        );
+    }
 }
