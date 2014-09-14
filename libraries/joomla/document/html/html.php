@@ -464,6 +464,7 @@ class JDocumentHTML extends JDocument
 	 */
 	public function render($caching = false, $params = array())
 	{
+		
 		$this->_caching = $caching;
 
 		if (empty($this->_template))

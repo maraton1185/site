@@ -722,7 +722,8 @@ abstract class JFactory
 
 		$input = self::getApplication()->input;
 		$type = $input->get('format', 'html', 'word');
-
+		//var_dump($type);
+		
 		$version = new JVersion;
 
 		$attributes = array(

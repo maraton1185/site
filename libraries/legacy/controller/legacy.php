@@ -223,6 +223,7 @@ class JControllerLegacy extends JObject
 	 */
 	public static function getInstance($prefix, $config = array())
 	{
+		
 		if (is_object(self::$instance))
 		{
 			return self::$instance;
@@ -234,7 +235,7 @@ class JControllerLegacy extends JObject
 		$basePath = array_key_exists('base_path', $config) ? $config['base_path'] : JPATH_COMPONENT;
 		$format   = $input->getWord('format');
 		$command  = $input->get('task', 'display');
-
+		
 		// Check for array format.
 		$filter = JFilterInput::getInstance();
 
@@ -256,8 +257,8 @@ class JControllerLegacy extends JObject
 			// Define the controller filename and path.
 			$file = self::createFileName('controller', array('name' => $type, 'format' => $format));
 			$path = $basePath . '/controllers/' . $file;
-			$backuppath = $basePath . '/controller/' . $file;
-
+			$backuppath = $basePath . '/controller/' . $file;			
+			
 			// Reset the task without the controller context.
 			$input->set('task', $task);
 		}
@@ -296,7 +297,7 @@ class JControllerLegacy extends JObject
 
 		// Instantiate the class.
 		if (class_exists($class))
-		{
+		{			
 			self::$instance = new $class($config);
 		}
 		else

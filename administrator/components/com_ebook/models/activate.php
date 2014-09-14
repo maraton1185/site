@@ -132,7 +132,8 @@ class EbookModelActivate extends JModelAdmin
 		
 		$msg = "name=".$data['email']."&".
 				"password=".$data['password']."&".
-				"serial=".$data['UUID'];
+				"serial=".$data['UUID']."&".
+				"activated=true";
 		
 		$mcrypt = new CryptHelper();
 		return $mcrypt->encrypt($msg);
