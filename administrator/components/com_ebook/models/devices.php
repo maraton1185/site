@@ -24,8 +24,10 @@ class EbookModelDevices extends JModelList {
         if (empty($config['filter_fields'])) {
             $config['filter_fields'] = array(
                 'id',
-                'user_id',
-                'UUID'
+                'name',
+            	'email',
+                'UUID',
+            	'date'
             );
         }
 
@@ -47,8 +49,11 @@ class EbookModelDevices extends JModelList {
         $db = JFactory::getDBO();
         $query = $db->getQuery(true);
 
-        $query->select('id,user_id,UUID');
-        $query->from('#__ebook_devices');
+        $query
+        	->select(array('a.id', 'a.user_id', 'a.UUID', 'a.email', 'a.date', 'b.name'))
+        	->from($db->quoteName('#__ebook_devices') . ' AS a')
+        	->leftJoin($db->quoteName('#__users') . ' AS b ON a.user_id=b.id')        	
+        ;
 
         $search = $this->getState('filter.search');
         if (!empty($search)) {
@@ -56,7 +61,7 @@ class EbookModelDevices extends JModelList {
                 $query->where('id = '.(int) substr($search, 3));
             } else {
                 $search = $db->quote('%'.$db->escape($search, true).'%');
-                $query->where('(email LIKE '.$search.' OR query LIKE '.$search.')');
+                $query->where('(a.email LIKE '.$search.' OR b.name LIKE '.$search.')');
             }
         }
 

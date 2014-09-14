@@ -26,6 +26,32 @@ class EbookModelDevice extends JModelAdmin {
         return parent::getTable($name, $prefix, $options);
     }
 
+    protected function prepareTable($table)
+    {
+//     	dump($table->get('user_id'));
+
+    	$db    = $this->getDbo();
+    	 
+    	$query = $db->getQuery(true);
+    	 
+    	$query
+    		->select($db->quoteName(array('a.email')))
+    		->from($db->quoteName('#__users') . ' AS a')
+    		->where('a.id='.$db->quote($db->escape($table->user_id)));
+    	
+    	$db->setQuery($query);
+    	$result = $db->loadObject();
+    	if ($result)
+    	{
+    		$table->set('email', $result->email);
+    	}
+    	
+    	$date =& JFactory::getDate();
+    	$table->set('date', $result->email);
+    	
+    	
+    }
+    
     /**
      * Implementation of JModelForm::getForm to get the record form.
      * It just loads the form from the XML file.

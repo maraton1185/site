@@ -23,10 +23,10 @@ $canDo = EbookHelper::getActions();
         <td>
             <?php if ($canEdit) : ?>
             <a href="<?php echo JRoute::_('index.php?option=com_ebook&task=device.edit&id='.(int) $item->id); ?>" title="<?php echo JText::_('COM_EBOOK_EDIT_TITLE'); ?>">
-                <?php echo $this->escape($item->user_id); ?>
+                <?php echo $this->escape($item->name); ?>
             </a>
             <?php else : ?>
-                <?php echo $this->escape($item->user_id); ?>
+                <?php echo $this->escape($item->name); ?>
             <?php endif; ?>
         </td>
         <td>
@@ -34,6 +34,9 @@ $canDo = EbookHelper::getActions();
         </td>
         <td>
             <?php echo $item->UUID; ?>
+        </td>
+         <td>
+            <?php echo $item->date; ?>
         </td>
 
     </tr>

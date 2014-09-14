@@ -35,7 +35,7 @@ JHtml::_('behavior.formvalidation');
    
    <div class="clearfix"></div>
         <fieldset class="adminform">
-            <legend><?php echo JText::_( 'COM_EBOOK_DEVICE_DETAILS' ); ?></legend>
+            <legend><?php echo JText::_( 'COM_EBOOK_MANAGER_DEVICE_DETAILS' ); ?></legend>
 <?php $hiddenFields = ''; ?>
 <?php foreach($this->form->getFieldset('details') as $field): ?>
 <?php     if (!$field->hidden): ?>

@@ -71,8 +71,8 @@ class EbookViewDevices extends JViewLegacy {
      * Sets the document title.
      */
     protected function setTitle() {
-        $document = JFactory::getDocument();
-        $document->setTitle(JText::_('COM_EBOOK_ADMINISTRATION'));
+//         $document = JFactory::getDocument();
+//         $document->setTitle(JText::_('COM_EBOOK_ADMINISTRATION'));
     }
 
     /**
@@ -83,9 +83,10 @@ class EbookViewDevices extends JViewLegacy {
     protected function getSortFields() {
         return array(
             'id' => JText::_('COM_EBOOK_HEADING_ID'),
-            'user_id' => JText::_('COM_EBOOK_HEADING_USER'),
+            'name' => JText::_('COM_EBOOK_HEADING_USER'),
             'UUID' => JText::_('COM_EBOOK_HEADING_UUID'),
         	'email' => JText::_('COM_EBOOK_HEADING_EMAIL'),
+        	'date' => JText::_('COM_EBOOK_HEADING_DATE'),
         );
     }
 }

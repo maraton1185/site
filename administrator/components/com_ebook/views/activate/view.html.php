@@ -54,8 +54,8 @@ class EbookViewActivate extends JViewLegacy
 		
 		JToolbarHelper::title(JText::_('COM_EBOOK_VIEW_ACTIVATE'), 'user');
 		JToolbarHelper::custom('activate.getlicense', 'redo', null, 'COM_EBOOK_TOOLBAR_GET', false);
-		JToolbarHelper::custom('activate.cancel', 'cancel', null, 'COM_EBOOK_TOOLBAR_CANCEL', false);
-// 		JToolbarHelper::cancel('activate.cancel');
+// 		JToolbarHelper::custom('activate.cancel', 'cancel', null, 'COM_EBOOK_TOOLBAR_CANCEL', false);
+		JToolbarHelper::cancel('activate.cancel');
 		JToolbarHelper::help('JHELP_COMPONENTS_MESSAGING_READ');
 		
 	}

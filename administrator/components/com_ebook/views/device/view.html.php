@@ -47,7 +47,7 @@ class EbookViewDevice extends JViewLegacy {
 
         $isNew = $this->item->id == 0;
         if ($isNew) {
-            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_ROUTE_NEW'));
+            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_DEVICE_NEW'));
             
             if ($canDo->get('core.create')) {
                 JToolBarHelper::apply('device.apply');
@@ -57,7 +57,7 @@ class EbookViewDevice extends JViewLegacy {
             
             JToolBarHelper::cancel('device.cancel');
         } else {
-            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_ROUTE_EDIT'));
+            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_DEVICE_EDIT'));
             
             if ($canDo->get('core.edit')) {
                 JToolBarHelper::apply('device.apply');
@@ -80,12 +80,12 @@ class EbookViewDevice extends JViewLegacy {
      * Sets the document title.
      */
     protected function setTitle() {
-        $document = JFactory::getDocument();
-        $isNew = $this->item->id == 0;
-        if ($isNew) {
-            $document->setTitle(JText::_('COM_EBOOK_ROUTE_CREATING'));
-        } else {
-            $document->setTitle(JText::_('COM_EBOOK_ROUTE_EDITING'));
-        }
+//         $document = JFactory::getDocument();
+//         $isNew = $this->item->id == 0;
+//         if ($isNew) {
+//             $document->setTitle(JText::_('COM_EBOOK_ROUTE_CREATING'));
+//         } else {
+//             $document->setTitle(JText::_('COM_EBOOK_ROUTE_EDITING'));
+//         }
     }
 }

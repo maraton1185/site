@@ -11,7 +11,8 @@
 
 		<field
 			name="UUID"
-			type="text"
+			type="textarea"
+			rows="5"
 			required="true"
 			label="COM_EBOOK_FIELD_UUID_LABEL"
 			description="COM_EBOOK_FIELD_UUID_DESC"
