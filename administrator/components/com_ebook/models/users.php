@@ -58,12 +58,12 @@ class EbookModelUsers extends JModelList {
     				IF(c.devices IS NULL,0,c.devices) as activated, 
     				IF(b.devices-c.devices IS NULL,0,b.devices-c.devices) as free 
         
-        		FROM `jos_users` as a 
+        		FROM `#__users` as a 
         		left join 
-        			(select user_id, sum(devices) as devices, sum(total)as total from `jos_ebook_orders` where state=1) as b 
+        			(select user_id, sum(devices) as devices, sum(total)as total from `#__ebook_orders` where state=1) as b 
         			on a.id=b.user_id
         		left join 
-        			(select user_id, count(UUID) as devices from `jos_ebook_devices`) as c 
+        			(select user_id, count(UUID) as devices from `#__ebook_devices`) as c 
         			on a.id=c.user_id
         		";
 //         	->select(array('a.id', 'a.user_id', 'a.description', 'a.state','a.devices','a.total', 'b.email', 'a.date', 'b.username as name'))

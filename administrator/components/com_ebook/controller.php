@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
 class EbookController extends JControllerLegacy
 {
 
-	protected $default_view = 'activate';
+	protected $default_view = 'users';
 	
 
 	/**

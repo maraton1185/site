@@ -27,28 +27,9 @@ class EbookModelDevice extends JModelAdmin {
     }
 
     protected function prepareTable($table)
-    {
-
-//     	$db    = $this->getDbo();
-    	 
-//     	$query = $db->getQuery(true);
-    	 
-//     	$query
-//     		->select($db->quoteName(array('a.email')))
-//     		->from($db->quoteName('#__users') . ' AS a')
-//     		->where('a.id='.$db->quote($db->escape($table->user_id)));
-    	
-//     	$db->setQuery($query);
-//     	$result = $db->loadObject();
-//     	if ($result)
-//     	{
-//     		$table->set('email', $result->email);
-//     	}
-    	
+    {  	
     	$date =& JFactory::getDate();
-    	$table->set('date', $date->toSql());
-    	
-    	
+    	$table->set('date', $date->toSql());      
     }
     
     /**

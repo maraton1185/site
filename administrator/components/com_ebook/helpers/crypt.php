@@ -19,7 +19,7 @@ class CryptHelper {
 		$td = mcrypt_module_open ( 'rijndael-128', '', 'cbc', $iv );
 		
 		mcrypt_generic_init ( $td, $this->key, $iv );
-		$encrypted = mcrypt_generic ( $td, $this->prefix.$str );
+		$encrypted = mcrypt_generic ( $td, $str );
 		
 		mcrypt_generic_deinit ( $td );
 		mcrypt_module_close ( $td );
@@ -28,6 +28,7 @@ class CryptHelper {
 	}
 	function decrypt($code) {
 		// $key = $this->hex2bin($key);
+		
 		$code = base64_decode ( $code );
 		$iv = $this->iv;
 		
@@ -40,11 +41,12 @@ class CryptHelper {
 		mcrypt_module_close ( $td );
 		
 		return rtrim($this->_pkcs5_unpad ( $decrypted ) , "\0");
+		
 	}
 	
 	function getString($data)
 	{
-		$msg = "";
+		$msg = $this->prefix;
 		foreach($data as $key => $value)
 		{
 			$msg = $msg.$key."=".$value."&";

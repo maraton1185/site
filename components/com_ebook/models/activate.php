@@ -32,35 +32,105 @@ class EbookModelActivate extends JModelLegacy
         	//return $msg;
         	 
         	$mcrypt = new CryptHelper();
-        	$data = $mcrypt->getData($mcrypt->decrypt($msg));
-//         	var_dump($app->input->getString('name'));
+        	$decripted = $mcrypt->decrypt($msg);
+        	
+        	if(!$decripted){
+        		return "00";
+        	}
+        	
+        	$data = $mcrypt->getData($decripted);
+        	
 //         	$data = new stdClass();
 //         	$data->name = $app->input->getString('name');
 //         	$data->password = $app->input->getString('password');
         	if(!$this->_checkUser($data))
         	{
-//         		return "!_checkUser";
-        		$data->user_error = "true";
+        		$data->error = "01";
         		return $mcrypt->encrypt($mcrypt->getString($data));
         	}
         	
-//         	return "_checkUser";
+        	if($this->_checkUUID($data))
+        	{
+        		$data->activated = "true";        		 
+        		return $mcrypt->encrypt($mcrypt->getString($data));        		        		
+        	}
         	
-        	$data->activated = "true";
-//         	$msg = "name=".$data->name."&".
-//         			"password=".$data->password."&".
-//         			"serial=".$data->serial."&".
-//         			"activated=".$data->activated;
-//         			."&".
-//         			"message=".$data->message."&";
+        	if(!$this->_checkFree($data))
+        	{
+        		$data->error = "02";
+        		return $mcrypt->encrypt($mcrypt->getString($data));
+        	}
         	
+        	if(!$this->_insertUUID($data))
+        	{
+        		$data->error = "03";
+        		return $mcrypt->encrypt($mcrypt->getString($data));
+        	}
+        	
+        	$data->activated = "true";       	
         	
         	return $mcrypt->encrypt($mcrypt->getString($data));
         	
 
         }
         
-        private function _checkUser($data)
+        private function _insertUUID($data)
+        {
+        
+        	$db    = $this->getDbo();
+        	
+        	// Create and populate an object.
+        	$uuid = new stdClass();
+        	$uuid->user_id = $data->user_id;
+        	$uuid->uuid = $data->uuid;
+        	$uuid->date = JFactory::getDate()->toSql();
+        	
+        	$result = $db->insertObject('#__ebook_devices', $uuid);
+        	
+        	return $result;
+        
+        }
+        
+        private function _checkFree($data)
+        {
+        	 
+        	$db    = $this->getDbo();
+        	 
+        	$query = $db->getQuery(true);
+        	 
+        	$sql = 'SELECT a.id,
+        			IF(b.devices IS NULL,0,b.devices) as _all, 
+    				IF(c.devices IS NULL,0,c.devices) as activated, 
+    				IF(b.devices-c.devices IS NULL,0,b.devices-c.devices) as free
+        	
+        		FROM `#__users` as a
+        		left join
+        			(select user_id, sum(devices) as devices, sum(total)as total from `#__ebook_orders` where state=1) as b
+        			on a.id=b.user_id
+        		left join
+        			(select user_id, count(UUID) as devices from `#__ebook_devices`) as c
+        			on a.id=c.user_id
+        		where a.id='.$db->quote($db->escape($data->user_id)).
+        		' AND IF(b.devices-c.devices IS NULL,0,b.devices-c.devices)>0'
+        	;
+        	
+        	$query->setQuery($sql);
+        	
+        	$db->setQuery($query);
+        	$result = $db->loadObject();
+        
+        	if ($result)
+        	{
+        		$data->dev_all = $result->_all;
+        		$data->dev_activated = $result->activated;
+        		$data->dev_free = $result->free;
+        		return true;
+        	}
+        	return false;
+        		
+        }
+        
+        private function _checkUUID($data)
         {
         	
         	$db    = $this->getDbo();
@@ -68,24 +138,76 @@ class EbookModelActivate extends JModelLegacy
         	$query = $db->getQuery(true);
         	
         	$query
-        		->select($db->quoteName(array('a.email', 'a.password', 'a.id')))
-        		->from($db->quoteName('#__users') . ' AS a')
-        		->where('a.email='.$db->quote($db->escape($data->name)))
-        		->where('a.block='.$db->quote('0'));
+        		->select($db->quoteName(array('a.id')))
+        		->from($db->quoteName('#__ebook_devices') . ' AS a')
+        		->where('a.user_id='.$db->quote($db->escape($data->user_id)))
+        		->where('a.uuid='.$db->quote($db->escape($data->uuid)))
+        		;
+        	$db->setQuery($query);
+        	$result = $db->loadObject();
+
+			if ($result)
+        	{
         		
+        		$sql = 'SELECT a.id,
+        			IF(b.devices IS NULL,0,b.devices) as _all,
+    				IF(c.devices IS NULL,0,c.devices) as activated,
+    				IF(b.devices-c.devices IS NULL,0,b.devices-c.devices) as free
+     
+        		FROM `#__users` as a
+        		left join
+        			(select user_id, sum(devices) as devices, sum(total)as total from `#__ebook_orders` where state=1) as b
+        			on a.id=b.user_id
+        		left join
+        			(select user_id, count(UUID) as devices from `#__ebook_devices`) as c
+        			on a.id=c.user_id
+        		where a.id='.$db->quote($db->escape($data->user_id))
+        		;
+        		        				 
+        		$query->setQuery($sql);
+        		        				 
+        		$db->setQuery($query);
+        		$result = $db->loadObject();
+        		if ($result)
+        		{
+        			$data->dev_all = $result->_all;
+        			$data->dev_activated = $result->activated;
+        			$data->dev_free = $result->free;
+        		}
+        		
+        		return true;
+        	}
+        	return false;
+			
+        }
+        
+        private function _checkUser($data)
+        {
+        	 
+        	$db    = $this->getDbo();
+        	 
+        	$query = $db->getQuery(true);
+        	 
+        	$query
+        	->select($db->quoteName(array('a.email', 'a.password', 'a.id')))
+        	->from($db->quoteName('#__users') . ' AS a')
+        	->where('a.email='.$db->quote($db->escape($data->name)))
+        	->where('a.block='.$db->quote('0'));
+        
         	$db->setQuery($query);
         	$result = $db->loadObject();
         	if ($result)
         	{
         		$match = JUserHelper::verifyPassword($data->password, $result->password, $result->id);
-        	
+        		 
         		if ($match === true)
         		{
+        			$data->user_id = $result->id;
         			return true;
         		}
-			}
-
-			return false;
-			
+        	}
+        
+        	return false;
+        		
         }
 }
