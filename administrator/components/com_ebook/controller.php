@@ -23,7 +23,7 @@ class EbookController extends JControllerLegacy
 	{
 		$config['default_view'] = 'messages';
 		parent::__construct($config);
-	}
+	} 
 	/**
 	 * Method to display a view.
 	 *

@@ -35,7 +35,7 @@ CREATE TABLE `jos_assets` (
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2301,7 +2301,7 @@ CREATE TABLE `jos_session` (
 
 LOCK TABLES `jos_session` WRITE;
 /*!40000 ALTER TABLE `jos_session` DISABLE KEYS */;
-INSERT INTO `jos_session` VALUES ('u26ej76qvl5v16jndfl5pnvp57',1,0,'1410627525','__default|a:8:{s:15:\"session.counter\";i:13;s:19:\"session.timer.start\";i:1410627404;s:18:\"session.timer.last\";i:1410627521;s:17:\"session.timer.now\";i:1410627525;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":1:{s:11:\"application\";O:8:\"stdClass\":1:{s:4:\"lang\";s:0:\"\";}}}s:4:\"user\";O:5:\"JUser\":27:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"42\";s:4:\"name\";s:9:\"User Name\";s:8:\"username\";s:4:\"user\";s:5:\"email\";s:16:\"user@example.com\";s:8:\"password\";s:60:\"$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"1\";s:12:\"registerDate\";s:19:\"2014-09-09 14:46:19\";s:13:\"lastvisitDate\";s:19:\"2014-09-13 16:33:14\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";}s:13:\"session.token\";s:32:\"c273bfcf06a6e54bd3129475762d97dc\";}',42,'user');
+INSERT INTO `jos_session` VALUES ('g39mfvkokjs1jkrke7anjglqt6',1,0,'1410885001','__default|a:8:{s:15:\"session.counter\";i:7;s:19:\"session.timer.start\";i:1410884680;s:18:\"session.timer.last\";i:1410885000;s:17:\"session.timer.now\";i:1410885001;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":2:{s:11:\"application\";O:8:\"stdClass\":1:{s:4:\"lang\";s:0:\"\";}s:4:\"dump\";O:8:\"stdClass\":1:{s:5:\"nodes\";a:3:{i:0;a:6:{s:4:\"name\";s:14:\"(unknown name)\";s:4:\"type\";s:6:\"string\";s:8:\"children\";a:0:{}s:5:\"level\";i:0;s:6:\"source\";s:129:\"Function: EbookModelActivate<br />&nbsp;->&nbsp;getForm()<br />File: components/com_ebook/models/activate.php<br />Line: 67<br />\";s:5:\"value\";s:2:\"sd\";}i:1;a:6:{s:4:\"name\";s:14:\"(unknown name)\";s:4:\"type\";s:6:\"string\";s:8:\"children\";a:0:{}s:5:\"level\";i:0;s:6:\"source\";s:129:\"Function: EbookModelActivate<br />&nbsp;->&nbsp;getForm()<br />File: components/com_ebook/models/activate.php<br />Line: 67<br />\";s:5:\"value\";s:2:\"sd\";}i:2;a:6:{s:4:\"name\";s:14:\"(unknown name)\";s:4:\"type\";s:6:\"string\";s:8:\"children\";a:0:{}s:5:\"level\";i:0;s:6:\"source\";s:129:\"Function: EbookModelActivate<br />&nbsp;->&nbsp;getForm()<br />File: components/com_ebook/models/activate.php<br />Line: 67<br />\";s:5:\"value\";s:2:\"sd\";}}}}}s:4:\"user\";O:5:\"JUser\":27:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"42\";s:4:\"name\";s:9:\"User Name\";s:8:\"username\";s:4:\"user\";s:5:\"email\";s:16:\"user@example.com\";s:8:\"password\";s:60:\"$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"1\";s:12:\"registerDate\";s:19:\"2014-09-09 14:46:19\";s:13:\"lastvisitDate\";s:19:\"2014-09-13 00:12:59\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";}s:13:\"session.token\";s:32:\"52dda768b87a992374e6f99c335e326e\";}',42,'user');
 /*!40000 ALTER TABLE `jos_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2592,8 +2592,8 @@ INSERT INTO `jos_update_sites` VALUES (2,'Joomla! Extension Directory','collecti
 INSERT INTO `jos_update_sites` VALUES (3,'Accredited Joomla! Translations','collection','http://update.joomla.org/language/translationlist_3.xml',0,0,'');
 INSERT INTO `jos_update_sites` VALUES (4,'System - Helix Framework','extension','http://www.joomshaper.com/updates/plg_system_helix.xml',0,0,'');
 INSERT INTO `jos_update_sites` VALUES (5,'JCE Editor Updates','extension','https://www.joomlacontenteditor.net/index.php?option=com_updates&view=update&format=xml&id=1&file=extension.xml',0,0,'');
-INSERT INTO `jos_update_sites` VALUES (8,'JComments Social Login','extension','http://www.joomlatune.ru/updates/plg-jcomments-slogin.xml',1,1410597257,'');
-INSERT INTO `jos_update_sites` VALUES (9,'SCLogin Updates','extension','http://www.sourcecoast.com/updates/sclogin.xml',1,1410597257,'');
+INSERT INTO `jos_update_sites` VALUES (8,'JComments Social Login','extension','http://www.joomlatune.ru/updates/plg-jcomments-slogin.xml',1,1410567202,'');
+INSERT INTO `jos_update_sites` VALUES (9,'SCLogin Updates','extension','http://www.sourcecoast.com/updates/sclogin.xml',1,1410567202,'');
 /*!40000 ALTER TABLE `jos_update_sites` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2859,7 +2859,7 @@ CREATE TABLE `jos_users` (
 
 LOCK TABLES `jos_users` WRITE;
 /*!40000 ALTER TABLE `jos_users` DISABLE KEYS */;
-INSERT INTO `jos_users` VALUES (42,'User Name','user','user@example.com','$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y',0,1,'2014-09-09 14:46:19','2014-09-13 16:56:48','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
+INSERT INTO `jos_users` VALUES (42,'User Name','user','user@example.com','$2y$10$U6Ka/hgaU.KkT1CbStOn4.hAEcvK8VNDV07EIU/pSQ/lhPmau5f9y',0,1,'2014-09-09 14:46:19','2014-09-16 16:24:43','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
 INSERT INTO `jos_users` VALUES (43,'test','test','test@test.test','$2y$10$NTtTPOoukBfq.j/BdjfVseEopTP3ofkK.AO/gG/EYsxMgGu4pSBz.',0,0,'2014-09-12 11:54:47','2014-09-12 17:53:31','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
 /*!40000 ALTER TABLE `jos_users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -3001,4 +3001,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-13 16:59:37
+-- Dump completed on 2014-09-16 16:30:45
