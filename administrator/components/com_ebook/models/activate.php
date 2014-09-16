@@ -32,7 +32,7 @@ class EbookModelActivate extends JModelAdmin
 	 */
 	protected function populateState()
 	{
-		parent::populateState();
+		//parent::populateState();
 
 		/*
 		$input = JFactory::getApplication()->input;
@@ -48,6 +48,11 @@ class EbookModelActivate extends JModelAdmin
 		*/
 	}
 
+	public function getItem($pk = null){
+		$data =  new stdClass;
+		$data -> subject = 'hello)';
+		return $data;
+	}
 
 	/**
 	 * Method to get the record form.
@@ -64,7 +69,6 @@ class EbookModelActivate extends JModelAdmin
 		// Get the form.
 		$form = $this->loadForm('com_ebook.activate', 'activate', array('control' => 'jform', 'load_data' => $loadData));
 
-		dump('sd');
 		if (empty($form))
 		{
 			return false;
@@ -87,8 +91,7 @@ class EbookModelActivate extends JModelAdmin
 
 		if (empty($data))
 		{			
-			$data =  new stdClass;
-			$data -> subject = 'hello)';
+			$data = $this->getItem();
 		}
 
 		$this->preprocessData('com_ebook.activate', $data);

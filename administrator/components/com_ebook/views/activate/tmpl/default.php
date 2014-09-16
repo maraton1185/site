@@ -12,13 +12,13 @@ defined('_JEXEC') or die;
 // Include the component HTML helpers.
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 
-JHtml::_('bootstrap.tooltip');
-JHtml::_('behavior.multiselect');
-JHtml::_('formbehavior.chosen', 'select');
+//JHtml::_('bootstrap.tooltip');
+//JHtml::_('behavior.multiselect');
+//JHtml::_('formbehavior.chosen', 'select');
 
 $user		= JFactory::getUser();
-$listOrder	= $this->escape($this->state->get('list.ordering'));
-$listDirn	= $this->escape($this->state->get('list.direction'));
+//$listOrder	= $this->escape($this->state->get('list.ordering'));
+//$listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_ebook&view=messages'); ?>" method="post" name="adminForm" id="adminForm" class="form-horizontal">
@@ -30,7 +30,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 <?php else : ?>
 	<div id="j-main-container">
 <?php endif;?>
-		<div id="filter-bar" class="btn-toolbar">
+		<!--div id="filter-bar" class="btn-toolbar">
 			<div class="filter-search btn-group pull-left">
 				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('JSEARCH_FILTER'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" class="hasTooltip" title="<?php echo JHtml::tooltipText('COM_EBOOK_SEARCH_IN_SUBJECT'); ?>" />
 			</div>
@@ -44,7 +44,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php echo JHtml::_('select.options', EbookHelper::getStateOptions(), 'value', 'text', $this->state->get('filter.state'));?>
 				</select>
 			</div>
-		</div>
+		</div-->
 		<div class="clearfix"> </div>
 
 		<fieldset>
