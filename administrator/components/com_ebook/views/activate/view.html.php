@@ -50,9 +50,10 @@ class EbookViewActivate extends JViewLegacy
 	protected function addToolbar()
 	{
 		
-		JToolbarHelper::title(JText::_('COM_EBOOK_VIEW_PRIVATE_MESSAGE'), 'envelope inbox');
-		JToolbarHelper::custom('message.reply', 'redo', null, 'COM_EBOOK_TOOLBAR_REPLY', false);
-		JToolbarHelper::cancel('message.cancel');
+		JToolbarHelper::title(JText::_('COM_EBOOK_VIEW_ACTIVATE'), 'user');
+		JToolbarHelper::custom('activate.getlicense', 'redo', null, 'COM_EBOOK_TOOLBAR_GET', false);
+		JToolbarHelper::custom('activate.cancel', 'cancel', null, 'COM_EBOOK_TOOLBAR_CANCEL', false);
+// 		JToolbarHelper::cancel('activate.cancel');
 		JToolbarHelper::help('JHELP_COMPONENTS_MESSAGING_READ');
 		
 	}

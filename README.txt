@@ -14,7 +14,7 @@ define a connection - ssh only
 Perspectives - open PHP
 should appear project - right click - configure - add php support
 
-
+http://marketplace.eclipse.org/content/properties-editor#.VB2LT_l_tAB
 ========================================================
 
 1- What is this?

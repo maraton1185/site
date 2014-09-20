@@ -85,4 +85,5 @@ class EbookHelper
 		$options[]	= JHtml::_('select.option',	'-2',	JText::_('JTRASHED'));
 		return $options;
 	}
+		
 }

@@ -11,6 +11,8 @@ defined ( '_JEXEC' ) or die ();
 // Include the component HTML helpers.
 JHtml::addIncludePath ( JPATH_COMPONENT . '/helpers/html' );
 
+JHtml::_('behavior.formvalidation');
+
 // JHtml::_('bootstrap.tooltip');
 // JHtml::_('behavior.multiselect');
 // JHtml::_('formbehavior.chosen', 'select');
@@ -20,9 +22,20 @@ $user = JFactory::getUser ();
 // $listDirn = $this->escape($this->state->get('list.direction'));
 ?>
 
+<script type="text/javascript">
+	Joomla.submitbutton = function(task)
+	{
+		if (task == 'user.cancel' || document.formvalidator.isValid(document.id('adminForm')))
+		{
+			Joomla.submitform(task, document.getElementById('adminForm'));
+		}
+	}
+
+</script>
+
 <form
 	action="<?php echo JRoute::_('index.php?option=com_ebook&view=activate'); ?>"
-	method="post" name="adminForm" id="adminForm" class="form-horizontal">
+	method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
 <?php if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
@@ -50,23 +63,17 @@ $user = JFactory::getUser ();
 
 			<fieldset>
 
-				<div class="control-group">
+			 <?php foreach ($this->form->getFieldset('default') as $field) : ?>
+            <div class="control-group">
 					<div class="control-label">
-						<?php echo $this->form->getLabel('user_id'); ?>
-					</div>
+                  <?php echo $field->label; ?>
+               </div>
 					<div class="controls">
-						<?php echo $this->form->getInput('user_id'); ?>
-					</div>
+                  <?php echo $field->input; ?>
+               </div>
 				</div>
-
-				<div class="control-group">
-					<div class="control-label">
-					<?php echo $this->form->getLabel('subject'); ?>
-				</div>
-					<div class="controls">
-					<?php echo $this->form->getInput('subject'); ?>
-				</div>
-				</div>
+         <?php endforeach; ?>
+         
 
 			</fieldset>
 

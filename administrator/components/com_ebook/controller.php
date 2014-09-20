@@ -21,11 +21,7 @@ class EbookController extends JControllerLegacy
 
 	protected $default_view = 'activate';
 	
-// 	public function __construct($config = array())
-// 	{
-// 		$config['default_view'] = 'messages';
-// 		parent::__construct($config);
-// 	} 
+
 	/**
 	 * Method to display a view.
 	 *

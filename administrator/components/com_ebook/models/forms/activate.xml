@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset>
+	<fieldset name="default">
 		<field
 			name="user_id"
 			type="useractivate"
@@ -10,20 +10,36 @@
 			required="true" />
 
 		<field
-			name="subject"
+			name="UUID"
 			type="text"
-			label="COM_EBOOK_FIELD_SUBJECT_LABEL"
-			description="COM_EBOOK_FIELD_SUBJECT_DESC"
-			required="true" />
+			required="true"
+			label="COM_EBOOK_FIELD_UUID_LABEL"
+			description="COM_EBOOK_FIELD_UUID_DESC"
+			 />
+			 
+		<field
+			name="email"
+			type="email"
+			readonly="true"
+			label="COM_EBOOK_FIELD_EMAIL_LABEL"
+			description="COM_EBOOK_FIELD_EMAIL_DESC"
+			 />
 
 		<field
-			name="message"
-			type="editor"
-			label="COM_EBOOK_FIELD_MESSAGE_LABEL"
-			description="COM_EBOOK_FIELD_MESSAGE_DESC"
-			required="true"
-			filter="JComponentHelper::filterText"
-			buttons="true"
-			hide="readmore,pagebreak,image,article" />
+			name="password"
+			type="text"
+			readonly="true"
+			label="COM_EBOOK_FIELD_PASSWORD_LABEL"
+			description="COM_EBOOK_FIELD_PASSWORD_DESC"
+			 />
+			
+		<field
+			name="serial"
+			type="textarea"
+			
+			label="COM_EBOOK_FIELD_SERIAL_LABEL"
+			description="COM_EBOOK_FIELD_SERIAL_DESC"
+			 />
+					
 	</fieldset>
 </form>

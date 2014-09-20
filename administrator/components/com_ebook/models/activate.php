@@ -34,25 +34,26 @@ class EbookModelActivate extends JModelAdmin
 	{
 		//parent::populateState();
 
-		/*
-		$input = JFactory::getApplication()->input;
+		
+		//$input = JFactory::getApplication()->input;
 
 		$user  = JFactory::getUser();
 		$this->setState('user.id', $user->get('id'));
 
-		$messageId = (int) $input->getInt('message_id');
-		$this->setState('message.id', $messageId);
+// 		$messageId = (int) $input->getInt('message_id');
+// 		$this->setState('message.id', $messageId);
 
-		$replyId = (int) $input->getInt('reply_id');
-		$this->setState('reply.id', $replyId);
-		*/
+// 		$replyId = (int) $input->getInt('reply_id');
+// 		$this->setState('reply.id', $replyId);
+		
 	}
 
 	public function getItem($pk = null){
+		
 		$data =  new stdClass;
-		$data -> subject = 'hello))';		
-		$data -> user_id = JFactory::getUser();
-				
+		$data -> subject = 'hello))';				
+		$data -> user_id = JFactory::getUser()->get('id');
+		
 		return $data;
 	}
 
@@ -89,7 +90,7 @@ class EbookModelActivate extends JModelAdmin
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState('com_ebook.edit.message.data', array());
+		$data = JFactory::getApplication()->getUserState('com_ebook.default.activate.data', array());
 
 		if (empty($data))
 		{			
@@ -99,6 +100,12 @@ class EbookModelActivate extends JModelAdmin
 		//$this->preprocessData('com_ebook.activate', $data);
 
 		return $data;
+	}
+	
+	public function getLicense($data = array())
+	{
+	
+		return false;
 	}
 
 	
