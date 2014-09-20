@@ -4,10 +4,10 @@
 if [ `id|sed -e s/uid=//g -e s/\(.*//g` -ne 0 ]; then
     echo "This script requires root privileges"
     exit 1
-fi
+fi  
 
 
-# Disabling SELinux if enabled
+#sdf Disabling SELinux if enabled
 if [ -f "/usr/sbin/getenforce" ] && [ `id -u` = 0 ] ; then
     selinux_status=`/usr/sbin/getenforce`
     /usr/sbin/setenforce 0 2> /dev/null

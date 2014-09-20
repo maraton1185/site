@@ -94,7 +94,7 @@ class EbookModelActivate extends JModelAdmin
 			$data = $this->getItem();
 		}
 
-		$this->preprocessData('com_ebook.activate', $data);
+		//$this->preprocessData('com_ebook.activate', $data);
 
 		return $data;
 	}

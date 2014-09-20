@@ -19,11 +19,13 @@ defined('_JEXEC') or die;
 class EbookController extends JControllerLegacy
 {
 
-	public function __construct($config = array())
-	{
-		$config['default_view'] = 'messages';
-		parent::__construct($config);
-	} 
+	protected $default_view = 'activate';
+	
+// 	public function __construct($config = array())
+// 	{
+// 		$config['default_view'] = 'messages';
+// 		parent::__construct($config);
+// 	} 
 	/**
 	 * Method to display a view.
 	 *
@@ -53,7 +55,7 @@ class EbookController extends JControllerLegacy
 		}
 
 		// Load the submenu.
-		EbookHelper::addSubmenu($this->input->get('view', 'users'));
+		EbookHelper::addSubmenu($this->input->get('view', 'activate'));
 		parent::display();
 
 	}

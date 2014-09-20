@@ -18,7 +18,7 @@ JFormHelper::loadFieldClass('user');
  * @subpackage  com_ebook
  * @since       1.6
  */
-class JFormFieldUserEbook extends JFormFieldUser
+class JFormFieldUserActivate extends JFormFieldUser
 {
 	/**
 	 * The form field type.
@@ -26,8 +26,15 @@ class JFormFieldUserEbook extends JFormFieldUser
 	 * @var		string
 	 * @since   1.6
 	 */
+	
 	public $type = 'UserEbook';
 
+	public function __construct()
+	{
+		dump('hi');
+		parent::__construct();
+	} 
+	
 	/**
 	 * Method to get the filtering groups (null means no filtering)
 	 *
@@ -81,6 +88,6 @@ class JFormFieldUserEbook extends JFormFieldUser
 	 */
 	protected function getExcluded()
 	{
-		return array(JFactory::getUser()->id);
+		return null;// array(JFactory::getUser()->id);
 	}
 }
