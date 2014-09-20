@@ -28,9 +28,17 @@ class EbookModelActivate extends JModelLegacy
         	}
         	
         	$msg = $app->input->getString('msg');
-        	echo 'hello!!  ';
-//         	echo $msg;
-        	return false;
+        	
+        	$mcrypt = new CryptHelper();
+        	$msg = $mcrypt->decrypt($msg);
+//         	$msg = $mcrypt->encrypt($msg);
+//         	$msg = http_get_request_body();
+        	
+//         	var_dump($_GET);
+        	
+//         	echo base64_decode($msg);
+//         	echo unpack('C*', $msg);
+//         	return false;
         	
 //         	JInput::
 //         	JRequest::getVar($name)
@@ -43,10 +51,10 @@ class EbookModelActivate extends JModelLegacy
         			"serial=".$data['UUID']."&".
         			"activated=true";
         	
-        	$mcrypt = new CryptHelper();
+        	
         	return $mcrypt->encrypt($msg);
         	
-        	return "hello)";
+//         	return "hello)";
 //                 if (!is_array($this->messages))
 //                 {
 //                         $this->messages = array();

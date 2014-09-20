@@ -4,8 +4,8 @@ defined ( '_JEXEC' ) or die ();
 
 class CryptHelper {
 
-	private $iv = 'fedcba9876543210'; // Same as in JAVA
-	private $key = '0123456789abcdef'; // Same as in JAVA
+	private $iv = 'sJ|MLVVcID3Qc6|~'; // Same as in JAVA
+	private $key = 'sJ|MLVVcID3Qc6|~'; // Same as in JAVA
 	private $prefix = "TnhTI5Az983Akms~AyHtHctE$|F546DLAUuN?RpXm4fLutW*G61Bj#fFw#DDDAnn";
 	function __construct() {
 	}
