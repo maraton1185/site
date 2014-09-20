@@ -1,4 +1,22 @@
-!
+ECLIPSE
+
+https://www.eclipse.org/downloads/ (Eclipse for PHP Developers)
+Help - install new software 
+	Remote System Explorer End-User Runtime
+	Remote System Explorer User Actions  
+Perspectives - open RSE
+window - preferences - remote systems - files - show hidden
+local files - workspace - RemoteSystemsTempFiles - .project
+	add <nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+		<nature>org.eclipse.php.core.PHPNature</nature>
+define a connection - ssh only
+/opt/bitnami/apps/joomla/htdocs - right click - create remote project
+Perspectives - open PHP
+should appear project - right click - configure - add php support
+
+
+========================================================
+
 1- What is this?
 	* This is a Joomla! installation/upgrade package to version 3.x
 	* Joomla! Official site: http://www.joomla.org

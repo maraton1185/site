@@ -31,7 +31,6 @@ class JFormFieldUserActivate extends JFormFieldUser
 
 	public function __construct()
 	{
-		dump('hi');
 		parent::__construct();
 	} 
 	

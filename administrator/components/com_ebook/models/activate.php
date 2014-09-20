@@ -50,7 +50,9 @@ class EbookModelActivate extends JModelAdmin
 
 	public function getItem($pk = null){
 		$data =  new stdClass;
-		$data -> subject = 'hello)';
+		$data -> subject = 'hello))';		
+		$data -> user_id = JFactory::getUser();
+				
 		return $data;
 	}
 
