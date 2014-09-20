@@ -105,6 +105,10 @@ class EbookControllerActivate extends JControllerForm
 	{
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 		
+		$app   = JFactory::getApplication();
+		$context = "$this->option.default.$this->context";
+		$app->setUserState($context . '.data', null);
+		
 		$this->setRedirect(
 				JRoute::_(
 						'index.php?option=' . $this->option . '&view=' . $this->view_item, false
