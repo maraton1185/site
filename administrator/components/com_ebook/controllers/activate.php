@@ -72,9 +72,9 @@ class EbookControllerActivate extends JControllerForm
 		{
 			$validData['tags'] = null;
 		}
-		
-		
-		if (!$model->getLicense($validData))
+				
+		$data = $model->getLicense($validData); 
+		if (!$data)
 		{
 			// Save the data in the session.
 			$app->setUserState($context . '.data', $validData);

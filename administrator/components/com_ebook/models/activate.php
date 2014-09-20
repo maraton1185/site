@@ -104,8 +104,20 @@ class EbookModelActivate extends JModelAdmin
 	
 	public function getLicense($data = array())
 	{
-	
-		return false;
+
+		$user = $data['user_id'];
+		$uuid = $data['UUID'];
+		if (true||!isset($user)||!isset($uuid))
+		{
+			$this->setError("error!");
+			return false;
+		}
+		
+		
+// 		$data =  new stdClass;
+		$data['email'] = 'hello))';
+		$data['password'] = 'hello))';
+		return $data;
 	}
 
 	
