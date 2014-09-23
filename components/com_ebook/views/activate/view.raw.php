@@ -28,7 +28,7 @@ class EbookViewActivate extends JViewLegacy
  
         	if (count($errors = $this->get('Errors')))
         	{
-				echo implode('<br />', $errors);
+// 				echo implode('<br />', $errors);
 				JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
         		return false;
         	}   

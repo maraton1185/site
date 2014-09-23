@@ -33,7 +33,7 @@ class EbookModelActivate extends JModelLegacy
         	$msg = $mcrypt->decrypt($msg);
 //         	$msg = $mcrypt->encrypt($msg);
 //         	$msg = http_get_request_body();
-        	
+        	 
 //         	var_dump($_GET);
         	
 //         	echo base64_decode($msg);
