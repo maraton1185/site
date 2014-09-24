@@ -255,6 +255,7 @@ class SimpleCustomRouter {
         $path = rtrim($path, '/');
         
                 
+        
         $matchingRoute = $this->getMatchingRouteFromPath($path);
         if (empty($matchingRoute)) {
             return $vars;
@@ -277,6 +278,8 @@ class SimpleCustomRouter {
         
         $uri->setPath('');
         $uri->setQuery($newQuery);
+                
+//         var_dump($newQuery);
         if ($matchingRoute['route']->itemId) {
             JFactory::getApplication()->input->set('Itemid', $matchingRoute['route']->itemId);
         } else {
@@ -578,7 +581,8 @@ class SimpleCustomRouter {
         foreach ($routes as $route) {
             $route->path = $this->preparePathOrQueryRegularExpression($route->path);
             
-            if (preg_match('#^'.$route->path.'$#', $path, $parameters)) {
+            if (preg_match('#^'.$route->path.'$#', $path, $parameters)) {            	            	
+            	
                 $matchingRoute = array();
                 $matchingRoute['route'] = $route;
                 $matchingRoute['parameters'] = $parameters;
