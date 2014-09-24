@@ -18,18 +18,42 @@ defined('_JEXEC') or die;
  */
 class EbookControllerBill extends JControllerLegacy
 {
-	public function order()
+	
+	
+	public function order10()
+	{
+	
+		if(!$this->_check())
+			return;
+	
+	
+	
+		echo "redirect to url 10";
+		//make order
+		//make robokassa url
+		//redirect to url
+	
+		return $this;
+		// 		$viewName = 'activate';
+		// 		$view = $this->getView($viewName, 'raw');
+		// 		if ($model = $this->getModel($viewName))
+			// 		{
+			// 			// Push the model into the view (as default)
+			// 			$view->setModel($model, true);
+			// 		}
+		// 		//dump($model);
+		// 		$view->display();
+	}
+	
+	public function order3()
 	{		
 		
-		$user = JFactory::getUser();
-		if ($user->get('guest') == 1)
-		{
-			// Redirect to login page.
-			$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+		if(!$this->_check())
 			return;
-		}
 		
-		echo "redirect to url";
+		
+		
+		echo "redirect to url 3";
 		//make order
 		//make robokassa url
 		//redirect to url
@@ -44,6 +68,22 @@ class EbookControllerBill extends JControllerLegacy
 // 		}
 // 		//dump($model);
 // 		$view->display();
+	}
+	
+	private function _check()
+	{
+		$user = JFactory::getUser();
+		if ($user->get('guest') == 1)
+		{
+			$uri        = JFactory::getURI();
+			$return     = $uri->toString();
+			$url  = 'index.php?option=com_users&view=login';
+			$url .= '&return='.base64_encode($return);
+			// Redirect to login page.
+			$this->setRedirect(JRoute::_($url, false));
+			return false;
+		}
+		return true;
 	}
 	
 	
