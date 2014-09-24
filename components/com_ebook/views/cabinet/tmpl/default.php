@@ -12,10 +12,15 @@ defined('_JEXEC') or die;
 //dump($this, 'Variable Name');
 ?>
 
-	<ul class="btn-toolbar pull-right">
+<ul class="btn-toolbar pull-right">
 	<li class="btn-group">
-		<a class="btn" href="<?php echo JRoute::_('index.php?option=com_content&view=article&id=9&Itemid=147');?>">
+		<a class="btn" href="<?php echo JRoute::_('index.php?option=com_content&view=article&id=9&catid=8&Itemid=114');?>">
 			<span class="icon-question-sign"></span> <?php echo JText::_('COM_EBOOK_TITLE_ACTIVATE'); ?></a>
+	</li>
+	
+	<li class="btn-group">
+		<a class="btn" href="<?php echo JRoute::_('index.php?option=com_content&view=article&id=11&catid=8&Itemid=114');?>">
+			<span class="icon-question-sign"></span> <?php echo JText::_('COM_EBOOK_TITLE_BUY'); ?></a>
 	</li>
 </ul>
 

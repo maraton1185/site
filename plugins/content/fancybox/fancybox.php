@@ -58,26 +58,25 @@ class PlgContentFancybox extends JPlugin
 		$text = JString::str_ireplace('{fancybox=on}', '', $text);
 				
 		//find img with class=fancybox
-		$pattern = '(<img\s+class="[^>]*fancybox_group[^>]*>)';
+		$pattern = '(<img\s+class="[^>]*fancygroup[^>]*>)';
 		
-		while (preg_match($pattern, $text, $matches, PREG_OFFSET_CAPTURE))
+		while (preg_match($pattern, $text, $m, PREG_OFFSET_CAPTURE))
 		{
-			$reg = $matches[0][0];
-			$start = $matches[0][1];
+			$img = $m[0][0];
+			$i = $m[0][1];
 			
 			//replace fancybox to fancybox_
-			$replacement=str_replace('fancybox', 'fancybox_', $matches[0][0]);
-			preg_match( '([\s*\"]fancybox[\s*\"])', $reg, $matches1, PREG_OFFSET_CAPTURE);			
-// 			$replacement=substr_replace($reg, 'fancybox_', $matches1[0][1], strlen($matches1[0][0]));
+// 			$replacement=str_replace('fancybox', 'fancybox_', $matches[0][0]);
+			preg_match( '(fancygroup[0-9]*)', $img, $m1, PREG_OFFSET_CAPTURE);
+			$rel = str_replace('fancygroup', '', $m1[0][0]);			
+			$replacement=substr_replace($img, 'fancy', $m1[0][1], strlen($m1[0][0]));
 			
 			//href
-			preg_match( '(src="[^"]*)', $replacement, $matches2, PREG_OFFSET_CAPTURE);
-			$ref=str_replace('src="', '', $matches2[0][0]);
-			//group
-			preg_match( '(src="[^"]*)', $replacement, $matches2, PREG_OFFSET_CAPTURE);
-			$ref=str_replace('src="', '', $matches2[0][0]);
+			preg_match( '(src="[^"]*)', $img, $m2, PREG_OFFSET_CAPTURE);
+			$ref=str_replace('src="', '', $m2[0][0]);
+			
 									
-			$text = substr_replace($text, '<a class="lightbox" rel="group" href="'.$ref.'">'.$replacement.'</a>', $start, strlen($reg));
+			$text = substr_replace($text, '<a class="lightbox" rel="group'.$rel.'" href="'.$ref.'">'.$replacement.'</a>', $i, strlen($img));
 		} 
 
 		return true;
