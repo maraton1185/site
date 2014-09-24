@@ -48,4 +48,5 @@ class EBookController extends JControllerLegacy
 		
 		return $this;
 	}
+	
 } 

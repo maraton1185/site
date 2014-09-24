@@ -13,11 +13,6 @@ require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/sql.php';
 class EbookModelActivate extends JModelLegacy
 {
  
-//         public function getTable($type = 'HelloWorld', $prefix = 'HelloWorldTable', $config = array())
-//         {
-//                 return JTable::getInstance($type, $prefix, $config);
-//         }
-
         public function getAnswer()
         {
         	$app = JFactory::getApplication();
