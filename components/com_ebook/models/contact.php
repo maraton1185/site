@@ -58,28 +58,30 @@ class EbookModelContact extends JModelLegacy
         	$data['siteurl'] = JUri::root();
         	
         	
-        	$emailSubject = JText::sprintf(
-        			'COM_EBOOK_EMAIL_CONTACT_RECIEVED_DETAILS',
-        			$data['sitename']
+        	// Send Notification mail to user
         	
-        	);
-        	 
-        	$emailBody = JText::sprintf(
-        			'COM_EBOOK_EMAIL_CONTACT_RECIEVED_BODY',
-        			$input->get('msg_type'),
-        			$input->get('msg_text'),
-        			$data['name'],
-        			$data['mailfrom']
-        	);
+//         	$emailSubject = JText::sprintf(
+//         			'COM_EBOOK_EMAIL_CONTACT_RECIEVED_DETAILS',
+//         			$data['sitename']
         	
-        	$return = JFactory::getMailer()->sendMail($data['mailfrom'], $data['fromname'], $data['name'], $emailSubject, $emailBody);
+//         	);
         	 
-        	//Check for an error.
-        	if ($return !== true)
-        	{
-        		$input->error = "14";
-        		return $mcrypt->encrypt($mcrypt->getString($input));
-        	}
+//         	$emailBody = JText::sprintf(
+//         			'COM_EBOOK_EMAIL_CONTACT_RECIEVED_BODY',
+//         			$input->get('msg_type'),
+//         			$input->get('msg_text'),
+//         			$data['name'],
+//         			$data['mailfrom']
+//         	);
+        	
+//         	$return = JFactory::getMailer()->sendMail($data['mailfrom'], $data['fromname'], $data['name'], $emailSubject, $emailBody);
+        	 
+//         	//Check for an error.
+//         	if ($return !== true)
+//         	{
+//         		$input->error = "14";
+//         		return $mcrypt->encrypt($mcrypt->getString($input));
+//         	}
         	
         	// Send Notification mail to administrators
         	
