@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
  * View for the form to edit a route.
  * It uses Joomla infrastructure.
  */
-class EbookViewDevice extends JViewLegacy {
+class EbookViewOrder extends JViewLegacy {
 
     /**
      * Displays the view.
@@ -28,7 +28,7 @@ class EbookViewDevice extends JViewLegacy {
             return false;
         }
 
-        EbookHelper::addSubmenu('devices');
+        EbookHelper::addSubmenu('orders');
         
         $this->form = $form;
         $this->item = $item;
@@ -50,32 +50,32 @@ class EbookViewDevice extends JViewLegacy {
 
         $isNew = $this->item->id == 0;
         if ($isNew) {
-            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_DEVICE_NEW'));
+            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_ORDER_NEW'));
             
             if ($canDo->get('core.create')) {
-                JToolBarHelper::apply('device.apply');
-                JToolBarHelper::save('device.save');
-                JToolBarHelper::save2new('device.save2new');
+                JToolBarHelper::apply('order.apply');
+                JToolBarHelper::save('order.save');
+                JToolBarHelper::save2new('order.save2new');
             }
             
-            JToolBarHelper::cancel('device.cancel');
+            JToolBarHelper::cancel('order.cancel');
         } else {
-            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_DEVICE_EDIT'));
+            JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_ORDER_EDIT'));
             
             if ($canDo->get('core.edit')) {
-                JToolBarHelper::apply('device.apply');
-                JToolBarHelper::save('device.save');
+                JToolBarHelper::apply('order.apply');
+                JToolBarHelper::save('order.save');
 
                 if ($canDo->get('core.create')) {
-                    JToolBarHelper::save2new('device.save2new');
+                    JToolBarHelper::save2new('order.save2new');
                 }
             }
             
             if ($canDo->get('core.create')) {
-                JToolBarHelper::save2copy('device.save2copy');
+                JToolBarHelper::save2copy('order.save2copy');
             }
             
-            JToolBarHelper::cancel('device.cancel', 'JTOOLBAR_CLOSE');
+            JToolBarHelper::cancel('order.cancel', 'JTOOLBAR_CLOSE');
         }
     }
 

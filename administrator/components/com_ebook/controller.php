@@ -32,8 +32,7 @@ class EbookController extends JControllerLegacy
 	 * @since   1.5
 	 */
 	public function display($cachable = false, $urlparams = false)
-	{
-		require_once JPATH_COMPONENT.'/helpers/ebook.php';
+	{		
 
 		$view   = $this->input->get('view', 'devices');
 		$layout = $this->input->get('layout', 'default');

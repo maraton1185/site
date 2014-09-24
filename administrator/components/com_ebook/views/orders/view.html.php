@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
  * View for the manager of the routes.
  * It uses Joomla infrastructure.
  */
-class EbookViewDevices extends JViewLegacy {
+class EbookViewOrders extends JViewLegacy {
 
     /**
      * Displays the view.
@@ -28,7 +28,7 @@ class EbookViewDevices extends JViewLegacy {
             return false;
         }
         
-        EbookHelper::addSubmenu('devices');
+        EbookHelper::addSubmenu('orders');
         
         $this->items = $items;
         $this->pagination = $pagination;
@@ -50,18 +50,18 @@ class EbookViewDevices extends JViewLegacy {
     protected function addToolBar() {
         $canDo = EbookHelper::getActions();
         
-        JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_DEVICES'), 'routes');
+        JToolBarHelper::title(JText::_('COM_EBOOK_MANAGER_ORDERS'), 'routes');
         
         if ($canDo->get('core.create')) {
-            JToolBarHelper::addNew('device.add');
+            JToolBarHelper::addNew('order.add');
         }
         
         if ($canDo->get('core.edit')) {
-            JToolBarHelper::editList('device.edit');
+            JToolBarHelper::editList('order.edit');
         }
         
         if ($canDo->get('core.delete')) {
-            JToolBarHelper::deleteList('', 'devices.delete');
+            JToolBarHelper::deleteList('', 'orders.delete');
         }
         
         if ($canDo->get('core.admin')) {
@@ -87,9 +87,11 @@ class EbookViewDevices extends JViewLegacy {
         return array(
             'id' => JText::_('COM_EBOOK_HEADING_ID'),
             'name' => JText::_('COM_EBOOK_HEADING_USER'),
-            'UUID' => JText::_('COM_EBOOK_HEADING_UUID'),
         	'email' => JText::_('COM_EBOOK_HEADING_EMAIL'),
         	'date' => JText::_('COM_EBOOK_HEADING_DATE'),
+        	'state' => JText::_('COM_EBOOK_HEADING_STATE'),
+        	'devices' => JText::_('COM_EBOOK_HEADING_DEVICES'),
+        	'total' => JText::_('COM_EBOOK_HEADING_TOTAL'),
         );
     }
 }

@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
  * Model for the manager of the routes.
  * It uses Joomla infrastructure.
  */
-class EbookModelDevices extends JModelList {
+class EbookModelOrders extends JModelList {
 
     /**
      * Creates a new SimpleCustomRouterModelRoutes.
@@ -26,8 +26,10 @@ class EbookModelDevices extends JModelList {
                 'id',
                 'name',
             	'email',
-                'UUID',
-            	'date'
+                'date',
+            	'state',
+            	'devices',
+            	'total',
             );
         }
 
@@ -50,8 +52,8 @@ class EbookModelDevices extends JModelList {
         $query = $db->getQuery(true);
 
         $query
-        	->select(array('a.id', 'a.user_id', 'a.UUID', 'b.email', 'a.date', 'b.username as name'))
-        	->from($db->quoteName('#__ebook_devices') . ' AS a')
+        	->select(array('a.id', 'a.user_id', 'a.description', 'a.state','a.devices','a.total', 'b.email', 'a.date', 'b.username as name'))
+        	->from($db->quoteName('#__ebook_orders') . ' AS a')
         	->leftJoin($db->quoteName('#__users') . ' AS b ON a.user_id=b.id')        	
         ;
 

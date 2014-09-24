@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
  * Model for the form to edit a route.
  * It uses Joomla infrastructure, and fields are defined in forms/route.xml.
  */
-class EbookModelDevice extends JModelAdmin {
+class EbookModelOrder extends JModelAdmin {
 
     /**
      * Override for JModel::getTable with the proper name and prefix.
@@ -22,32 +22,15 @@ class EbookModelDevice extends JModelAdmin {
      * @param array $options Configuration array for model. Optional.
      * @return JTable A JTable object
      */
-    public function getTable($name = 'Device', $prefix = 'EbookTable', $options = array())  {
+    public function getTable($name = 'Order', $prefix = 'EbookTable', $options = array())  {
         return parent::getTable($name, $prefix, $options);
     }
 
     protected function prepareTable($table)
     {
 
-//     	$db    = $this->getDbo();
-    	 
-//     	$query = $db->getQuery(true);
-    	 
-//     	$query
-//     		->select($db->quoteName(array('a.email')))
-//     		->from($db->quoteName('#__users') . ' AS a')
-//     		->where('a.id='.$db->quote($db->escape($table->user_id)));
-    	
-//     	$db->setQuery($query);
-//     	$result = $db->loadObject();
-//     	if ($result)
-//     	{
-//     		$table->set('email', $result->email);
-//     	}
-    	
     	$date =& JFactory::getDate();
     	$table->set('date', $date->toSql());
-    	
     	
     }
     
@@ -63,7 +46,7 @@ class EbookModelDevice extends JModelAdmin {
      * @return mixed A JForm object on success, false on failure
      */
     public function getForm($data = array(), $loadData = true) {
-        $form = $this->loadForm('com_ebook.device', 'device', array('control' => 'jform', 'load_data' => $loadData));
+        $form = $this->loadForm('com_ebook.order', 'order', array('control' => 'jform', 'load_data' => $loadData));
         if (empty($form)) {
             return false;
         }
