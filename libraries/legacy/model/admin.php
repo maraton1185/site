@@ -1053,6 +1053,7 @@ abstract class JModelAdmin extends JModelForm
 	 */
 	public function save($data)
 	{
+
 		$dispatcher = JEventDispatcher::getInstance();
 		$table = $this->getTable();
 

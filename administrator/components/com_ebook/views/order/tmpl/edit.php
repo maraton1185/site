@@ -34,6 +34,9 @@ JHtml::_('behavior.formvalidation');
 <?php endif;?>
    
    <div class="clearfix"></div>
+    	<div>
+   			<input type="hidden" name="jform[state]" value="0">
+   		</div>
         <fieldset class="adminform">
             <legend><?php echo JText::_( 'COM_EBOOK_MANAGER_ORDER_DETAILS' ); ?></legend>
 <?php $hiddenFields = ''; ?>

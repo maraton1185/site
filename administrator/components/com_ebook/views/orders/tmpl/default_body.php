@@ -22,7 +22,7 @@ $canDo = EbookHelper::getActions();
         </td>
         <td>
             <?php if ($canEdit) : ?>
-            <a href="<?php echo JRoute::_('index.php?option=com_ebook&task=device.edit&id='.(int) $item->id); ?>" title="<?php echo JText::_('COM_EBOOK_EDIT_TITLE'); ?>">
+            <a href="<?php echo JRoute::_('index.php?option=com_ebook&task=order.edit&id='.(int) $item->id); ?>" title="<?php echo JText::_('COM_EBOOK_EDIT_TITLE'); ?>">
                 <?php echo $this->escape($item->name); ?>
             </a>
             <?php else : ?>
@@ -36,7 +36,12 @@ $canDo = EbookHelper::getActions();
             <?php echo $item->date; ?>
         </td>
         <td>
-            <?php echo $item->state; ?>
+        	<?php if ($item->state) : ?>
+            	yes
+            <?php else : ?>
+            	no
+            <?php endif; ?>
+            	
         </td>
         <td>
             <?php echo $item->devices; ?>

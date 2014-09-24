@@ -17,23 +17,21 @@
 	   		type="checkbox" 
 	   		label="paid" 
 	   		description="paid" 
-	   		value="1" 
 	   		default="0" />
 	   		
 	   	<field name="devices" 
-	   		type="integer" 
+	   		type="text" 
 	   		default="3" 
 	   		label="devices" 
 	   		description="" 
-	   		first="1" 
-	   		last="100" step="1" />
+	   		filter="integer" />
 	   		
 	   	<field name="total" 
 	   		type="text" 
 	   		default="0" 
 	   		label="total" 
-	   		description="order's total" 
-	   		filter="integer" />
+	   		description="order's total"/> 
+	   		
 	   	
        <field
 			name="description"

@@ -9,6 +9,17 @@
 
 defined('_JEXEC') or die;
 
+require_once JPATH_COMPONENT.'/helpers/ebook.php';
 
 class EbookControllerDevice extends JControllerForm{
+	
+	public function getError($i = null, $toString = true)
+	{
+		$canDo = EbookHelper::getActions();
+		if ($canDo->get('core.admin')) {
+			return parent::getError($i, $toString);
+		}
+		return 'error when saving';		
+	}
+	
 }

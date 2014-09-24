@@ -640,8 +640,9 @@ CREATE TABLE `jos_ebook_devices` (
   `UUID` varchar(300) NOT NULL,
   `date` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`id`),
+  UNIQUE KEY `UUID` (`UUID`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -650,7 +651,7 @@ CREATE TABLE `jos_ebook_devices` (
 
 LOCK TABLES `jos_ebook_devices` WRITE;
 /*!40000 ALTER TABLE `jos_ebook_devices` DISABLE KEYS */;
-INSERT INTO `jos_ebook_devices` VALUES (4,43,'123456','2014-09-23');
+INSERT INTO `jos_ebook_devices` VALUES (4,43,'123456','2014-09-24');
 /*!40000 ALTER TABLE `jos_ebook_devices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -671,7 +672,7 @@ CREATE TABLE `jos_ebook_orders` (
   `description` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -680,7 +681,8 @@ CREATE TABLE `jos_ebook_orders` (
 
 LOCK TABLES `jos_ebook_orders` WRITE;
 /*!40000 ALTER TABLE `jos_ebook_orders` DISABLE KEYS */;
-INSERT INTO `jos_ebook_orders` VALUES (1,43,'2014-09-24',0,3,0.00,'');
+INSERT INTO `jos_ebook_orders` VALUES (1,43,'2014-09-24',1,3,3000.00,'kj');
+INSERT INTO `jos_ebook_orders` VALUES (2,43,'2014-09-24',1,1,1000.00,'');
 /*!40000 ALTER TABLE `jos_ebook_orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2366,7 +2368,8 @@ CREATE TABLE `jos_session` (
 
 LOCK TABLES `jos_session` WRITE;
 /*!40000 ALTER TABLE `jos_session` DISABLE KEYS */;
-INSERT INTO `jos_session` VALUES ('4u4epelge502thpb1j5ik2v7t4',1,0,'1411518117','__default|a:8:{s:15:\"session.counter\";i:62;s:19:\"session.timer.start\";i:1411515493;s:18:\"session.timer.last\";i:1411518117;s:17:\"session.timer.now\";i:1411518117;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":3:{s:11:\"application\";O:8:\"stdClass\":1:{s:4:\"lang\";s:0:\"\";}s:9:\"com_ebook\";O:8:\"stdClass\":3:{s:7:\"default\";O:8:\"stdClass\":1:{s:8:\"activate\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}s:4:\"edit\";O:8:\"stdClass\":2:{s:6:\"device\";O:8:\"stdClass\":2:{s:2:\"id\";a:0:{}s:4:\"data\";N;}s:5:\"order\";O:8:\"stdClass\":2:{s:4:\"data\";N;s:2:\"id\";a:1:{i:0;i:1;}}}s:7:\"devices\";O:8:\"stdClass\":4:{s:6:\"filter\";O:8:\"stdClass\":1:{s:6:\"search\";s:5:\"marat\";}s:8:\"ordercol\";s:2:\"id\";s:9:\"orderdirn\";s:3:\"asc\";s:10:\"limitstart\";i:0;}}s:6:\"global\";O:8:\"stdClass\":1:{s:4:\"list\";O:8:\"stdClass\":1:{s:5:\"limit\";i:20;}}}}s:4:\"user\";O:5:\"JUser\":27:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"43\";s:4:\"name\";s:10:\"Админ\";s:8:\"username\";s:11:\"maraton1185\";s:5:\"email\";s:20:\"mail@codeanalyzer.ru\";s:8:\"password\";s:60:\"$2y$10$XkDgrFL8pp58T4veroddk.sYU/Y4vXb7LFUum3yeqYVMGxpfOZaCW\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"0\";s:12:\"registerDate\";s:19:\"2014-09-12 11:54:47\";s:13:\"lastvisitDate\";s:19:\"2014-09-23 23:38:16\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";}s:13:\"session.token\";s:32:\"4a3095cf09273e5466a3fb19a75826ff\";}',43,'maraton1185');
+INSERT INTO `jos_session` VALUES ('4u4epelge502thpb1j5ik2v7t4',1,0,'1411527761','__default|a:8:{s:15:\"session.counter\";i:279;s:19:\"session.timer.start\";i:1411515493;s:18:\"session.timer.last\";i:1411527756;s:17:\"session.timer.now\";i:1411527761;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":11:{s:11:\"application\";O:8:\"stdClass\":1:{s:4:\"lang\";s:0:\"\";}s:9:\"com_ebook\";O:8:\"stdClass\":5:{s:7:\"default\";O:8:\"stdClass\":1:{s:8:\"activate\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}s:4:\"edit\";O:8:\"stdClass\":2:{s:6:\"device\";O:8:\"stdClass\":2:{s:2:\"id\";a:1:{i:0;i:1;}s:4:\"data\";N;}s:5:\"order\";O:8:\"stdClass\":2:{s:4:\"data\";N;s:2:\"id\";a:0:{}}}s:7:\"devices\";O:8:\"stdClass\":4:{s:6:\"filter\";O:8:\"stdClass\":1:{s:6:\"search\";s:5:\"marat\";}s:8:\"ordercol\";s:2:\"id\";s:9:\"orderdirn\";s:3:\"asc\";s:10:\"limitstart\";i:0;}s:6:\"orders\";O:8:\"stdClass\":4:{s:6:\"filter\";O:8:\"stdClass\":1:{s:6:\"search\";s:0:\"\";}s:8:\"ordercol\";s:2:\"id\";s:9:\"orderdirn\";s:3:\"asc\";s:10:\"limitstart\";i:0;}s:5:\"users\";O:8:\"stdClass\":4:{s:6:\"filter\";O:8:\"stdClass\":1:{s:6:\"search\";s:0:\"\";}s:8:\"ordercol\";s:2:\"id\";s:9:\"orderdirn\";s:3:\"asc\";s:10:\"limitstart\";i:0;}}s:6:\"global\";O:8:\"stdClass\":1:{s:4:\"list\";O:8:\"stdClass\":1:{s:5:\"limit\";i:20;}}s:4:\"dump\";O:8:\"stdClass\":1:{s:5:\"nodes\";a:0:{}}s:12:\"com_messages\";O:8:\"stdClass\":1:{s:4:\"edit\";O:8:\"stdClass\":1:{s:7:\"message\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}s:11:\"com_contact\";O:8:\"stdClass\":1:{s:4:\"edit\";O:8:\"stdClass\":1:{s:7:\"contact\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}s:11:\"com_banners\";O:8:\"stdClass\":1:{s:4:\"edit\";O:8:\"stdClass\":1:{s:6:\"banner\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}s:13:\"com_newsfeeds\";O:8:\"stdClass\":1:{s:4:\"edit\";O:8:\"stdClass\":1:{s:8:\"newsfeed\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}s:8:\"com_tags\";O:8:\"stdClass\":1:{s:4:\"edit\";O:8:\"stdClass\":1:{s:3:\"tag\";O:8:\"stdClass\":2:{s:2:\"id\";a:0:{}s:4:\"data\";N;}}}s:12:\"com_weblinks\";O:8:\"stdClass\":1:{s:4:\"edit\";O:8:\"stdClass\":1:{s:7:\"weblink\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}s:10:\"com_config\";O:8:\"stdClass\":1:{s:6:\"config\";O:8:\"stdClass\":1:{s:6:\"global\";O:8:\"stdClass\":1:{s:4:\"data\";N;}}}}}s:4:\"user\";O:5:\"JUser\":27:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"43\";s:4:\"name\";s:10:\"Админ\";s:8:\"username\";s:11:\"maraton1185\";s:5:\"email\";s:20:\"mail@codeanalyzer.ru\";s:8:\"password\";s:60:\"$2y$10$XkDgrFL8pp58T4veroddk.sYU/Y4vXb7LFUum3yeqYVMGxpfOZaCW\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"0\";s:12:\"registerDate\";s:19:\"2014-09-12 11:54:47\";s:13:\"lastvisitDate\";s:19:\"2014-09-23 23:38:16\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";}s:13:\"session.token\";s:32:\"4a3095cf09273e5466a3fb19a75826ff\";}__wf|a:1:{s:13:\"session.token\";s:32:\"9917f02fdfd169704b099d5d1cd49657\";}',43,'maraton1185');
+INSERT INTO `jos_session` VALUES ('hni4bijd2m9gg4nbm5lsj57c47',0,0,'1411527692','__default|a:7:{s:15:\"session.counter\";i:1;s:19:\"session.timer.start\";i:1411527691;s:18:\"session.timer.last\";i:1411527691;s:17:\"session.timer.now\";i:1411527691;s:22:\"session.client.browser\";s:109:\"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36\";s:8:\"registry\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":0:{}}s:4:\"user\";O:5:\"JUser\":28:{s:9:\"\\0\\0\\0isRoot\";b:1;s:2:\"id\";s:2:\"43\";s:4:\"name\";s:10:\"Админ\";s:8:\"username\";s:11:\"maraton1185\";s:5:\"email\";s:20:\"mail@codeanalyzer.ru\";s:8:\"password\";s:60:\"$2y$10$XkDgrFL8pp58T4veroddk.sYU/Y4vXb7LFUum3yeqYVMGxpfOZaCW\";s:14:\"password_clear\";s:0:\"\";s:5:\"block\";s:1:\"0\";s:9:\"sendEmail\";s:1:\"0\";s:12:\"registerDate\";s:19:\"2014-09-12 11:54:47\";s:13:\"lastvisitDate\";s:19:\"2014-09-24 01:44:23\";s:10:\"activation\";s:0:\"\";s:6:\"params\";s:92:\"{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}\";s:6:\"groups\";a:1:{i:8;s:1:\"8\";}s:5:\"guest\";i:0;s:13:\"lastResetTime\";s:19:\"0000-00-00 00:00:00\";s:10:\"resetCount\";s:1:\"0\";s:12:\"requireReset\";s:1:\"0\";s:10:\"\\0\\0\\0_params\";O:24:\"Joomla\\Registry\\Registry\":1:{s:7:\"\\0\\0\\0data\";O:8:\"stdClass\":6:{s:11:\"admin_style\";s:0:\"\";s:14:\"admin_language\";s:0:\"\";s:8:\"language\";s:0:\"\";s:6:\"editor\";s:0:\"\";s:8:\"helpsite\";s:0:\"\";s:8:\"timezone\";s:0:\"\";}}s:14:\"\\0\\0\\0_authGroups\";a:2:{i:0;i:1;i:1;i:8;}s:14:\"\\0\\0\\0_authLevels\";a:5:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:6;}s:15:\"\\0\\0\\0_authActions\";N;s:12:\"\\0\\0\\0_errorMsg\";N;s:10:\"\\0\\0\\0_errors\";a:0:{}s:3:\"aid\";i:0;s:6:\"otpKey\";s:0:\"\";s:4:\"otep\";s:0:\"\";s:11:\"cookieLogin\";b:1;}}',43,'maraton1185');
 /*!40000 ALTER TABLE `jos_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2784,7 +2787,7 @@ CREATE TABLE `jos_user_keys` (
 
 LOCK TABLES `jos_user_keys` WRITE;
 /*!40000 ALTER TABLE `jos_user_keys` DISABLE KEYS */;
-INSERT INTO `jos_user_keys` VALUES (1,'maraton1185','$2y$10$aBugcbwdMve1jorvLCw2Huo9xr.yyL8I42fOjVkgsu5yi6KbNvuvW','Xnb0W7xRXPqnP4aWap07',0,'1416370132','530aaf3ef1b7052259686483e37aaf7a');
+INSERT INTO `jos_user_keys` VALUES (1,'maraton1185','$2y$10$T0xQcMjBRcQMI.bVuGsUXOeta4Nh5f7rNMjUcwpbNDy.zUCtgKLI.','Xnb0W7xRXPqnP4aWap07',0,'1416370132','530aaf3ef1b7052259686483e37aaf7a');
 /*!40000 ALTER TABLE `jos_user_keys` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2955,7 +2958,7 @@ CREATE TABLE `jos_users` (
 
 LOCK TABLES `jos_users` WRITE;
 /*!40000 ALTER TABLE `jos_users` DISABLE KEYS */;
-INSERT INTO `jos_users` VALUES (43,'Админ','maraton1185','mail@codeanalyzer.ru','$2y$10$XkDgrFL8pp58T4veroddk.sYU/Y4vXb7LFUum3yeqYVMGxpfOZaCW',0,0,'2014-09-12 11:54:47','2014-09-23 23:39:28','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
+INSERT INTO `jos_users` VALUES (43,'Админ','maraton1185','mail@codeanalyzer.ru','$2y$10$XkDgrFL8pp58T4veroddk.sYU/Y4vXb7LFUum3yeqYVMGxpfOZaCW',0,0,'2014-09-12 11:54:47','2014-09-24 03:01:31','','{\"admin_style\":\"\",\"admin_language\":\"\",\"language\":\"\",\"editor\":\"\",\"helpsite\":\"\",\"timezone\":\"\"}','0000-00-00 00:00:00',0,'','',0);
 /*!40000 ALTER TABLE `jos_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3096,4 +3099,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-24  0:52:35
+-- Dump completed on 2014-09-24  3:03:45
