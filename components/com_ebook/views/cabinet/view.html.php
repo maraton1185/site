@@ -33,6 +33,8 @@ class EbookViewCabinet extends JViewLegacy
 		$this->devices = $this->get ( 'Devices' );
 		$this->orders = $this->get ( 'Orders' );
 		$this->info = $this->get ( 'Info' );
+		$this->msg = $this->get ( 'Msg' );
+				
 		
 		// Check for errors.
 		if (count ( $errors = $this->get ( 'Errors' ) )) {

@@ -37,15 +37,14 @@ class EbookModelBill extends JModelLegacy {
 		// (for better security)
 		
 		// OK, payment proceeds
-// 		echo "Thank you for using our service\n";
-		
-		$url  = 'index.php?option=com_ebook&view=cabinet&layout=bill_success';
+// 		echo "Thank you for using our service\n";		
+		$url  = 'index.php?option=com_ebook&view=cabinet';
 		return $url; 
 	}
 	
 	public function failUrl() {
 	
-		$url  = 'index.php?option=com_ebook&view=cabinet&layout=bill_fail';		
+		$url  = 'index.php?option=com_ebook&view=cabinet';		
 		return $url; 
 	}
 	

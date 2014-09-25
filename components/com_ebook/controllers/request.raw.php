@@ -25,6 +25,7 @@ class EbookControllerRequest extends JControllerLegacy
 		$url = $model->successUrl();
 	
 		if($url){
+			$this->setMessage('success');
 			$this->setRedirect(JRoute::_($url, false));
 		}
 		
@@ -40,6 +41,7 @@ class EbookControllerRequest extends JControllerLegacy
 		$url = $model->failUrl();
 	
 		if($url){
+			$this->setMessage('fail');
 			$this->setRedirect(JRoute::_($url, false));
 		}
 	

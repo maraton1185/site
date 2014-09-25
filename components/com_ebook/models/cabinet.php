@@ -10,7 +10,9 @@ require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/sql.php';
 class EbookModelCabinet extends JModelLegacy {
 
 	public function getMsg() {
-		return "hello)";
+		$app = JFactory::getApplication();
+		$msg = $app->input->getInt('msg',-1);		 
+		return $msg;
 	}
 	
 	public function getDevices() {
