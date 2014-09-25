@@ -18,29 +18,41 @@ defined('_JEXEC') or die;
  */
 class EbookControllerBill extends JControllerLegacy
 {
+			
 	
-	
-	public function order10()
+	public function order1()
 	{
 	
 		if(!$this->_check())
-			return;
-		
-		$model = $this->getModel('bill');
-		$this->setRedirect(JRoute::_($model->getUrl(10), false));
-		
-		return $this;
+			return false;
+					
+		return $this->_redirect('order1count');
+	
+	}
+	
+	public function order2()
+	{
+	
+		if(!$this->_check())
+			return false;
+				
+		return $this->_redirect('order2count');
 				
 	}
 	
-	public function order3()
-	{		
+	
+	
+	private function _redirect($type)
+	{
 		
-		if(!$this->_check())
-			return;
+		$app = JFactory::getApplication();
+		$componentParams = $app->getParams('com_ebook');
+		$count = $componentParams->get($type);
 		
 		$model = $this->getModel('bill');
-		$this->setRedirect(JRoute::_($model->getUrl(3), false));
+		$url = $model->getUrl($count);
+		
+		$this->setRedirect(JRoute::_($url, false));
 		
 		return $this;
 	}

@@ -36,7 +36,7 @@ $canDo = EbookHelper::getActions();
             <?php echo $item->UUID; ?>
         </td>
          <td>
-            <?php echo JHtml::_('date',$item->date); ?>
+            <?php echo JHtml::_('date',$item->date, JText::_('DATE_FORMAT_LC4')); ?>
         </td>
 
     </tr>

@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  Content.emailcloak
  * @since       1.5
  */
-class PlgContentCarusel extends JPlugin
+class PlgContentEbook_Carusel extends JPlugin
 {
 	/**
 	 * Plugin that cloaks all emails in content from spambots via Javascript.
@@ -38,25 +38,25 @@ class PlgContentCarusel extends JPlugin
 
 		if (is_object($row))
 		{
-			return $this->_carusel($row->text, $params);
+			return $this->_do($row->text, $params);
 		}
 
-		return $this->_carusel($row, $params);
+		return $this->_do($row, $params);
 	}
 
-	protected function _carusel(&$text, &$params)
+	protected function _do(&$text, &$params)
 	{
 		
 		/*
 		 * Check for presence of {fancybox=on} which is explicits enable this
 		* bot for the item.
 		*/
-		if (JString::strpos($text, '{carusel=on}') === false)
+		if (JString::strpos($text, '{ebook_carusel=on}') === false)
 		{			
 			return true;
 		}
 	
-		$text = JString::str_ireplace('{carusel=on}', '', $text);
+		$text = JString::str_ireplace('{ebook_carusel=on}', '', $text);
 		
 		$this->loadScript('example_anim.js');
 		$this->loadScript('carusel.js');
@@ -109,7 +109,7 @@ class PlgContentCarusel extends JPlugin
 	private function loadTemplate($file = null, $variables = true)
 	{
 		// Base file
-		$templateFile = JPATH_SITE.'/plugins/content/carusel/tmpl/'.$file;
+		$templateFile = JPATH_SITE.'/plugins/content/'.$this->_name.'/tmpl/'.$file;
 	
 		// Check for overrides
 		$template = JFactory::getApplication()->getTemplate();
@@ -168,7 +168,7 @@ class PlgContentCarusel extends JPlugin
 				return;
 			}
 	
-			$folder = 'media/plg_carusel/js/';
+			$folder = 'media/plg_'.$this->_name.'/js/';
 	
 			// Check for overrides
 			$template = JFactory::getApplication()->getTemplate();
@@ -185,7 +185,7 @@ class PlgContentCarusel extends JPlugin
 		$condition = (bool)$condition;
 		if($condition == true) {
 	
-			$folder = 'media/plg_carusel/css/';
+			$folder = 'media/plg_'.$this->_name.'/css/';
 	
 			// Check for overrides
 			$template = JFactory::getApplication()->getTemplate();

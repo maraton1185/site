@@ -38,8 +38,13 @@ class EBookController extends JControllerLegacy
 			$user = JFactory::getUser();
 			if ($user->get('guest') == 1)
 			{
-				// Redirect to login page.
-				$this->setRedirect(JRoute::_('index.php?option=com_users&view=login', false));
+				// Redirect to login page
+				$uri        = JFactory::getURI();
+				$return     = $uri->toString();
+				$url  = 'index.php?option=com_users&view=login';
+				$url .= '&return='.base64_encode($return);
+			
+				$this->setRedirect(JRoute::_($url, false));
 				return;
 			}
 		}

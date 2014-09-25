@@ -18,6 +18,47 @@ defined('_JEXEC') or die;
  */
 class EbookControllerRequest extends JControllerLegacy
 {
+	public function successUrl()
+	{
+	
+		$model = $this->getModel('bill');
+		$url = $model->successUrl();
+	
+		if($url){
+			$this->setRedirect(JRoute::_($url, false));
+		}
+		
+	
+		return $this;
+	
+	}
+	
+	public function failUrl()
+	{
+	
+		$model = $this->getModel('bill');
+		$url = $model->failUrl();
+	
+		if($url){
+			$this->setRedirect(JRoute::_($url, false));
+		}
+	
+		return $this;
+	
+	}
+	
+	public function resultUrl()
+	{
+	
+		$model = $this->getModel('bill');
+		$model->resultUrl();
+	
+// 		$this->setRedirect(JRoute::_($url, false));
+	
+		return $this;
+	
+	}
+	
 	public function activate()
 	{		
 		$view = $this->getView('request', 'raw');

@@ -16,7 +16,7 @@ defined('_JEXEC') or die( 'Restricted access' );
 jQuery.noConflict();
 jQuery(document).ready(function() {
 
-	set_animation("/media/plg_carusel/example_packed.png", example_timeline, 'anim_target', 'anim_fallback');
+	set_animation("/media/plg_<?php echo $this->_name?>/example_packed.png", example_timeline, 'anim_target', 'anim_fallback');
 
 	jQuery('.carousel').carousel({
 	  interval: 5000

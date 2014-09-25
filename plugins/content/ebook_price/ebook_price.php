@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  Content.emailcloak
  * @since       1.5
  */
-class PlgContentFancybox extends JPlugin
+class PlgContentEbook_Price extends JPlugin
 {
 	/**
 	 * Plugin that cloaks all emails in content from spambots via Javascript.
@@ -38,46 +38,39 @@ class PlgContentFancybox extends JPlugin
 
 		if (is_object($row))
 		{
-			return $this->_fancy($row->text, $params);
+			return $this->_do($row->text, $params);
 		}
 
-		return $this->_fancy($row, $params);
+		return $this->_do($row, $params);
 	}
 
-	protected function _fancy(&$text, &$params)
+	protected function _do(&$text, &$params)
 	{
 		/*
 		 * Check for presence of {fancybox=on} which is explicits enable this
 		* bot for the item.
 		*/
-		if (JString::strpos($text, '{fancybox=on}') === false)
+		if (JString::strpos($text, '{ebook_price=on}') === false)
 		{			
 			return true;
 		}
 	
-		$text = JString::str_ireplace('{fancybox=on}', '', $text);
+		$text = JString::str_ireplace('{ebook_price=on}', '', $text);
 				
-		//find img with class=fancybox
-		$pattern = '(<img\s+class="[^>]*fancygroup[^>]*>)';
 		
-		while (preg_match($pattern, $text, $m, PREG_OFFSET_CAPTURE))
-		{
-			$img = $m[0][0];
-			$i = $m[0][1];
-			
-			//replace fancybox to fancybox_
-// 			$replacement=str_replace('fancybox', 'fancybox_', $matches[0][0]);
-			preg_match( '(fancygroup[0-9]*)', $img, $m1, PREG_OFFSET_CAPTURE);
-			$rel = str_replace('fancygroup', '', $m1[0][0]);			
-			$replacement=substr_replace($img, 'fancy', $m1[0][1], strlen($m1[0][0]));
-			
-			//href
-			preg_match( '(src="[^"]*)', $img, $m2, PREG_OFFSET_CAPTURE);
-			$ref=str_replace('src="', '', $m2[0][0]);
-			
-			
-			$text = substr_replace($text, '<a class="lightbox thumbnail" rel="group'.$rel.'" href="'.$ref.'">'.$replacement.'</a>', $i, strlen($img));
-		} 
+		$app = JFactory::getApplication();
+		$componentParams = $app->getParams('com_ebook');
+		
+		$count1 = $componentParams->get('order1count');
+		$total1 = $componentParams->get('order1total');
+		$count2 = $componentParams->get('order2count');
+		$total2 = $componentParams->get('order2total');
+
+		$text = JString::str_ireplace('{order1count}', $count1, $text);
+		$text = JString::str_ireplace('{order1total}', $total1, $text);
+		$text = JString::str_ireplace('{order2count}', $count2, $text);
+		$text = JString::str_ireplace('{order2total}', $total2, $text);
+				 
 
 		return true;
 	

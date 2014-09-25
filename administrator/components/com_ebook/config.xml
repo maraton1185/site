@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+	<fieldset name="component">
+		
+		<field name="order1count" 
+	   		type="text" 
+	   		default="3" 
+	   		label="order type 1: devices" 
+	   		description="" 
+	   		filter="integer" />
+		
+		<field name="order1total" 
+	   		type="text" 
+	   		default="3000" 
+	   		label="order type 1: total" 
+	   		description="" 
+	   		filter="integer" />
+	   		
+		<field name="order2count" 
+	   		type="text" 
+	   		default="10" 
+	   		label="order type 2: devices" 
+	   		description="" 
+	   		filter="integer" />
+		
+		<field name="order2total" 
+	   		type="text" 
+	   		default="6000" 
+	   		label="order type 2: total" 
+	   		description="" 
+	   		filter="integer" />
+	   		
+		
+	</fieldset>
+	
+	<fieldset
+		name="payment"
+		label="Payment settings" >
+		
+		<field name="pay_url" 
+	   		type="textarea" 
+	   		default="https://auth.robokassa.ru/Merchant/Index.aspx" 
+	   		label="pay url" 
+	   		col="3"
+	   		description=""/>
+	   	<field name="pay_login" 
+	   		type="text" 
+	   		default="codeanalyzer" 
+	   		label="login" 
+	   		description=""/>
+	   	<field name="pay_pass1" 
+	   		type="text" 
+	   		default="TnhTI5Az983Akms" 
+	   		label="pay pass 1" 
+	   		description=""/>
+		<field name="pay_pass2" 
+	   		type="text" 
+	   		default="jfFwDDDAnn159sq" 
+	   		label="pay pass 2"
+	   		description=""/>			   		
+		
+	</fieldset>
+	
 	<fieldset
 		name="permissions"
 		label="JCONFIG_PERMISSIONS_LABEL"

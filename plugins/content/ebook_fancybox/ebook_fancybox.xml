@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="content">
+	<name>PLG_CONTENT_EBOOK_FANCYBOX</name>
+	<author>marat</author>
+	<creationDate>oktober 2014</creationDate>
+	<copyright>Copyright (C).</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>mail@codeanalyzer.ru</authorEmail>
+	<authorUrl>codeanalyzer.ru</authorUrl>
+	<version>3.0.0</version>
+	<description>PLG_CONTENT_EBOOK_FANCYBOX_DESCRIPTION</description>
+	
+	<languages>	
+		<language tag="en-GB">en-GB.plg_content_ebook_fancybox.sys.ini</language>
+	</languages>
+
+</extension>
