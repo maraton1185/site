@@ -6,6 +6,8 @@
 
 defined('_JEXEC') or die;
 
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/sql.php';
+
 /**
  * Model for the manager of the routes.
  * It uses Joomla infrastructure.
@@ -51,21 +53,8 @@ class EbookModelUsers extends JModelList {
         $db = JFactory::getDBO();
         $query = $db->getQuery(true);
         
-        $sql = "SELECT a.id, a.email, a.username as name,
-	
-    				IF(b.devices IS NULL,0,b.devices) as _all, 
-    				IF(b.total IS NULL,0,b.total) as total, 
-    				IF(c.devices IS NULL,0,c.devices) as activated, 
-    				IF(b.devices-c.devices IS NULL,0,b.devices-c.devices) as free 
-        
-        		FROM `#__users` as a 
-        		left join 
-        			(select user_id, sum(devices) as devices, sum(total)as total from `#__ebook_orders` where state=1) as b 
-        			on a.id=b.user_id
-        		left join 
-        			(select user_id, count(UUID) as devices from `#__ebook_devices`) as c 
-        			on a.id=c.user_id
-        		";
+        $sql = 'SELECT a.id, a.email, a.username as name,'.SqlHelper::getQuery()
+        ;
 //         	->select(array('a.id', 'a.user_id', 'a.description', 'a.state','a.devices','a.total', 'b.email', 'a.date', 'b.username as name'))
 //         	->from($db->quoteName('#__users') . ' AS a')
 //         	->leftJoin($db->quoteName('#__ebook_orders') . ' AS b ON b.user_id=a.id')

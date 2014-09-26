@@ -5,6 +5,8 @@ defined ( '_JEXEC' ) or die ( 'Restricted access' );
 // import Joomla modelitem library
 jimport ( 'joomla.application.component.modelitem' );
 
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/sql.php';
+
 class EbookModelCabinet extends JModelLegacy {
 
 	public function getMsg() {
@@ -53,19 +55,7 @@ class EbookModelCabinet extends JModelLegacy {
 		$db = JFactory::getDBO();
         $query = $db->getQuery(true);
         
-        $sql = 'SELECT 	
-    				IF(b.devices IS NULL,0,b.devices) as _all, 
-    				IF(b.total IS NULL,0,b.total) as total, 
-    				IF(c.devices IS NULL,0,c.devices) as activated, 
-    				IF(b.devices-c.devices IS NULL,0,b.devices-c.devices) as free 
-        
-        		FROM `#__users` as a 
-        		left join 
-        			(select user_id, sum(devices) as devices, sum(total)as total from `#__ebook_orders` where state=1) as b 
-        			on a.id=b.user_id
-        		left join 
-        			(select user_id, count(UUID) as devices from `#__ebook_devices`) as c 
-        			on a.id=c.user_id
+        $sql = 'SELECT 	'.SqlHelper::getQuery().'     				
         		where a.id='.$db->quote((int) $user->id)
         	;
 
