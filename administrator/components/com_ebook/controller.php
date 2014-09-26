@@ -48,6 +48,16 @@ class EbookController extends JControllerLegacy
 
 			return false;
 		}
+		// Check for edit form.
+		if ($view == 'order' && $layout == 'edit' && !$this->checkEditId('com_ebook.edit.order', $id))
+		{
+			// Somehow the person just went to the form - we don't allow that.
+			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+			$this->setMessage($this->getError(), 'error');
+			$this->setRedirect(JRoute::_('index.php?option=com_ebook&view=orders', false));
+		
+			return false;
+		}
 
 		parent::display();
 		
