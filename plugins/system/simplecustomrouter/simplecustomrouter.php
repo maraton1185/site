@@ -261,6 +261,7 @@ class SimpleCustomRouter {
             return $vars;
         }
         
+        
         if (!JString::strcmp($matchingRoute['route']->format, 'raw')) {
         	JFactory::$document = JDocument::getInstance('raw');
         }

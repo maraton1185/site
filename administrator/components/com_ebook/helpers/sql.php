@@ -23,7 +23,7 @@ class SqlHelper
 		'		IF(b.devices IS NULL,0,b.devices) as _all, 
     			IF(b.total IS NULL,0,b.total) as total, 
     			IF(c.devices IS NULL,0,c.devices) as activated, 
-    			IF(b.devices-c.devices IS NULL,0,b.devices-c.devices) as free 
+    			IF(b.devices-c.devices IS NULL,b.devices,b.devices-c.devices) as free 
         
         		FROM `#__users` as a 
         		left join 

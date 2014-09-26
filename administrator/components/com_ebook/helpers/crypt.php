@@ -24,7 +24,7 @@ class CryptHelper {
 		mcrypt_generic_deinit ( $td );
 		mcrypt_module_close ( $td );
 		
-		return rtrim(base64_encode( $encrypted ), "\0");
+		return '!'.rtrim(base64_encode( $encrypted ), "\0");
 	}
 	function decrypt($code) {
 		// $key = $this->hex2bin($key);

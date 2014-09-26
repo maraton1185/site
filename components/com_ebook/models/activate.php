@@ -36,7 +36,7 @@ class EbookModelActivate extends JModelLegacy
         	$decripted = $mcrypt->decrypt($msg);
         	
         	if(!$decripted){
-        		return "00";
+        		return "!00";
         	}
         	
         	$data = $mcrypt->getData($decripted);
@@ -49,18 +49,21 @@ class EbookModelActivate extends JModelLegacy
         		$data->error = "01";
         		return $mcrypt->encrypt($mcrypt->getString($data));
         	}
-        	
+        	      	
         	if($this->_checkUUID($data))
         	{
-        		$data->activated = "true";        		 
+        		$data->activated = "true";  
+        		$this->_getInfo($data);        		      		 
         		return $mcrypt->encrypt($mcrypt->getString($data));        		        		
         	}
+        	    	
         	
         	if(!$this->_checkFree($data))
         	{
         		$data->error = "02";
         		return $mcrypt->encrypt($mcrypt->getString($data));
-        	}
+        	}        	
+        	
         	
         	if(!$this->_insertUUID($data))
         	{
@@ -69,6 +72,7 @@ class EbookModelActivate extends JModelLegacy
         	}
         	
         	$data->activated = "true";       	
+        	$this->_getInfo($data);
         	
         	return $mcrypt->encrypt($mcrypt->getString($data));
         	
@@ -99,16 +103,15 @@ class EbookModelActivate extends JModelLegacy
         	 
         	$query = $db->getQuery(true);
         	 
-        	require_once '';
-        	
         	$sql = 'SELECT a.id,'.SqlHelper::getQuery().'         			
         		where a.id='.$db->quote($db->escape($data->user_id)).
-        		' AND IF(b.devices-c.devices IS NULL,0,b.devices-c.devices)>0'
+        		' AND IF(b.devices-c.devices IS NULL,b.devices,b.devices-c.devices)>0'
         	;
         	
         	$query->setQuery($sql);
         	
         	$db->setQuery($query);
+        	
         	$result = $db->loadObject();
         
         	if ($result)
@@ -138,39 +141,30 @@ class EbookModelActivate extends JModelLegacy
         	$db->setQuery($query);
         	$result = $db->loadObject();
 
-			if ($result)
-        	{
-        		
-        		$sql = 'SELECT a.id,
-        			IF(b.devices IS NULL,0,b.devices) as _all,
-    				IF(c.devices IS NULL,0,c.devices) as activated,
-    				IF(b.devices-c.devices IS NULL,0,b.devices-c.devices) as free
-     
-        		FROM `#__users` as a
-        		left join
-        			(select user_id, sum(devices) as devices, sum(total)as total from `#__ebook_orders` where state=1 group by user_id) as b
-        			on a.id=b.user_id
-        		left join
-        			(select user_id, count(UUID) as devices from `#__ebook_devices` group by user_id) as c
-        			on a.id=c.user_id
-        		where a.id='.$db->quote($db->escape($data->user_id))
-        		;
-        		        				 
-        		$query->setQuery($sql);
-        		        				 
-        		$db->setQuery($query);
-        		$result = $db->loadObject();
-        		if ($result)
-        		{
-        			$data->dev_all = $result->_all;
-        			$data->dev_activated = $result->activated;
-        			$data->dev_free = $result->free;
-        		}
-        		
-        		return true;
-        	}
-        	return false;
+			return $result;
 			
+        }
+        
+        private function _getInfo($data)
+        {
+        	$db    = $this->getDbo();
+        	 
+        	$query = $db->getQuery(true);
+        	
+        	$sql = 'SELECT a.id,'.SqlHelper::getQuery().'
+        			where a.id='.$db->quote($db->escape($data->user_id))
+        	        			;
+        	 
+        	$query->setQuery($sql);
+        	 
+        	$db->setQuery($query);
+        	$result = $db->loadObject();
+        	if ($result)
+        	{
+        		$data->dev_all = $result->_all;
+        		$data->dev_activated = $result->activated;
+        		$data->dev_free = $result->free;
+        	}
         }
         
         private function _checkUser($data)
