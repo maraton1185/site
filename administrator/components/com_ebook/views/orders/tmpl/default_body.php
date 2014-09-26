@@ -33,7 +33,7 @@ $canDo = EbookHelper::getActions();
             <?php echo $item->email; ?>
         </td>
          <td>
-            <?php echo $item->date; ?>
+            <?php echo JHtml::_('date',$item->date); ?>
         </td>
         <td>
         	<?php if ($item->state) : ?>

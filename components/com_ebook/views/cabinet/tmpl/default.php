@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
 
 	<ul class="btn-toolbar pull-right">
 	<li class="btn-group">
-		<a class="btn" href="<?php echo JRoute::_('index.php?option=com_users&task=profile.edit&user_id='.(int) $this->data->id);?>">
+		<a class="btn" href="<?php echo JRoute::_('index.php?option=com_content&view=article&id=9&Itemid=147');?>">
 			<span class="icon-question-sign"></span> <?php echo JText::_('COM_EBOOK_TITLE_ACTIVATE'); ?></a>
 	</li>
 </ul>
