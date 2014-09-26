@@ -75,8 +75,8 @@ class PlgContentFancybox extends JPlugin
 			preg_match( '(src="[^"]*)', $img, $m2, PREG_OFFSET_CAPTURE);
 			$ref=str_replace('src="', '', $m2[0][0]);
 			
-									
-			$text = substr_replace($text, '<a class="lightbox" rel="group'.$rel.'" href="'.$ref.'">'.$replacement.'</a>', $i, strlen($img));
+			
+			$text = substr_replace($text, '<a class="lightbox thumbnail" rel="group'.$rel.'" href="'.$ref.'">'.$replacement.'</a>', $i, strlen($img));
 		} 
 
 		return true;

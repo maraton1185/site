@@ -15,6 +15,7 @@ fetch      - fetch from git with db
 reset      - clean, reset, load
 db save    - save db
 db load    - load db
+restart	   - restart apache
 
 EOF
 }
@@ -42,7 +43,8 @@ elif [ "x$1" = "xdb" ]; then
 	else
 	help
 	fi
-	 
+elif [ "x$1" = "xrestart" ]; then	 
+	/opt/bitnami/ctlscript.sh restart apache
 else
 help
 fi
