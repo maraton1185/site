@@ -25,24 +25,12 @@ class EbookControllerBill extends JControllerLegacy
 	
 		if(!$this->_check())
 			return;
-	
-	
-	
-		echo "redirect to url 10";
-		//make order
-		//make robokassa url
-		//redirect to url
-	
+		
+		$model = $this->getModel('bill');
+		$this->setRedirect(JRoute::_($model->getUrl(10), false));
+		
 		return $this;
-		// 		$viewName = 'activate';
-		// 		$view = $this->getView($viewName, 'raw');
-		// 		if ($model = $this->getModel($viewName))
-			// 		{
-			// 			// Push the model into the view (as default)
-			// 			$view->setModel($model, true);
-			// 		}
-		// 		//dump($model);
-		// 		$view->display();
+				
 	}
 	
 	public function order3()
@@ -51,23 +39,10 @@ class EbookControllerBill extends JControllerLegacy
 		if(!$this->_check())
 			return;
 		
-		
-		
-		echo "redirect to url 3";
-		//make order
-		//make robokassa url
-		//redirect to url
+		$model = $this->getModel('bill');
+		$this->setRedirect(JRoute::_($model->getUrl(3), false));
 		
 		return $this;
-// 		$viewName = 'activate';
-// 		$view = $this->getView($viewName, 'raw');
-// 		if ($model = $this->getModel($viewName))
-// 		{
-// 			// Push the model into the view (as default)
-// 			$view->setModel($model, true);
-// 		}
-// 		//dump($model);
-// 		$view->display();
 	}
 	
 	private function _check()
@@ -79,6 +54,7 @@ class EbookControllerBill extends JControllerLegacy
 			$return     = $uri->toString();
 			$url  = 'index.php?option=com_users&view=login';
 			$url .= '&return='.base64_encode($return);
+			$url .= '&Itemid=114';
 			// Redirect to login page.
 			$this->setRedirect(JRoute::_($url, false));
 			return false;

@@ -9,8 +9,8 @@ jimport ( 'joomla.application.component.modelitem' );
 
 class EbookModelBill extends JModelLegacy {
 
-	public function getMsg() {
-		return "hello)";
+	public function getUrl($data) {
+		return "hello".$data;
 	}
 		
 	
