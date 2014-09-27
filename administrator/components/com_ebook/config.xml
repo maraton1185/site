@@ -37,12 +37,12 @@
 		name="payment"
 		label="Payment settings" >
 		
-		<field name="calc_url" 
+		<!-- field name="calc_url" 
 	   		type="textarea" 
 	   		default="https://auth.robokassa.ru/Merchant/WebService/Service.asmx/CalcOutSumm" 
 	   		label="calc url" 
 	   		col="3"
-	   		description=""/>
+	   		description=""/-->
 	   		
 		<field name="pay_url" 
 	   		type="textarea" 
@@ -64,7 +64,12 @@
 	   		type="text" 
 	   		default="jfFwDDDAnn159sq" 
 	   		label="pay pass 2"
-	   		description=""/>			   		
+	   		description=""/>	
+	   	<!-- field name="rate" 
+	   		type="text" 
+	   		default="0.934579" 
+	   		label="rate"
+	   		description=""/-->			   		
 		
 	</fieldset>
 	

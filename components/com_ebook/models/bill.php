@@ -106,7 +106,7 @@ class EbookModelBill extends JModelLegacy {
 	{
 		$app = JFactory::getApplication();
 		$componentParams = $app->getParams('com_ebook');
-		$calc_url = $componentParams->get('calc_url');
+		$rate = 1;//$componentParams->get('rate');
 		$pay_url = $componentParams->get('pay_url');
 		$pay_login = $componentParams->get('pay_login');
 		$pay_pass1 = $componentParams->get('pay_pass1');
@@ -120,23 +120,22 @@ class EbookModelBill extends JModelLegacy {
 		$inv_id    = $order->id;        // shop's invoice number
 		// (unique for shop's lifetime)
 		$inv_desc  = $order->description;   // invoice desc
-		$out_summ  = $order->total;   // invoice summ
+		$out_summ  = $order->total*$rate;   // invoice summ
 		
+// 		$url = $calc_url."?MerchantLogin=$mrh_login&IncCurrLabel=W1R&IncSum=$out_summ";
+		
+// 		$result = file_get_contents($url);
+// 		$resp = new SimpleXMLElement($result);
+			
+// 		$registry = new JRegistry;
+// 		$registry->loadObject($resp);
+			
+// 		$out_summ = $registry->get('OutSum',$out_summ);
+			
 		// build CRC value
 		$crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1");
 		
-		$url = $calc_url."?MerchantLogin=$mrh_login&IncCurrLabel=W1R&IncSum=$out_summ";
-		
-		
-		$req = new HttpRequest($url, HttpRequest::METH_GET);
-		try {
-			$resp = new SimpleXMLElement($req->send()->getBody());
-			dump($resp);			
-		} catch (HttpException $ex) {
-			echo $ex;
-		}
-		
-		return "#";
+// 		return "#";
 		
 		// build URL
 		$url = $pay_url."?MrchLogin=$mrh_login&".
