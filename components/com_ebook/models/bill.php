@@ -18,9 +18,15 @@ class EbookModelBill extends JModelLegacy {
 		$mrh_pass1 = $pay_pass1;  // merchant pass1 here
 		
 		// HTTP parameters:
-		$out_summ = $_REQUEST["OutSum"];
-		$inv_id = $_REQUEST["InvId"];
-		$crc = $_REQUEST["SignatureValue"];
+// 		$out_summ = $_REQUEST["OutSum"];
+// 		$inv_id = $_REQUEST["InvId"];
+// 		$crc = $_REQUEST["SignatureValue"];
+		$out_summ = $app->input->get("OutSum");
+		$inv_id = $app->input->get("InvId");
+		$crc = $app->input->get("SignatureValue");
+// 		$inv_id = $_REQUEST["InvId"];
+// 		$crc = $_REQUEST["SignatureValue"];
+		
 		
 		$crc = strtoupper($crc);  // force uppercase
 		
@@ -59,9 +65,13 @@ class EbookModelBill extends JModelLegacy {
 		$mrh_pass2 = $pay_pass2; // merchant pass2 here
 		                            
 		// HTTP parameters:
-		$out_summ = $_REQUEST ["OutSum"];
-		$inv_id = $_REQUEST ["InvId"];
-		$crc = $_REQUEST ["SignatureValue"];
+		$out_summ = $app->input->get("OutSum");
+		$inv_id = $app->input->get("InvId");
+		$crc = $app->input->get("SignatureValue");
+		
+// 		$out_summ = $_REQUEST ["OutSum"];
+// 		$inv_id = $_REQUEST ["InvId"];
+// 		$crc = $_REQUEST ["SignatureValue"];
 		
 		// HTTP parameters: $out_summ, $inv_id, $crc
 		$crc = strtoupper ( $crc ); // force uppercase
@@ -96,6 +106,7 @@ class EbookModelBill extends JModelLegacy {
 	{
 		$app = JFactory::getApplication();
 		$componentParams = $app->getParams('com_ebook');
+		$calc_url = $componentParams->get('calc_url');
 		$pay_url = $componentParams->get('pay_url');
 		$pay_login = $componentParams->get('pay_login');
 		$pay_pass1 = $componentParams->get('pay_pass1');
@@ -113,6 +124,19 @@ class EbookModelBill extends JModelLegacy {
 		
 		// build CRC value
 		$crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1");
+		
+		$url = $calc_url."?MerchantLogin=$mrh_login&IncCurrLabel=W1R&IncSum=$out_summ";
+		
+		
+		$req = new HttpRequest($url, HttpRequest::METH_GET);
+		try {
+			$resp = new SimpleXMLElement($req->send()->getBody());
+			dump($resp);			
+		} catch (HttpException $ex) {
+			echo $ex;
+		}
+		
+		return "#";
 		
 		// build URL
 		$url = $pay_url."?MrchLogin=$mrh_login&".

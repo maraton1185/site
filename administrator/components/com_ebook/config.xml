@@ -37,6 +37,13 @@
 		name="payment"
 		label="Payment settings" >
 		
+		<field name="calc_url" 
+	   		type="textarea" 
+	   		default="https://auth.robokassa.ru/Merchant/WebService/Service.asmx/CalcOutSumm" 
+	   		label="calc url" 
+	   		col="3"
+	   		description=""/>
+	   		
 		<field name="pay_url" 
 	   		type="textarea" 
 	   		default="https://auth.robokassa.ru/Merchant/Index.aspx" 
