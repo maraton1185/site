@@ -16,13 +16,12 @@ defined('_JEXEC') or die;
  * @subpackage  com_finder
  * @since       2.5
  */
-class EbookControllerActivate extends JControllerLegacy
+class EbookControllerRequest extends JControllerLegacy
 {
-	public function serial()
+	public function activate()
 	{		
-		$viewName = 'activate';
-		$view = $this->getView($viewName, 'raw');
-		if ($model = $this->getModel($viewName))
+		$view = $this->getView('request', 'raw');
+		if ($model = $this->getModel('activate'))
 		{
 			// Push the model into the view (as default)
 			$view->setModel($model, true);
@@ -31,5 +30,16 @@ class EbookControllerActivate extends JControllerLegacy
 		$view->display();
 	}
 	
+	public function contact()
+	{
+		$view = $this->getView('request', 'raw');
+		if ($model = $this->getModel('contact'))
+		{
+			// Push the model into the view (as default)
+			$view->setModel($model, true);
+		}
+		//dump($model);
+		$view->display();
+	}
 	
 }

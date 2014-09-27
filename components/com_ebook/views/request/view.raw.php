@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
 *
 * @since 0.0.1
 */
-class EbookViewActivate extends JViewLegacy
+class EbookViewRequest extends JViewLegacy
 {
         public function display($tpl = null) 
         {
