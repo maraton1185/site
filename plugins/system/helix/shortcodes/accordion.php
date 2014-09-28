@@ -33,7 +33,7 @@ if(!function_exists('accordion_sc')) {
 			$html .= '</a>';
 			$html .= '</div>';//end Accordion Heading
 			
-			$html .= '<div id="'.Helix::slug($accordion['title']).'" class="accordion-body collapse' . ( ($key==0) ? " in" : "") . '">';
+			$html .= '<div id="'.Helix::slug($accordion['title']).'" class="accordion-body collapse' . ( ($key==-1) ? " in" : "") . '">';
 			$html .= '<div class="accordion-inner">';
 			$html .= do_shortcode($accordion['content']);
 			$html .= '</div>';
