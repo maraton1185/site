@@ -28,7 +28,8 @@ if(!function_exists('accordion_sc')) {
 			
 			$html .= '<div class="accordion-heading">';
 			$html .= '<a class="accordion-toggle" data-toggle="collapse" data-parent="#' . $params['id'] . '" href="#'.Helix::slug($accordion['title']).'">';
-			$html .= $accordion['title'];
+// 			dump(htmlspecialchars_decode($accordion['title']));
+			$html .= htmlspecialchars_decode($accordion['title']);
 			$html .= '</a>';
 			$html .= '</div>';//end Accordion Heading
 			
