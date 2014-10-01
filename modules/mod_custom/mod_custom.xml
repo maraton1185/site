@@ -81,6 +81,14 @@
 					<option
 						value="static"></option>
 				</field>
+				
+				<field
+					name="link"
+					type="text"
+					default=""
+					label="link url"
+					description="PARAMLINKURL" />
+					
 			</fieldset>
 		</fields>
 	</config>

@@ -61,6 +61,7 @@
         <position>footer1</position>
         <position>footer2</position>
         <position>title</position>
+        <position>download</position>
     </positions>
 	
     <files>

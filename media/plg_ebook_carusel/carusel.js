@@ -1,3 +1,69 @@
+jQuery.noConflict();
+jQuery(document).ready(function() {
+
+	set_animation(animation_urls[0], animation_timelines[0], animation_urls[1]);
+	
+	content =
+	[
+		document.getElementById("content1"),
+		document.getElementById("content2")
+	]
+
+});
+
+var animation_urls =
+	[
+	 	"/media/plg_ebook_carusel/snaps1_packed.png",
+	 	"/media/plg_ebook_carusel/example_packed.png"
+	]
+
+var animation_timelines =
+	[
+		snaps1_timeline,
+		example_timeline
+	]
+
+var cur_content = 0
+var auto_cycle_content = true
+
+function next()
+{
+	auto_cycle_content = false
+	auto_next()
+}
+
+function auto_next()
+{
+	cur_content = (cur_content + 1) % content.length
+	update_content()
+}
+
+function prev()
+{
+	auto_cycle_content = false
+	auto_prev()
+}
+
+function auto_prev()
+{
+	--cur_content;
+	if (cur_content < 0) cur_content = content.length - 1
+
+	update_content()
+}
+
+function update_content()
+{
+	for (var i = 0; i < content.length; ++i)
+		content[i].style.display = (i == cur_content) ? "block" : "none"
+
+	ci = document.getElementById('content_index')
+	ci.innerHTML = (cur_content + 1) + " / " + content.length
+
+	set_animation(animation_urls[cur_content], animation_timelines[cur_content],
+		animation_urls[(cur_content + 1) % content.length])
+}
+
 var delay_scale = 0.7
 var timer = null
 
@@ -29,7 +95,10 @@ var animate = function(img, timeline, element)
 			ctx.drawImage(img, sx, sy, w, h, dx, dy, w, h)
 		}
 
-		timer = window.setTimeout(f, delay)
+		if (i == timeline.length * 2 && auto_cycle_content)
+			timer = window.setTimeout(auto_next, delay)
+		else
+			timer = window.setTimeout(f, delay)
 	}
 
 	if (timer) window.clearTimeout(timer)
@@ -78,23 +147,30 @@ var animate_fallback = function(img, timeline, element)
 			element.appendChild(d)
 		}
 
-		timer = window.setTimeout(f, delay)
+		if (i == timeline.length * 2 && auto_cycle_content)
+			timer = window.setTimeout(auto_next, delay)
+		else
+			timer = window.setTimeout(f, delay)
 	}
 
 	if (timer) window.clearTimeout(timer)
 	f()
 }
 
-function set_animation(img_url, timeline, canvas_id, fallback_id)
+function set_animation(img_url, timeline, preload_url)
 {
 	var img = new Image()
 	img.onload = function()
 	{
-		var canvas = document.getElementById(canvas_id)
+		var canvas = document.getElementById('target')
 		if (canvas && canvas.getContext)
 			animate(img, timeline, canvas)
 		else
-			animate_fallback(img, timeline, document.getElementById(fallback_id))
+			animate_fallback(img, timeline, document.getElementById('fallback'))
+
+		var preload_image = new Image()
+		preload_image.src = preload_url
 	}
 	img.src = img_url
 }
+

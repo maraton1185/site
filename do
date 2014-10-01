@@ -16,6 +16,7 @@ reset      - clean, reset, load
 db save    - save db
 db load    - load db
 restart	   - restart apache
+animate [folder] - do python animate
 
 EOF
 }
@@ -41,10 +42,12 @@ elif [ "x$1" = "xdb" ]; then
 	elif [ "x$2" = "xload" ]; then
 		load
 	else
-	help
+		help
 	fi
 elif [ "x$1" = "xrestart" ]; then	 
 	/opt/bitnami/ctlscript.sh restart apache
+elif [ "x$1" = "xanimate" ]; then
+	python /home/python/anim_encoder-master/anim_encoder.py /home/python/anim_encoder-master/"$2" 
 else
 help
 fi
