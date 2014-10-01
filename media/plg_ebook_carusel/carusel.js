@@ -5,19 +5,22 @@ jQuery(document).ready(function() {
 	
 	content =
 	[
-		document.getElementById("content1")
+		document.getElementById("content1"),
+		document.getElementById("content2")
 	]
 
 });
 
 var animation_urls =
 	[
-	 	"/media/plg_ebook_carusel/snaps_packed.png"
+	 	"/media/plg_ebook_carusel/snaps_packed.png",
+	 	"/media/plg_ebook_carusel/snaps1_packed.png"
 	]
 
 var animation_timelines =
 	[
-		snaps_timeline
+		snaps_timeline,
+		snaps1_timeline
 	]
 
 var cur_content = 0

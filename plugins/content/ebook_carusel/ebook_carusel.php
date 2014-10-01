@@ -59,7 +59,7 @@ class PlgContentEbook_Carusel extends JPlugin
 		$text = JString::str_ireplace('{ebook_carusel=on}', '', $text);
 		
 		$this->loadScript('snaps_anim.js');
-// 		$this->loadScript('snaps1_anim.js');
+		$this->loadScript('snaps1_anim.js');
 // 		$this->loadScript('snaps3_anim.js');
 // 		$this->loadScript('snaps4_anim.js');
 // 		$this->loadScript('snaps5_anim.js');
