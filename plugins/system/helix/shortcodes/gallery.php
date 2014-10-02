@@ -40,11 +40,15 @@ if(!function_exists('gallery_sc')) {
 		foreach($tags as $tag) $newtags[] = trim($tag);
 		$tags = array_unique($newtags);
 		
+		$id = rand();
+		
 		ob_start();
 		if($filter=='yes') {
 		?>
 		
-		<div class="gallery-filters btn-group">
+		
+		
+		<div class="gallery-filters<?php echo $id?> btn-group">
 			<a class="btn active" href="#" data-filter="*"><?php echo JText::_('Show All'); ?></a>
 			<?php foreach ($tags as $tag) { ?>		  
 				<a class="btn" href="#" data-filter=".<?php echo trim($tag) ?>"><?php echo ucfirst(trim($tag)) ?></a>
@@ -53,7 +57,7 @@ if(!function_exists('gallery_sc')) {
 		<?php } ?>
 		
 		<ul class="gallery">
-			<?php foreach ($galleryArray as $key=>$item) { ?>	
+			<?php foreach ($galleryArray as $key=>$item) { $key = $key.rand();?>	
 				<li style="width:<?php echo round(100/$columns); ?>%" class="<?php echo str_replace(',', ' ', $item['tag']) ?>">
 					<a class="img-polaroid" data-toggle="modal" href="<?php echo ($modal=='yes')? '#modal-' . $key . '':'#' ?>">
 						<?php
@@ -70,10 +74,10 @@ if(!function_exists('gallery_sc')) {
 				</li>
 				
 				<?php if($modal=='yes') { ?>
-				<div id="modal-<?php echo $key; ?>" class="modal hide fade" tabindex="-1">
+				<div id="modal-<?php echo $key; ?>" class="modal hide fade" tabindex="-1" style="width: auto;height: auto; margin: auto; left: inherit;">
 					<a class="close-modal" href="javascript:;" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></a>
-					<div class="modal-body">
-						<?php echo '<img src="' . $item['src'] . '" alt=" " width="100%" style="max-height:400px" />';?>
+					<div class="modal-body" style="max-height: none;">
+						<?php echo '<img src="' . $item['src'] . '" alt=" " />';?>
 					</div>
 				</div>
 				<?php } ?>
@@ -92,7 +96,7 @@ if(!function_exists('gallery_sc')) {
 				  			layoutMode : 'fitRows'
 						});
 
-						$filter = $('.gallery-filters');
+						$filter = $('.gallery-filters<?php echo $id?>');
 						$selectors = $filter.find('>a');
 
 						$filter.find('>a').click(function(){

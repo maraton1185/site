@@ -76,7 +76,7 @@ class PlgContentEbook_Fancybox extends JPlugin
 			$ref=str_replace('src="', '', $m2[0][0]);
 			
 			
-			$text = substr_replace($text, '<a class="lightbox thumbnail"'. ( ($rel!='') ? ' rel="group$rel"' : '').' href="'.$ref.'">'.$replacement.'</a>', $i, strlen($img));
+			$text = substr_replace($text, '<a class="lightbox thumbnail"'. ( ($rel!='') ? ' rel="group'.$rel.'"' : '').' href="'.$ref.'">'.$replacement.'</a>', $i, strlen($img));
 		} 
 
 		return true;

@@ -6,7 +6,11 @@ jQuery(document).ready(function() {
 	content =
 	[
 		document.getElementById("content1"),
-		document.getElementById("content2")
+		document.getElementById("content2"),
+		document.getElementById("content3"),
+		document.getElementById("content4"),
+		document.getElementById("content5"),
+		document.getElementById("content6")
 	]
 
 });
@@ -14,13 +18,21 @@ jQuery(document).ready(function() {
 var animation_urls =
 	[
 	 	"/media/plg_ebook_carusel/snaps_packed.png",
-	 	"/media/plg_ebook_carusel/snaps1_packed.png"
+	 	"/media/plg_ebook_carusel/snaps1_packed.png",
+	 	"/media/plg_ebook_carusel/snaps2_packed.png",
+	 	"/media/plg_ebook_carusel/snaps3_packed.png",
+	 	"/media/plg_ebook_carusel/snaps4_packed.png",
+	 	"/media/plg_ebook_carusel/snaps5_packed.png"
 	]
 
 var animation_timelines =
 	[
 		snaps_timeline,
-		snaps1_timeline
+		snaps1_timeline,
+		snaps2_timeline,
+		snaps3_timeline,
+		snaps4_timeline,
+		snaps5_timeline
 	]
 
 var cur_content = 0

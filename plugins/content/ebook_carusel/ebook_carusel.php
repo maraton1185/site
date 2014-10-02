@@ -60,12 +60,11 @@ class PlgContentEbook_Carusel extends JPlugin
 		
 		$this->loadScript('snaps_anim.js');
 		$this->loadScript('snaps1_anim.js');
-// 		$this->loadScript('snaps3_anim.js');
-// 		$this->loadScript('snaps4_anim.js');
-// 		$this->loadScript('snaps5_anim.js');
-// 		$this->loadScript('snaps6_anim.js');
-// 		$this->loadScript('snaps6_anim.js');
-		//$this->loadScript('example_anim.js');
+		$this->loadScript('snaps2_anim.js');
+		$this->loadScript('snaps3_anim.js');
+		$this->loadScript('snaps4_anim.js');
+		$this->loadScript('snaps5_anim.js');
+
 		$this->loadScript('carusel.js');
 		
 		$variables = array(
