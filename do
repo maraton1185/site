@@ -15,18 +15,15 @@ EOF
 if [ "x$1" = "xhelp" ] || [ "x$1" = "x" ]; then
     help
 elif [ "x$1" = "xpush" ]; then
-	save
 	git add --all
 	git commit -a -m '-'
 	git push origin master	
 elif [ "x$1" = "xfetch" ]; then
 	git fetch origin
 	git merge origin/master
-	load
 elif [ "x$1" = "xreset" ]; then
 	git clean --f
 	git reset --hard
-	load
 else
 help
 fi
