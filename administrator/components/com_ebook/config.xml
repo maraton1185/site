@@ -29,7 +29,26 @@
 	   		label="order type 2: total" 
 	   		description="" 
 	   		filter="integer" />
+	   	
+	   	<field name="order3count" 
+	   		type="text" 
+	   		default="1" 
+	   		label="order type 3: devices" 
+	   		description="" 
+	   		filter="integer" />
+		
+		<field name="order3total" 
+	   		type="text" 
+	   		default="1000" 
+	   		label="order type 3: total" 
+	   		description="" 
+	   		filter="integer" />	
 	   		
+	   	<field name="order3active" 
+	   		type="checkbox" 
+	   		default="0" 
+	   		label="order type 3: active" 
+	   		description=""/>	
 		
 	</fieldset>
 	

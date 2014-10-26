@@ -92,6 +92,7 @@ class EbookModelBill extends JModelLegacy {
 		$order->id = $inv_id;
 		$order->state = 1;
 
+		$db = $this->getDbo();
 		$result = $db->updateObject ( '#__ebook_orders', $order, 'id');
 	}
 	
@@ -152,6 +153,8 @@ class EbookModelBill extends JModelLegacy {
 		$total1 = $componentParams->get('order1total');
 		$count2 = $componentParams->get('order2count');
 		$total2 = $componentParams->get('order2total');
+		$count3 = $componentParams->get('order3count');
+		$total3 = $componentParams->get('order3total');
 		
 		$db = $this->getDbo ();
 		
@@ -174,6 +177,10 @@ class EbookModelBill extends JModelLegacy {
 			case $count2 :
 				$order->total = $total2;
 				break;
+				
+			case $count3 :
+					$order->total = $total3;
+					break;
 			
 			default :
 				JError::raiseError ( 500, 'count error' );

@@ -65,11 +65,15 @@ class PlgContentEbook_Price extends JPlugin
 		$total1 = $componentParams->get('order1total');
 		$count2 = $componentParams->get('order2count');
 		$total2 = $componentParams->get('order2total');
+		$count3 = $componentParams->get('order3count');
+		$total3 = $componentParams->get('order3total');
 
 		$text = JString::str_ireplace('{order1count}', $count1, $text);
 		$text = JString::str_ireplace('{order1total}', $total1, $text);
 		$text = JString::str_ireplace('{order2count}', $count2, $text);
 		$text = JString::str_ireplace('{order2total}', $total2, $text);
+		$text = JString::str_ireplace('{order3count}', $count3, $text);
+		$text = JString::str_ireplace('{order3total}', $total3, $text);
 				 
 
 		return true;

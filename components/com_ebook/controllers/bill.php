@@ -40,7 +40,23 @@ class EbookControllerBill extends JControllerLegacy
 				
 	}
 	
+	public function order3()
+	{
 	
+		if(!$this->_check())
+			return false;
+	
+		
+		$app = JFactory::getApplication();
+		$componentParams = $app->getParams('com_ebook');
+		$active = $componentParams->get('order3active');
+		if(!$active)
+			return false;
+		
+		
+		return $this->_redirect('order3count');
+	
+	}
 	
 	private function _redirect($type)
 	{

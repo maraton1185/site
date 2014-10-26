@@ -3,7 +3,7 @@
 	<fieldset name="default">
 		<field
 			name="user_id"
-			type="useractivate"
+			type="user"
 			label="COM_EBOOK_FIELD_USER_ID_LABEL"
 			description="COM_EBOOK_FIELD_USER_ID_DESC"
 			default="0"
